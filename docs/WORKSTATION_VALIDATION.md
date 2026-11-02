@@ -51,6 +51,7 @@ observed STOPPED. Neither metric is physical actuator response or a real-time gu
 | gui-audit-qt | successful worker reply arrived before updated snapshot; assertions saw stale state | publish snapshot before completion signal |
 | gui-audit-qt-second | performance harness requeued Demo during stale IDLE snapshots | wait for response/RUNNING; pending-motion guard |
 | visual-matrix | screen factor 1 retained the native Windows 1.25 DPR; one fixed-delay Pause assertion was premature | Qt testing-only native scaling disable plus explicit global factor; wait for actual state; all five cases rerun |
+| remote run 41506256178, Ubuntu | Freeze measured 217.94 ms, including pre-click scroll/20-ms event-processing preparation | move timestamp immediately before QTest input dispatch; preserve 200-ms gate and rerun |
 
 No failed assertion was removed or acceptance threshold relaxed. Historical early
 captures that lacked sufficient state assertions are not counted as final acceptance.

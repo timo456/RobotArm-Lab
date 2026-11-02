@@ -46,7 +46,7 @@ class Audit:
         assert predicate(), "Timed out waiting for workstation state"
         assert not self.exceptions, self.exceptions
 
-    def click(self, name):
+    def prepare_click(self, name):
         button = self.window.buttons[name]
         assert button.isEnabled(), f"Disabled button: {name}"
         parent = button.parentWidget()
@@ -55,6 +55,10 @@ class Audit:
                 parent.ensureWidgetVisible(button)
             parent = parent.parentWidget()
         QTest.qWait(20)
+        return button
+
+    def click(self, name):
+        button = self.prepare_click(name)
         QTest.mouseClick(button, Qt.MouseButton.LeftButton)
 
     def action(self, name, callback, allow_error=False):
@@ -164,8 +168,9 @@ class Audit:
         self.action("set_speed", lambda: self.window.speed.setCurrentText("75%"))
         self.action("resume", lambda: self.click("pause"))
         self.wait(lambda: self.window.snapshot.state == "RUNNING")
+        button = self.prepare_click("freeze")
         start = perf_counter()
-        self.click("freeze")
+        QTest.mouseClick(button, Qt.MouseButton.LeftButton)
         self.wait(lambda: self.window.snapshot.state == "STOPPED", 1)
         self.freeze_ms = (perf_counter() - start) * 1000
         assert self.freeze_ms <= 200, self.freeze_ms

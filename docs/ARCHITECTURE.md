@@ -1,5 +1,68 @@
 # Architecture and conventions
 
+## v0.2.0 workstation layers
+
+```mermaid
+flowchart LR
+  HMI[Qt Widgets HMI] -->|bounded commands / cancel event| W[ControlWorker QThread]
+  W --> E[Workstation Engine]
+  E --> C[v0.1.1 Controller]
+  C --> K[FK / IK / quintic planner]
+  C --> P[PyBullet DIRECT world]
+  E --> J[JSONL events + atomic teach JSON]
+  E -->|immutable snapshots| HMI
+  HMI --> V[Qt OpenGL viewport]
+  M[Original model constants] --> K
+  M --> G[Procedural visual link transforms]
+  G --> V
+  P -. seeded link-frame cross-check .-> G
+```
+
+The control thread exclusively owns its Engine, Controller and PyBullet client.
+No widget or renderer accesses that client. Signals deliver frozen tuple snapshots
+at approximately 30 Hz; a precise GUI timer requests rendering at 16 ms intervals.
+The fixed-step control accumulator caps catch-up at 50 ms after delays, so wall time
+can run slower than simulation time under load. This is not a real-time controller.
+
+The bounded command queue holds 32 requests; Freeze has a separate cancellation
+event and clears queued commands. Path sampling checks cancellation between samples.
+IK remains the original bounded solver, so cancellation may wait for an IK attempt.
+Window close requests cancellation and waits asynchronously for the owner to close
+the simulation. No forced thread termination or concurrent world destruction occurs.
+
+Command acknowledgement measures submission to worker acceptance delivered back to
+the GUI event loop. Completion latency is separately measured and includes planning
+and collision validation; it is not presented as acknowledgement latency. A PLANNING
+snapshot and immediate request notice give visible feedback while computation runs.
+
+Preview stores a trajectory, its start pose and scene revision. Ghost scrubbing
+does not change the authoritative pose. Execute rechecks the start/revision and
+the original collision oracle. Target, speed and obstacle changes invalidate preview.
+Repeated pending motion requests are guarded in the HMI; the core also rejects busy
+commands. Manual enables jog; Auto enables library sequences. Each sequence segment
+is independently planned and checked before execution, with no unchecked blending.
+
+Pause/Freeze are kinematic holds. Resume and active speed changes plan from rest.
+The immutable core preserves limits and sampled collision semantics. Reset restores
+Home and clears obstacles; it deliberately resets simulated state rather than planning
+a recovery motion. Log I/O failure enters FAULT and requires storage repair plus Reset.
+
+The visual model uses original lathed profiles, cylinders, boxes and bolt instances.
+Qt-owned VAOs, buffers and shader functions avoid mismatched OpenGL DLL contexts on
+Windows. Both NVIDIA 3.3 core and Qt Mesa 3.0 software contexts were exercised during
+development. Normals use inverse-transpose matrices. Shadows are planar projections,
+not a physically based shadow map. Camera transforms are independent of robot state.
+
+The decorative shells, fingers and bench do not define collision or dynamics.
+The overlay draws the actual URDF proxies, which may be smaller than a shell.
+There is no claim of visual-surface clearance. A new robot must supply matching
+model constants, URDF and FK/IK assumptions and pass every link-frame/limit test.
+
+Memory limits: 500 event rows, 2048 motion-trail points, 100 persisted teach poses;
+the baseline world permits at most 128 obstacles/distinct cached shapes. Logs on disk
+are append-only and unbounded over time. Clear/reset creates no unrestricted history.
+The full verifier, source digest, screenshots and soak samples are retained as evidence.
+
 ## Frames and original RAL-6 model
 
 Right-handed world: Z up. SI units; joint angles in radians; public rotation matrices

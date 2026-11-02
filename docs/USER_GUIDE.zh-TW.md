@@ -1,88 +1,91 @@
-# RobotArm-Lab 使用文件
+# RobotArm-Lab 0.2.0 繁體中文操作指南
 
-目前版本：**v0.1.1**。新增極小步長防護、幾何 IK 分支、資源上限、鍵盤操作與
-離線 wheel 安裝。新版實測及舊版比較請看 [發布驗收](RELEASE_READINESS_v0.1.1.md)。
-
-這是一套可實際操作、可重現驗證的六軸機械手臂**運動學模擬**。模型 RAL-6
-為本專案原創幾何，不代表任何特定廠牌。它示範運動學、軌跡時間參數化與碰撞拒絕，
-不包含實體伺服控制、安全 PLC、力矩控制或工業安全認證。
+這是六軸機械手臂的 **運動學模擬工作站**。控制核心會檢查關節限制與離散路徑碰撞，
+但沒有真實馬達、硬體控制器、力矩追蹤或實體安全認證。外觀殼件、夾爪與工作台是視覺模型；
+碰撞仍使用原始 RAL-6 代理幾何。請開啟 Collision proxies 查看實際檢查的形狀。
 
 ## 安裝與啟動
 
-建議 Windows 10、Python 3.12（含 Tcl/Tk）。PyBullet 3.2.7 在此 Windows 組合須
-從原始碼編譯，需要已安裝的 Visual Studio 2022 Build Tools、C++ 桌面開發工具與
-Windows SDK（只有沒有相容 wheel、且明確選擇編譯時才需要）。安裝會優先重用
-本機可信任的 PyBullet wheel，預設不會偷偷編譯。請參照英文 README，或執行：
+專案位於 `E:\GitHubProjects\RobotArm-Lab`，v0.2 使用獨立 `.venv-workstation`，保留舊 `.venv`。
+需要 Windows 10、Python 3.12 及可用 OpenGL 桌面。
 
 ```powershell
-.\scripts\bootstrap.ps1
-.\.venv\Scripts\python.exe -m robotarm_lab gui
+cd E:\GitHubProjects\RobotArm-Lab
+powershell -File scripts\bootstrap.ps1
+.\.venv-workstation\Scripts\python.exe -m robotarm_lab gui
 ```
 
-安裝腳本只建立專案內的 `.venv`、`.tmp` 與 `.cache`，不修改全域 Python。
-全新 Windows Git checkout 沒有相容 wheel 時，請使用
-`scripts/bootstrap.ps1 -AllowSourceBuild` 明確啟用一次原始碼編譯。後續會重用快取。
-本交付的 E 槽快取包含已實測的 CPython 3.12 wheel，不會把二進位檔提交到 Git。
-本交付位於 `E:\GitHubProjects\RobotArm-Lab`；執行前請確認 E 槽已連接。
-若 PowerShell 阻擋腳本，可直接使用 README 的逐行命令，不需更改系統執行原則。
+PyBullet 3.2.7 沒有官方 Windows Python 3.12 wheel。首次安裝需可信任的本機 wheel，
+放在 `.cache/wheelhouse`；或安裝 Visual Studio 2022 Build Tools 的 C++ 桌面開發與 Windows SDK，
+再明確執行 `powershell -File scripts\bootstrap.ps1 -AllowSourceBuild`。安裝器不會偷偷編譯。
+所有下載、快取與暫存都在專案內。沒有全域 Python 套件修改。
 
-## 操作
+遇到顯示卡／遠端桌面 OpenGL 問題，可在啟動前設定 `$env:QT_OPENGL = 'software'`。
+這使用 Qt 軟體渲染，效能依機器而異。刪除該環境變數後重新啟動即可恢復 GPU。
+完整手動安裝與 Ubuntu 3.11 指令見英文 README。
 
-- 六個滑桿以「度」設定關節目標，再按 Execute joint target。滑桿本身不移動手臂。
-- Home 會規劃平滑回歸路徑；若途中有障礙物，同樣拒絕執行。
-- Reset scene 是明確的模擬重置，會清除障礙物並直接回 Home，不代表真機復歸程序。
-- Demo 會移往展示姿態；Add blocker 可插入阻擋展示路線的障礙物。
-- Clear obstacles 清除障礙物。程式 API 的 `World.add_box(center, half_extents)`
-  支援任意軸對齊箱型障礙物，數值單位是公尺，尺寸輸入為半長。
-- TCP 欄位 X/Y/Z 使用公尺；Roll/Pitch/Yaw 使用度，採固定軸 XYZ 順序。
-  按 Solve IK + execute，求解後還需通過位置誤差、姿態誤差、關節限制與路徑碰撞驗證。
-- STOP / FREEZE 立即凍結模擬。真實機械手臂不可能如此瞬間停止，此處不模擬煞車距離。
-- 視角滑桿旋轉相機；Save viewport PNG 將目前 3D 畫面存入輸出目錄。
+## 第一段操作：預覽，再執行
 
-鍵盤：F5 Home、F6 Demo、F7 障礙物、F8 清除、F9 Reset、Esc 停止；
-Ctrl+L 將焦點放到 TCP X，Ctrl+I 執行 IK，Ctrl+Enter 執行關節目標。
+1. 左側 **Joint jog** 輸入六軸目標角度（度）。按 **Preview target**，會顯示透明預覽機械臂與 TCP 路徑。
+2. 拖曳視窗中央下方時間軸查看沿途姿態。實際機械臂不會因預覽或拖曳而移動。
+3. 按 **Execute preview** 執行。改動目標、障礙物、速度或起始姿態後，必須重新預覽。
+4. 手動模式下，用每軸 −／+ 做有限角度點動。這是經規劃、限速與碰撞檢查的短段移動。
 
-狀態列顯示 IDLE、RUNNING、STOPPED、BLOCKED；拒絕指令會顯示原因。
-監控包含六軸角度、TCP、最大關節速度、障礙物數量與模擬時間。
-執行中的新命令會被拒絕；請先等待完成或停止。GUI 不是即時控制系統；畫面較慢時，
-模擬時間可能落後真實時間。規劃期間 GUI 暫時同步等待，手臂尚未開始移動。
+**TCP / IK** 的 XYZ 是世界座標毫米；Roll/Pitch/Yaw 是 extrinsic XYZ 歐拉角（度）。
+按 **Use current TCP** 可帶入當前位姿。IK 成功還需通過獨立位姿驗證及碰撞檢查。
+不可達、關節超限或碰撞目標會顯示拒絕原因，保持原本姿態。Python API 使用公尺與弧度。
 
-## 測試與報告
+## 運動與模式
 
-```powershell
-.\.venv\Scripts\python.exe -m pytest
-.\.venv\Scripts\python.exe -m robotarm_lab benchmark --output outputs\benchmark
-.\.venv\Scripts\python.exe -m robotarm_lab demo --output outputs\demo
-.\.venv\Scripts\python.exe scripts\hardening.py --output outputs\hardening
-.\.venv\Scripts\python.exe scripts\gui_smoke.py --output outputs\gui-smoke
-```
-
-批次驗證使用固定種子 20261102，門檻於第一次驗證前存入 `acceptance.json`。
-`results.json` 保留每個成功與失敗案例，`report.md` 提供摘要。
-測試包含 FK 與 PyBullet 的交叉比較、正常／接近關節界限的 IK、不可達目標、
-障礙物拒絕、軌跡速度／加速度與執行結果。正常 IK 從 Home 冷啟動；極限 IK
-使用接近解的擾動種子，兩者成功率不可混為一談。運動學可解不代表無碰撞可達。
-
-示範產生 `demo.gif`、`demo.png`、逐步 `telemetry.csv` 與 `demo.jsonl`。
-互動紀錄位於 `outputs/gui/session.jsonl`，採一行一筆 JSON。
-請參閱 [實測範圍](VALIDATION.md) 與 [限制](LIMITATIONS.md)。
-
-## 常見錯誤
-
-| 訊息 | 原因與處理 |
+| 控制 | 行為 |
 |---|---|
-| Joint limit exceeded | 輸入超過六軸角度範圍，降低目標角度 |
-| Unreachable target | 目標超出保守最大伸展距離 |
-| IK rejected | 有界求解未達位姿門檻；不代表數學上絕對無解 |
-| Collision clearance rejected | 路徑碰撞或距離小於安全餘裕；調整姿態或障礙物 |
-| Busy | 目前仍在運動中，先等待或停止 |
-| BLOCKED | 移動途中碰撞檢查失敗，已凍結，需修改場景或重置 |
+| Home / F5 | 經檢查規劃至 Home |
+| Demo / F6 | 切換 Auto，依序執行三個展示姿態，最後回 Home |
+| Pause / Space | 固定目前模擬姿態；Resume 從靜止重新規劃剩餘段 |
+| Speed | 10–100%；影響速度與加速度限制。執行中變速先保持再重規劃 |
+| Freeze / Esc | 取消待處理命令，終止可取消的路徑驗證，保持模擬姿態 |
+| Reset / F9 | 清除障礙物、預覽與運動狀態，將模擬姿態直接恢復 Home |
+| Manual / Auto | Manual 允許點動；Auto 允許教導點序列；執行中不可切換 |
 
-預設每段關節插值最大 0.01 rad、碰撞餘裕 3 mm，屬離散取樣檢查，可能漏掉
-非常薄或高速相對運動的障礙物。不得據此宣稱真機安全、零碰撞保證或安全認證。
+Pause／Freeze 是運動學保持，沒有物理減速或制動模型；Reset 是明確的模擬重置。
+規劃在背景執行，GUI 保持回應。IK 有原始求解預算，但無法在每一個數值運算中立刻中斷。
 
-v0.1.1 明確限制碰撞步長為 [1e-6,0.02] rad，每次路徑檢查至多 10,000 個取樣。
-超過預算會在配置記憶體或查詢模擬器之前拒絕，**不會自動放大步長**。
-短路徑仍可使用 1e-6 rad 精度；API 現在回傳逐點 iterator。
-最多 128 個有效障礙物及 128 種形狀；Reset 會回收形狀資源。
-紀錄寫入失敗會進入 FAULT 並凍結模擬；請修復輸出路徑再重置。
+## 教導點
+
+在靜止時切換 **Teach**，輸入名稱並按 **Capture current pose**。清單可選取預覽／執行，
+也可刪除。Auto 模式下 **Play library sequence** 依清單順序播放，每一段都重新驗證。
+最多 100 個教導點；同名儲存會更新既有姿態。
+
+資料以原子替換方式寫入 `outputs/gui/teach-points.json`。重新啟動使用同一輸出資料夾才會載入。
+可用 `--output outputs\my-cell` 分開不同工作站資料。損毀的檔案會顯示錯誤，不會偷偷接受無效角度；
+修正或備份移除損毀資料後重新啟動。Reset 不會刪除教導點。
+
+## 障礙物與碰撞示範
+
+右側 **Scene** 輸入箱體中心與完整長寬高（毫米），可新增、選取後更新、刪除或全部清除。
+**Add demo blocker** 在展示路徑放入障礙物，再按 Demo 可看到預覽拒絕。
+執行期間插入障礙物，控制器會使用原始逐步碰撞檢查並轉入 BLOCKED。
+若新障礙物直接與當前姿態重疊，停止無法消除既有重疊；移除障礙物或 Reset 後再操作。
+
+碰撞是離散採樣與安全間距檢查，沒有連續碰撞保證，也不會自動繞障礙。
+外觀殼件可能超出碰撞代理，不能用外觀表面距離推斷安全性。
+
+## 視角、狀態與記錄
+
+滑鼠左鍵拖曳旋轉視角、右鍵拖曳平移、滾輪縮放。Reset view 還原視角。
+Capture 儲存實際 Qt 視窗 PNG。中央有軌跡、世界與 TCP 座標軸、透明目標及時間進度。
+右側顯示關節角度、TCP 位姿、峰值關節速度、序列進度與碰撞間距接觸數。
+
+小視窗使用分割面板與捲動區；預覽／執行按鈕固定在左側底部。事件表保留最近 500 筆，
+完整 JSONL 寫入 `outputs/gui/session.jsonl`。軌跡尾跡最多 2048 點，磁碟日誌不自動輪替。
+日誌無法寫入時進入 FAULT；排除磁碟／權限問題後 Reset。渲染故障會保持運動，需修復顯示環境後重啟。
+
+## 驗證與交付界線
+
+執行 README 的 pytest、benchmark、hardening、workstation_verify、workstation_soak 與
+clean_environment 指令可重現結果。`workstation_soak` 包含 30 秒暖機與 600 秒持續播放。
+視窗測試使用真正 Qt Widgets／OpenGL、QTest 輸入與 Qt 擷取，沒有合成示意圖。
+125%／150% 測試使用 Qt 縮放因子，不代表改動全域 Windows 顯示設定。
+
+精確數據、失敗紀錄、遠端 CI 狀態與未驗證項目見 [驗證報告](WORKSTATION_VALIDATION.md)。
+舊 Tk 介面可用 `python -m robotarm_lab gui-legacy`；原本演算法與驗收門檻仍保留。

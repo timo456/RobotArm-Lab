@@ -7,6 +7,7 @@ import os
 import shutil
 import subprocess
 import sys
+import tomllib
 import zipfile
 from email.parser import BytesParser
 from pathlib import Path
@@ -100,7 +101,10 @@ def main() -> None:
             for p in sorted(wheelhouse.glob("*.whl"))
         ],
     )
-    output = ROOT / "outputs/v0.1.1"
+    version = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))["project"][
+        "version"
+    ]
+    output = ROOT / f"outputs/v{version}"
     output.mkdir(parents=True, exist_ok=True)
     (output / "wheelhouse.json").write_text(json.dumps(evidence, indent=2), encoding="utf-8")
 

@@ -38,3 +38,48 @@ Technical references (APIs and algorithms, no copied model assets):
   official source distribution and platform wheels.
 
 FK and quintic timing equations are implemented explicitly in this repository.
+
+## v0.2.0 Qt workstation
+
+The procedural lathe/box meshes, bolts, housings, tool, materials, shader source,
+table, grid and captured workstation media are original project work under MIT.
+There are no downloaded CAD models, textures, fonts or AI-generated screenshots.
+PyOpenGL was evaluated during development and removed; it is not a runtime dependency.
+
+| Dependency | Source | License used |
+|---|---|---|
+| PySide6-Essentials 6.8.3 | https://code.qt.io/cgit/pyside/pyside-setup.git/?h=6.8.3 | LGPL-3.0-only |
+| shiboken6 6.8.3 | same Qt for Python source tree | LGPL-3.0-only |
+| Qt 6.8.3 libraries in upstream wheels | https://download.qt.io/archive/qt/6.8/6.8.3/ | LGPL-3.0-only for modules used here; bundled third-party notices apply |
+
+Qt and Qt for Python are copyright The Qt Company Ltd. and their respective
+contributors. Their upstream packages retain the complete component copyright
+notices. The application uses Qt Core, Gui, Widgets, OpenGL, OpenGLWidgets and
+Test; it does not use GPL-only Qt modules. Upstream offers alternative commercial
+and GPL licenses; those do not replace the LGPL selection stated here.
+
+The Python application dynamically imports the separately installed Qt libraries.
+No Qt library is modified, statically linked, embedded in our project wheel or
+placed in a locked executable. You may replace/rebuild the Qt/PySide libraries,
+modify this application and reverse engineer it for debugging those modifications.
+There is no installation signature check or technical restriction on replacement.
+To use modified compatible wheels, install them into a separate environment with
+`python -m pip install --no-deps --force-reinstall path/to/modified.whl`, then
+install this project's wheel with `--no-deps`. The ordinary reproducible installer
+pins upstream versions; it is not required for running a modified installation.
+
+License copies: `licenses/LGPL-3.0-only.txt` and its incorporated GPLv3 text in
+`licenses/GPL-3.0-only.txt`, obtained verbatim from the Qt 6.8.3 source tag.
+These notices and texts are included in both our wheel and source distribution.
+Exact corresponding source for the separately obtained upstream libraries:
+
+- https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.8.3-src/
+- https://download.qt.io/archive/qt/6.8/6.8.3/single/
+- https://doc.qt.io/qtforpython-6.8/building_from_source/index.html
+
+The distribution consists of project source/wheel plus an installer that downloads
+upstream dependencies. It does not redistribute the local dependency wheelhouse.
+Any future frozen/bundled binary distribution must additionally provide the complete
+bundled-library notices and corresponding source in a license-compliant form.
+See [Qt licensing](https://doc.qt.io/qt-6.8/licensing.html) and
+[LGPL text](https://doc.qt.io/qt-6.8/lgpl.html).

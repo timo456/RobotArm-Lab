@@ -1,30 +1,30 @@
-# Publishing checklist (user-controlled)
+# Review and publishing
 
-For v0.1.1, review `RELEASE_READINESS_v0.1.1.md`, `reports/v0.1.1/decision.json`
-and `CHANGELOG.md` before publishing. A local engineering GO does not mean remote CI
-has passed. The project's source wheel/ZIP excludes dependency caches and virtualenvs.
-Do not upload the local PyBullet build as an official upstream wheel. Its hashes and
-provenance are local validation evidence; binary redistribution needs complete notices.
+The existing repository is `https://github.com/timo456/RobotArm-Lab`.
+The v0.2.0 work belongs to `codex/v0.2.0-workstation`; stable `main` and the existing
+v0.1.1 release must remain unchanged during development. Do not create another remote.
 
-This delivery creates local Git history only. No remote, push or public publishing
-was performed. Review README, license ownership, reports and generated media first.
+Before publishing, read `WORKSTATION_VALIDATION.md`, the frozen acceptance protocols,
+`CHANGELOG.md`, `THIRD_PARTY_NOTICES.md` and the actual branch workflow run. A local GO
+is not proof of remote CI success. Qt dependencies are separately installed; local
+PyBullet wheels and environments are never uploaded as part of the project source.
 
-1. Run the README verification commands and review `git status` and `git diff`.
-2. Confirm no `.venv`, caches, logs, credentials, private paths or private model data
-   are tracked. `.gitignore` excludes local runtime output; only reviewed evidence
-   belongs under `reports/` and `docs/media/`.
-3. Create an empty repository named `RobotArm-Lab` in your GitHub account when ready.
-4. After replacing `YOUR_ACCOUNT`, run these commands yourself:
+1. Reproduce the README checks and inspect `git status`, `git diff --check` and the
+   source/wheel contents. Review retained failures, exact source hashes and captures.
+2. Confirm the baseline robotics modules, URDF, corpus and earlier thresholds are
+   unchanged. Check no caches, credentials, private data or unreviewed logs are tracked.
+3. Push only the verified development branch, with an ordinary non-force push:
 
-```powershell
-git branch -M main
-git remote add origin https://github.com/YOUR_ACCOUNT/RobotArm-Lab.git
-git push -u origin main
-```
+   ```powershell
+   git push -u origin codex/v0.2.0-workstation
+   ```
 
-5. Inspect both GitHub Actions jobs. Remote CI is untested until those actual runs
-   complete. Set branch protection and require the workflow if desired.
-6. Add repository topics (`robotics`, `kinematics`, `trajectory-planning`, `pybullet`),
-   a description and README demo. Create a release only after the checks pass.
+4. Inspect the Windows Python 3.12 and Ubuntu Python 3.11 jobs at that exact commit,
+   including GUI software-rendering and isolated-wheel steps; download their evidence.
+5. The owner may then open a pull request into main, review compatibility/licensing,
+   merge with required checks and decide separately whether to create a release.
+   This implementation does not authorize main updates or a release.
 
-Do not describe this project as a certified safety system or a hardware-ready driver.
+The wheel/source distribution contains project code, original visual model, license
+notices and reviewed evidence. Dependency binaries require their own redistribution
+obligations. Do not describe the simulator as certified safety or hardware-ready control.

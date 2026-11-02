@@ -5,22 +5,24 @@ import hashlib
 import json
 import os
 import subprocess
+import tomllib
 import venv
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+VERSION = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))["project"]["version"]
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--environment", type=Path, default=ROOT / ".tmp/release-clean-v011")
+    parser.add_argument("--environment", type=Path, default=ROOT / f".tmp/release-clean-{VERSION}")
     args = parser.parse_args()
     destination = args.environment.resolve()
     if destination.exists():
         raise SystemExit("Clean environment already exists; use a new --environment path")
     if not destination.is_relative_to(ROOT):
         raise SystemExit("Clean environment must be inside this checkout")
-    output = ROOT / "outputs/v0.1.1/clean"
+    output = ROOT / f"outputs/v{VERSION}/clean"
     output.mkdir(parents=True, exist_ok=True)
     env = dict(
         os.environ,
@@ -32,9 +34,9 @@ def main() -> None:
     os.environ.update(TEMP=env["TEMP"], TMP=env["TMP"], PIP_CACHE_DIR=env["PIP_CACHE_DIR"])
     venv.EnvBuilder(with_pip=True, system_site_packages=False).create(destination)
     python = destination / ("Scripts/python.exe" if os.name == "nt" else "bin/python")
-    wheels = list((ROOT / "dist").glob("robotarm_lab-0.1.1-*.whl"))
+    wheels = list((ROOT / "dist").glob(f"robotarm_lab-{VERSION}-*.whl"))
     if len(wheels) != 1:
-        raise SystemExit("Build exactly one v0.1.1 wheel first")
+        raise SystemExit(f"Build exactly one v{VERSION} wheel first")
     digest = hashlib.sha256()
     package = ROOT / "src/robotarm_lab"
     for path in sorted(package.rglob("*")):
@@ -64,7 +66,7 @@ def main() -> None:
             "import robotarm_lab,sys,json,hashlib; "
             "from pathlib import Path; "
             "assert Path(robotarm_lab.__file__).is_relative_to(Path(sys.prefix)); "
-            "assert robotarm_lab.__version__=='0.1.1'; "
+            f"assert robotarm_lab.__version__=='{VERSION}'; "
             "root=Path(robotarm_lab.__file__).parent; h=hashlib.sha256(); "
             "[(h.update(p.relative_to(root).as_posix().encode()),"
             "h.update(p.read_text(encoding='utf-8').encode())) for p in sorted(root.rglob('*')) "
@@ -86,6 +88,13 @@ def main() -> None:
             "--junitxml=" + str(output / "pytest.xml"),
         ],
         [str(python), "-I", "-m", "robotarm_lab", "demo", "--output", str(output / "demo")],
+        [
+            str(python),
+            "-I",
+            str(ROOT / "scripts/workstation_capture.py"),
+            "--output",
+            str(output / "workstation"),
+        ],
     ]
     results = []
     for index, command in enumerate(commands):

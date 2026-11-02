@@ -1,5 +1,25 @@
 # Release notes
 
+## 0.2.0 — Professional Workstation (development branch)
+
+- Qt Widgets desktop HMI with independent control worker, joint/TCP target preview,
+  ghost scrubber, explicit Execute, jog, Home, sequenced Demo, pause/resume, speed
+  override, Freeze and Reset. Repeated motion requests are guarded while planning.
+- Original procedural industrial robot shells, bolts, flange, tool, workbench,
+  lighting/shadows, orbit/pan/zoom, coordinate axes, trail and collision proxy overlay.
+- Persistent teach library, Manual/Auto modes, editable box obstacles, live clearance,
+  joint/TCP telemetry, bounded event table and original JSONL audit log.
+- Actual Qt window captures and interaction verifier, fixed visual/scaling protocol,
+  timing and 600-second endurance gates. Clean wheel installation also launches Qt.
+- Qt-resolved OpenGL works with both the local NVIDIA context and Qt software Mesa;
+  PyOpenGL is not required. LGPL texts and replacement instructions accompany packaging.
+- The v0.1.1 FK, IK, trajectory, controller, URDF and collision algorithms are unchanged.
+  `gui-legacy` retains the historical Tk station. Original protocols remain unchanged.
+- Pause/Freeze hold a kinematic simulation; speed changes replan from rest. Cosmetic
+  shells are separate from the unchanged collision proxies. No hardware safety claim.
+
+Read `docs/WORKSTATION_VALIDATION.md` for measured status and remaining limits.
+
 ## 0.1.1 — Engineering hardening (2026-11-03)
 
 ### Fixed

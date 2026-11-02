@@ -1,155 +1,135 @@
-# RobotArm-Lab v0.1.1
+# RobotArm-Lab 0.2.0 — Professional Workstation
 
-An inspectable six-axis robot control laboratory: independent forward kinematics,
-geometric-branch inverse kinematics with bounded refinement, synchronized quintic trajectories,
-transactional
-collision rejection, and a desktop control station. Built for engineering study and a
-public software portfolio.
+An inspectable six-axis robot control workstation with an original industrial-style
+robot, responsive Qt HMI and independently verified robotics core.
 
-![Executed simulation v0.1.1](docs/media/demo-v0.1.1.gif)
+![Actual Qt workstation](docs/media/workstation-home.png)
 
-**Scope:** an original industrial-style RAL-6 arm in **kinematic simulation**. PyBullet
-provides collision geometry and rendering. Motion follows position references exactly;
-this is not torque control, a hardware driver, or a physically validated robot model.
-Simulation checks are not functional-safety certification.
+**Kinematic simulation only.** The control core checks joint limits and sampled
+collision clearance. This is not a hardware driver, torque controller, validated
+industrial robot or functional-safety system. Visual shells and workbench are
+cosmetic; the optional collision overlay shows the actual unchanged RAL-6 proxies.
 
-## Quick start — Windows / Python 3.12
+[繁體中文操作指南](docs/USER_GUIDE.zh-TW.md) ·
+[Architecture](docs/ARCHITECTURE.md) ·
+[Measured validation](docs/WORKSTATION_VALIDATION.md) ·
+[Licenses](THIRD_PARTY_NOTICES.md)
 
-Use a local checkout such as `E:\GitHubProjects\RobotArm-Lab`. Install CPython 3.12
-with Tcl/Tk. PyBullet 3.2.7 has no official Windows wheel for this interpreter.
-The installer first reuses compatible trusted local wheels and never silently builds
-from source. This delivery includes a locally built wheel in the ignored E: cache;
-fresh Git clones do not include that binary. If no wheel is available, an explicit
-source build requires Visual Studio 2022 Build Tools, Desktop development with C++
-and a Windows SDK. No global Python packages are changed.
+## Install and run on Windows 10 / Python 3.12
+
+Use `E:\GitHubProjects\RobotArm-Lab`. The workstation has its own environment;
+`.venv` from v0.1.1 is preserved. No activation or global package installation is needed.
 
 ```powershell
 cd E:\GitHubProjects\RobotArm-Lab
+powershell -File scripts\bootstrap.ps1
+.\.venv-workstation\Scripts\python.exe -m robotarm_lab gui
+```
+
+The installer caches dependencies and temporary files inside the checkout on E:.
+PyBullet 3.2.7 has no upstream Windows CPython 3.12 wheel. A fresh clone needs a
+trusted compatible local wheel in `.cache/wheelhouse`, or Visual Studio 2022 Build
+Tools with Desktop development with C++ and a Windows SDK. In the latter case,
+explicitly run `powershell -File scripts\bootstrap.ps1 -AllowSourceBuild` once.
+There is no silent source build or substituted PyBullet fork. Qt is installed from
+pinned upstream PySide6-Essentials wheels. An OpenGL-capable desktop is required.
+For a Windows software-rendering fallback, set `$env:QT_OPENGL = 'software'` before
+launching; remove that variable to use the GPU again.
+
+Equivalent manual installation:
+
+```powershell
 New-Item -ItemType Directory -Force .tmp, .cache\pip | Out-Null
 $env:TEMP = "$PWD\.tmp"
 $env:TMP = $env:TEMP
 $env:PIP_CACHE_DIR = "$PWD\.cache\pip"
-py -3.12 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install --only-binary=:all: packaging==26.3
-.\.venv\Scripts\python.exe scripts\prepare_wheelhouse.py
-.\.venv\Scripts\python.exe -m pip install --no-index --only-binary=:all: --find-links .cache\wheelhouse -r requirements-lock.txt
-.\.venv\Scripts\python.exe -m pip install --no-deps --no-build-isolation -e .
-.\.venv\Scripts\python.exe -m robotarm_lab gui
+py -3.12 -m venv .venv-workstation
+.\.venv-workstation\Scripts\python.exe -m pip install --only-binary=:all: packaging==26.3
+.\.venv-workstation\Scripts\python.exe scripts\prepare_wheelhouse.py
+.\.venv-workstation\Scripts\python.exe -m pip install --no-index --only-binary=:all: --find-links .cache\wheelhouse -r requirements-lock.txt
+.\.venv-workstation\Scripts\python.exe -m pip install --no-deps --no-build-isolation -e .
+.\.venv-workstation\Scripts\python.exe -m robotarm_lab gui --output outputs\gui
 ```
 
-Keep using the `.venv` interpreter; activation and execution-policy changes are not
-required. All generated output defaults to `outputs/` inside the current directory.
-The bootstrap helper `scripts/bootstrap.ps1` performs these same local setup steps.
-On a fresh Windows clone with C++ tools, explicitly use
-`scripts/bootstrap.ps1 -AllowSourceBuild` (or `prepare_wheelhouse.py --allow-source-build`).
-One built wheel is cached for subsequent installations. No unofficial fork is substituted.
-For Linux, Python 3.11 has an upstream PyBullet wheel; install Tk separately for the GUI
-(`python3-tk` on Debian/Ubuntu), then use `.venv/bin/python` with the same module commands.
+On Ubuntu / Python 3.11, install `python3.11-venv`, `libegl1`, `libgl1`,
+`libxcb-cursor0`, `libxkbcommon-x11-0`, `libxcb-icccm4`, `libxcb-keysyms1`,
+`libxcb-shape0`, `libxcb-xinerama0` and `libxcb-randr0`; then create
+`.venv-workstation` with `python3.11 -m venv` and use `.venv-workstation/bin/python`
+for the same installation commands. Linux 3.11 uses an upstream PyBullet wheel.
+Headless GUI checks require `xvfb` and `xauth`; use `xvfb-run -a` before the Python
+command. Tk is only needed for `gui-legacy` (`python3-tk` on Ubuntu).
 
-## Run, test, reproduce
+## Operate the workstation
+
+1. In **Joint jog**, enter six target angles in degrees. **Preview target** validates
+   and draws a ghost/path without changing the actual robot. Scrub the timeline,
+   then **Execute preview**. Editing the target or scene invalidates the preview.
+2. **TCP / IK** uses world XYZ in millimetres and extrinsic XYZ roll/pitch/yaw in
+   degrees. Preview solves IK and independently checks position, orientation and
+   joint bounds before collision checking. Public Python APIs use SI/radians.
+3. Jog `−/+` in Manual mode. **Home** plans a checked move. **Demo** selects Auto
+   and plays three verified targets. **Pause / Resume** holds, then replans from rest.
+   Speed override scales velocity and acceleration limits; changing it during
+   motion holds and replans. This is not physical braking or jerk-limited blending.
+4. **Freeze** cancels queued/planning motion and holds. **Reset** clears obstacles,
+   preview and motion state and restores Home. Reset intentionally teleports only
+   the simulation; saved teach points remain.
+5. **Teach** captures the stationary pose to `outputs/gui/teach-points.json` using
+   atomic replacement. Select a saved pose to preview/execute, delete it, or play
+   the library in Auto mode. Restart with the same output directory to reload it.
+6. **Scene** adds, edits, removes or clears world-frame boxes. Dimensions are full
+   sizes in millimetres. The demo blocker demonstrates rejection. An obstacle
+   inserted during motion triggers the original incremental clearance checks.
+7. Drag left to orbit, right to pan, wheel to zoom, **Reset view** to restore the
+   camera. **Capture** saves the actual Qt window. Live state shows joints, TCP,
+   speed, progress and clearance; the bottom event table retains 500 entries.
+
+Shortcuts: F5 Home, F6 Demo, Space Pause/Resume, Esc Freeze, F9 Reset.
+The on-screen event history is bounded; complete events are appended to
+`outputs/gui/session.jsonl`. A log-write failure enters FAULT. Fix storage and Reset.
+A renderer failure holds motion; restart with a working graphics backend.
+
+## Verify and reproduce
 
 ```powershell
-.\.venv\Scripts\python.exe -m robotarm_lab demo --output outputs\demo
-.\.venv\Scripts\python.exe -m pytest --cov=robotarm_lab --cov-report=term-missing --junitxml=outputs\pytest.xml
-.\.venv\Scripts\python.exe -m ruff check .
-.\.venv\Scripts\python.exe -m ruff format --check .
-.\.venv\Scripts\python.exe -m robotarm_lab benchmark --protocol acceptance.json --output outputs\benchmark
-.\.venv\Scripts\python.exe scripts\hardening.py --output outputs\hardening
-.\.venv\Scripts\python.exe scripts\gui_smoke.py --output outputs\gui-smoke
-.\.venv\Scripts\python.exe -m build --no-isolation
-.\.venv\Scripts\python.exe scripts\clean_environment.py
+.\.venv-workstation\Scripts\python.exe -m ruff check .
+.\.venv-workstation\Scripts\python.exe -m ruff format --check .
+.\.venv-workstation\Scripts\python.exe -m pytest --cov=robotarm_lab --junitxml=outputs\pytest.xml
+.\.venv-workstation\Scripts\python.exe -m robotarm_lab benchmark --output outputs\benchmark
+.\.venv-workstation\Scripts\python.exe scripts\hardening.py --output outputs\hardening
+.\.venv-workstation\Scripts\python.exe scripts\workstation_verify.py --output outputs\workstation-verify
+.\.venv-workstation\Scripts\python.exe scripts\workstation_soak.py --output outputs\workstation-soak
+.\.venv-workstation\Scripts\python.exe scripts\workstation_capture.py --output outputs\workstation-capture
+.\.venv-workstation\Scripts\python.exe -m build --no-isolation
+.\.venv-workstation\Scripts\python.exe scripts\clean_environment.py
 ```
 
-The benchmark exits with status 1 on any failed acceptance gate. The full fixed-seed
-case records, dependency versions, source digest, protocol digest, and timing results
-are saved in JSON; no failed attempts are discarded. The committed
-[v0.1.1 readiness report](docs/RELEASE_READINESS_v0.1.1.md) distinguishes measured
-behavior from untested environments and compares both revisions on the same corpus.
-`reports/verified/` and [v0.1.0 notes](docs/VALIDATION.md) are preserved historical evidence.
-Both `acceptance.json` and `acceptance-v0.1.1.json` were committed before their respective
-fix/validation cycles. `tests/data/hardening-corpus.json` contains explicit replay targets.
-The clean-environment script refuses an existing destination; pass a new
-`--environment .tmp/another-clean-env` to repeat it without deleting prior evidence.
+Use a new output directory for each audit to preserve failures. The clean environment
+script refuses an existing environment; repeat with `--environment .tmp/clean-repeat`.
+GUI verifiers show real Qt windows, send QTest inputs and capture widgets/GL buffers.
+The 600-second soak has a separate 30-second warm-up. Run performance checks alone
+on an idle interactive desktop. CI tests correctness using software GL; local GPU
+acceptance is governed by the unchanged `acceptance-v0.2.0.json` protocol.
 
-## Operate the station
+The original `demo` CLI still exports PyBullet renders/GIFs. `gui-legacy` preserves
+v0.1.1's Tk station. Historical reports and both earlier acceptance protocols remain
+unchanged. See the validation report for exact current results, failed attempts and
+untested items; generated code or a green unit test alone is not product acceptance.
 
-1. Set joint sliders in degrees, then select **Execute joint target**. Sliders define
-   targets; they do not teleport the robot. The API uses radians and SI units.
-2. Or enter world-frame TCP X/Y/Z (metres) and extrinsic XYZ roll/pitch/yaw (degrees),
-   then **Solve IK + execute**. Both position and orientation must pass validation.
-3. **Demo** executes a known pose. **Home** plans a checked motion to the home pose.
-4. **Add blocker** inserts a box across the demo route. **Clear obstacles** removes
-   obstacles. Runtime checks freeze execution if a newly added obstacle blocks motion.
-5. **STOP / FREEZE** immediately freezes this simulation. **Reset scene** explicitly
-   clears obstacles and resets the simulated arm to Home. Neither represents physical
-   stopping or recovery on an actual robot.
-6. The bottom panel shows state, joint angles, TCP, speed and simulation time.
-   JSONL events are saved in `outputs/gui/session.jsonl`. **Save viewport PNG** saves a
-   real render; the view-angle slider rotates the camera.
+## Engineering and extension
 
-The GUI advances fixed simulation steps and is not a hard-real-time loop. Planning is
-synchronous while the arm is stationary. Use the Python API for arbitrary box obstacles.
-Rejected commands preserve the current pose; requests during motion are rejected as busy.
-Keyboard controls: **F5** Home, **F6** Demo, **F7** blocker, **F8** clear, **F9** reset,
-**Esc** freeze, **Ctrl+L** focus TCP X, **Ctrl+I** IK, **Ctrl+Enter** joint command.
+The independent NumPy FK, geometric-branch IK with bounded SciPy refinement,
+quintic time parameterization and PyBullet collision oracle remain inspectable.
+The single-owner control worker publishes immutable snapshots to the HMI and
+Qt OpenGL renderer. Original procedural visual meshes use the same link frames;
+100 seeded poses cross-check every link against PyBullet. See the architecture
+for coordinate conventions and how to add a new robot without silently changing
+its control geometry.
 
-## Engineering design
+Project code, original meshes and captures: MIT. Qt/PySide/shiboken: LGPLv3,
+dynamically installed with replacement permitted. No third-party robot CAD or
+proprietary assets are included. Read all [third-party notices](THIRD_PARTY_NOTICES.md).
 
-```mermaid
-flowchart LR
-  GUI[Tk control station] --> C[Controller / state machine]
-  CLI[CLI / batch experiments] --> C
-  C --> IK[Bounded IK / SE3 residual]
-  IK --> FK[Independent FK]
-  C --> T[Quintic planner / analytic limits]
-  T --> S[Sampled path clearance]
-  S --> W[PyBullet world / isolated client]
-  C --> W
-  W --> V[CPU viewport / GIF]
-  C --> L[JSONL events / CSV telemetry]
-```
-
-- FK composes joint-origin translations and Rodrigues rotations. Its output is
-  cross-checked against PyBullet's independently loaded URDF link frame, not its COM.
-- IK enumerates the model's shoulder/elbow/wrist branches, then uses bounded SciPy
-  least squares and deterministic restarts, with SO(3) rotation
-  vector residuals. Joint bounds and independent simulator pose errors are checked.
-  Reach-bound rejection is conservative; solver failure is not proof of unreachability.
-- Each joint follows `q=q0+(q1-q0)(10u³−15u⁴+6u⁵)`. Duration is derived from the exact
-  maximum velocity and acceleration, with zero endpoint velocity and acceleration.
-- Collision checks cover obstacles, floor and nonadjacent self pairs. Adjacent links
-  are excluded as structural neighbors; the mounting base/floor contact is allowed.
-  Whole-path preflight and runtime segment checks use a maximum 0.01 rad joint step
-  and 3 mm margin by default. These are sampled checks, **not continuous guarantees**.
-- Collision samples stream in constant memory. Steps outside [1e-6,0.02] rad or
-  requests exceeding 10,000 samples are rejected before checking. Precision is never
-  automatically reduced. Fine requests remain supported when the path fits the budget.
-- Scene capacity is 128 active boxes / 128 distinct shapes per reset. Repeated shapes
-  are reused; reset reclaims native geometry. Log failure freezes the controller in FAULT.
-
-See [architecture and equations](docs/ARCHITECTURE.md),
-[繁體中文使用文件](docs/USER_GUIDE.zh-TW.md), [limitations](docs/LIMITATIONS.md), and
-[third-party notices](THIRD_PARTY_NOTICES.md).
-
-## Repository map
-
-| Path | Responsibility |
-|---|---|
-| `src/robotarm_lab/model.py`, `kinematics.py` | Model constants, validation, FK and IK |
-| `trajectory.py`, `controller.py` | Timing, safety gate, execution state and logging |
-| `simulation.py`, `assets/` | Isolated simulator, original URDF and settings |
-| `gui.py`, `cli.py`, `demo.py` | Interactive controls and reproducible demonstrations |
-| `experiments.py`, `acceptance.json`, `tests/` | Prespecified validation and regression tests |
-| `reports/`, `docs/media/` | Actual reports and generated demonstration assets |
-
-Pass `--config path/to/config.json` **before** the subcommand to load a full replacement
-for `src/robotarm_lab/assets/default.json`. Invalid/nonfinite limits fail at startup.
-To change robot geometry, update both the explicit model and the URDF generator, then
-regenerate and run the FK cross-checks. See [contribution notes](CONTRIBUTING.md).
-
-## License and publishing
-
-Original code, RAL-6 model and generated project media: MIT. Third-party dependencies
-retain their own licenses. No company assets or proprietary robot CAD are included.
-Local Git is initialized; no remote repository has been created and nothing was pushed.
-Follow [GitHub release steps](docs/PUBLISHING.md) when you decide to publish.
+Development takes place on `codex/v0.2.0-workstation`. Stable `main` and the existing
+v0.1.1 release remain separate. [Publishing instructions](docs/PUBLISHING.md) require
+review of the branch, its evidence and actual remote checks before merge/release.

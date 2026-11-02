@@ -1,5 +1,7 @@
 include acceptance.json requirements-lock.txt THIRD_PARTY_NOTICES.md CONTRIBUTING.md
 include acceptance-v0.1.1.json CHANGELOG.md
+include acceptance-v0.2.0.json
+recursive-include licenses *.txt
 recursive-include tests *.json *.py
 recursive-include scripts *.py *.ps1
 recursive-include docs *.md *.png *.gif

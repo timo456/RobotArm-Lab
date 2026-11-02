@@ -11,7 +11,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="RobotArm-Lab six-axis simulation")
     parser.add_argument("--config", type=Path)
     sub = parser.add_subparsers(dest="command", required=True)
-    for name in ("gui", "demo", "benchmark"):
+    for name in ("gui", "gui-legacy", "demo", "benchmark"):
         command = sub.add_parser(name)
         command.add_argument("--output", type=Path, default=Path("outputs") / name)
         if name == "benchmark":
@@ -19,6 +19,10 @@ def main() -> int:
     args = parser.parse_args()
     config = load_config(args.config)
     if args.command == "gui":
+        from .workstation.window import launch
+
+        return launch(config, args.output)
+    elif args.command == "gui-legacy":
         from .gui import launch
 
         launch(config, args.output)

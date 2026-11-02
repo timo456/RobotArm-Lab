@@ -73,3 +73,13 @@ Sources: [Qt 6.8 Windows](https://doc.qt.io/qt-6.8/windows.html),
 
 Release decision remains unproven until every requirement has direct evidence. An
 operational window alone does not constitute product completion.
+
+## Evidence-driven renderer revision (2026-11-03)
+
+The first PyOpenGL implementation worked with NVIDIA but failed with Qt's Windows
+software context: its system OpenGL DLL did not share the Qt Mesa context. Qt's bundled
+software driver reports OpenGL 3.0 / Mesa 11.2.2, not 3.3. The renderer now resolves all
+functions through Qt, uses GLSL 1.30, Qt-owned buffers/shaders and supports both the
+hardware core context and this software context. Actual software-rendered captures and
+Demo/Pause interactions passed after retained failed attempts. PyOpenGL is no longer a
+runtime dependency. No performance or correctness gate was changed.

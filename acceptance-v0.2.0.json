@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "seed": 20261103,
+  "baseline_commit": "b657da55899fd20fb1a0958d0684da6edc699027",
+  "legacy_protocols_unchanged": ["acceptance.json", "acceptance-v0.1.1.json"],
+  "legacy_test_minimum": 277,
+  "link_alignment_samples": 100,
+  "link_alignment_position_max_m": 0.000001,
+  "link_alignment_rotation_max_rad": 0.000001,
+  "viewport_fps_min": 30,
+  "render_cpu_p95_ms_max": 25,
+  "ui_heartbeat_p95_ms_max": 50,
+  "ui_heartbeat_max_ms_max": 250,
+  "command_feedback_p95_ms_max": 150,
+  "freeze_latency_ms_max": 200,
+  "performance_sample_seconds": 30,
+  "soak_duration_seconds": 600,
+  "soak_rss_growth_max_mib": 64,
+  "event_log_capacity": 500,
+  "trail_point_capacity": 2048,
+  "teach_point_capacity": 100,
+  "visual_cases": [
+    {"logical_size": [1920, 1080], "qt_scale": 1.0},
+    {"logical_size": [1366, 768], "qt_scale": 1.0},
+    {"logical_size": [1536, 864], "qt_scale": 1.25},
+    {"logical_size": [1280, 720], "qt_scale": 1.5},
+    {"logical_size": [1100, 700], "qt_scale": 1.0}
+  ],
+  "required_scenarios": [
+    "joint_jog", "joint_preview_execute", "tcp_ik_preview_execute", "home",
+    "demo_sequence", "pause_resume", "speed_change", "freeze", "reset",
+    "teach_save_load_delete", "teach_restart_persistence", "mode_guard",
+    "obstacle_edit_clear", "collision_preview_rejection", "runtime_block",
+    "invalid_command", "unreachable_ik", "log_io_failure_recovery",
+    "camera_orbit_pan_zoom_reset", "screenshot_export", "shutdown_during_planning"
+  ],
+  "notes": "Freeze/pause are kinematic simulation functions. Dense sampled collisions are not continuous guarantees. Qt scale-factor captures verify application scaling, not a claim that global Windows display settings were changed. All cases and failures must be retained. Performance measured on the declared local workstation; CI correctness uses the same safety gates."
+}

@@ -1,4 +1,5 @@
 .venv/
+.venv-workstation/
 .tmp/
 .cache/
 __pycache__/

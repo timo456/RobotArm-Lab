@@ -35,8 +35,13 @@ for correctness and does not claim to reproduce the workstation's GPU FPS.
 
 Command feedback measures submission -> worker acceptance -> GUI event-loop delivery.
 Completion latency, which includes IK/path planning and audit I/O, is separately
-reported for every command and can exceed 150 ms. Freeze latency measures input to
-observed STOPPED. Neither metric is physical actuator response or a real-time guarantee.
+reported for every command and can exceed 150 ms. Freeze latency measures actual input
+dispatch to the completed GUI receive slot with the label and snapshot in STOPPED.
+A test-only subclass calls the unchanged production receive slot, then timestamps its
+completion on the GUI thread. QTest polling return is recorded separately because it
+can process additional software-rendered frames after the state was already received.
+Neither metric is physical actuator response, compositor presentation latency or a
+real-time guarantee. The numerical 200-ms gate is unchanged.
 
 ## Development failures retained
 
@@ -52,6 +57,8 @@ observed STOPPED. Neither metric is physical actuator response or a real-time gu
 | gui-audit-qt-second | performance harness requeued Demo during stale IDLE snapshots | wait for response/RUNNING; pending-motion guard |
 | visual-matrix | screen factor 1 retained the native Windows 1.25 DPR; one fixed-delay Pause assertion was premature | Qt testing-only native scaling disable plus explicit global factor; wait for actual state; all five cases rerun |
 | remote run 41506256178, Ubuntu | Freeze measured 217.94 ms, including pre-click scroll/20-ms event-processing preparation | move timestamp immediately before QTest input dispatch; preserve 200-ms gate and rerun |
+| remote run 41506962745, Ubuntu | post-click polling return still measured 205.17 ms | instrument completion of the actual GUI state-receive slot; retain polling return as a separate measurement instead of conflating it with state delivery |
+| freeze-diagnostic | independent observer connection raced with the QWidget receive slot, so no matching observation was available | test-only receive override timestamps immediately after the unchanged production slot; local diagnostic measured 106.95-ms state delivery / 122.47-ms polling return |
 
 No failed assertion was removed or acceptance threshold relaxed. Historical early
 captures that lacked sufficient state assertions are not counted as final acceptance.
@@ -90,11 +97,11 @@ match and sanitizes host/user paths without changing the raw evidence.
 | Independently installed wheel regressions | all pass | 298/298; 9.28 s |
 | Visual link positions, 100 seeded poses × 7 links | <=1e-6 m | 8.14e-8 m maximum |
 | Visual link orientation | <=1e-6 rad | 3.94e-7 rad maximum |
-| Actual GPU frames over 30.12 s | >=30 FPS | 75.52 FPS |
-| CPU rendering p95 | <=25 ms | 4.81 ms |
-| GUI heartbeat p95 / maximum | <=50 / 250 ms | 23.22 / 33.88 ms |
-| Command acknowledgement p95 | <=150 ms | 51.51 ms |
-| Freeze observed in GUI | <=200 ms | 66.72 ms |
+| Actual GPU frames over 30.01 s | >=30 FPS | 75.46 FPS |
+| CPU rendering p95 | <=25 ms | 4.72 ms |
+| GUI heartbeat p95 / maximum | <=50 / 250 ms | 23.08 / 34.32 ms |
+| Command acknowledgement p95 | <=150 ms | 67.16 ms |
+| Freeze observed in GUI | <=200 ms | 40.65 ms |
 | Continuous endurance duration | >=600 s | 600.02 s; 78 Demo starts |
 | Peak RSS growth after warm-up | <=64 MiB | 1.84 MiB |
 | Endurance lowest interval FPS | >=30 FPS | 70.81 FPS |
@@ -104,7 +111,7 @@ match and sanitizes host/user paths without changing the raw evidence.
 All 13 grouped functional scenarios passed on the GPU, the Qt Windows software
 renderer, and a 1100x700 logical window at Qt 150% scale. The strengthened software
 and compact checks also execute a non-Home TCP target and the Teach library sequence.
-Shutdown after observing PLANNING completed in 349 ms in the final GPU run; no forced
+Shutdown after observing PLANNING completed in 292 ms in the final GPU run; no forced
 thread termination occurred. There is no frozen shutdown-time gate beyond the test's
 5-second liveness timeout. No Qt callback errors were observed in accepted runs.
 

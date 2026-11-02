@@ -1,0 +1,634 @@
+{
+  "scenarios": [
+    {
+      "name": "joint_preview_execute",
+      "passed": true,
+      "elapsed_ms": 3512.4616000102833
+    },
+    {
+      "name": "stale_input",
+      "passed": true,
+      "elapsed_ms": 259.68560006003827
+    },
+    {
+      "name": "joint_jog_mode",
+      "passed": true,
+      "elapsed_ms": 1028.7783000385389
+    },
+    {
+      "name": "tcp_ik_unreachable",
+      "passed": true,
+      "elapsed_ms": 747.5458000553772
+    },
+    {
+      "name": "pause_resume_speed_freeze",
+      "passed": true,
+      "elapsed_ms": 1052.413700032048
+    },
+    {
+      "name": "demo_complete",
+      "passed": true,
+      "elapsed_ms": 5391.858999966644
+    },
+    {
+      "name": "teach_persistence",
+      "passed": true,
+      "elapsed_ms": 577.8208000119776
+    },
+    {
+      "name": "collision_blocking",
+      "passed": true,
+      "elapsed_ms": 1322.0856999978423
+    },
+    {
+      "name": "camera_capture",
+      "passed": true,
+      "elapsed_ms": 658.6617000866681
+    },
+    {
+      "name": "invalid_command",
+      "passed": true,
+      "elapsed_ms": 222.96250006183982
+    },
+    {
+      "name": "log_io_failure_recovery",
+      "passed": true,
+      "elapsed_ms": 611.2826999742538
+    },
+    {
+      "name": "teach_restart_persistence",
+      "passed": true,
+      "elapsed_ms": 748.6932000610977
+    },
+    {
+      "name": "shutdown_during_planning",
+      "passed": true,
+      "elapsed_ms": 809.3377999030054
+    }
+  ],
+  "metrics": {
+    "seconds": 30.121220499975607,
+    "frames": 2274,
+    "fps": 75.51826268329329,
+    "render_cpu_p95_ms": 4.811475047608836,
+    "ui_heartbeat_p95_ms": 23.218874965095893,
+    "ui_heartbeat_max_ms": 33.87729998212308
+  },
+  "checks": {
+    "fps": true,
+    "render": true,
+    "heartbeat_p95": true,
+    "heartbeat_max": true,
+    "command_feedback": true,
+    "freeze": true
+  },
+  "qt_errors": [],
+  "scope": "functional and local performance",
+  "renderer": "NVIDIA GeForce RTX 3080/PCIe/SSE2 / 3.3.0 NVIDIA 610.88",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "dpr": 1.25,
+  "scale_env": null,
+  "freeze_latency_ms": 66.72340002842247,
+  "responses": [
+    [
+      "reset",
+      91.44920005928725,
+      ""
+    ],
+    [
+      "preview_joint",
+      78.84119998198003,
+      ""
+    ],
+    [
+      "execute",
+      66.05709996074438,
+      ""
+    ],
+    [
+      "home",
+      131.81109994184226,
+      ""
+    ],
+    [
+      "reset",
+      60.17199996858835,
+      ""
+    ],
+    [
+      "preview_joint",
+      79.3971000239253,
+      ""
+    ],
+    [
+      "invalidate",
+      27.413400006480515,
+      ""
+    ],
+    [
+      "reset",
+      174.44770003203303,
+      ""
+    ],
+    [
+      "jog",
+      127.76010006200522,
+      ""
+    ],
+    [
+      "set_mode",
+      11.523399967700243,
+      ""
+    ],
+    [
+      "reset",
+      156.49570000823587,
+      ""
+    ],
+    [
+      "set_mode",
+      40.60220008250326,
+      ""
+    ],
+    [
+      "preview_pose",
+      99.95669999625534,
+      ""
+    ],
+    [
+      "execute",
+      96.13459999673069,
+      ""
+    ],
+    [
+      "invalidate",
+      23.506199941039085,
+      ""
+    ],
+    [
+      "preview_pose",
+      81.35699992999434,
+      "Unreachable target: outside conservative reach bound"
+    ],
+    [
+      "reset",
+      45.580499921925366,
+      ""
+    ],
+    [
+      "demo",
+      141.11890003550798,
+      ""
+    ],
+    [
+      "pause",
+      36.23890003655106,
+      ""
+    ],
+    [
+      "set_speed",
+      34.030399983748794,
+      ""
+    ],
+    [
+      "resume",
+      70.53709996398538,
+      ""
+    ],
+    [
+      "reset",
+      128.0846999725327,
+      ""
+    ],
+    [
+      "set_mode",
+      48.63560001831502,
+      ""
+    ],
+    [
+      "demo",
+      128.87319992296398,
+      ""
+    ],
+    [
+      "reset",
+      123.3300999738276,
+      ""
+    ],
+    [
+      "set_mode",
+      40.73090001475066,
+      ""
+    ],
+    [
+      "teach_save",
+      79.67590005137026,
+      ""
+    ],
+    [
+      "teach_preview",
+      68.38939990848303,
+      ""
+    ],
+    [
+      "teach_delete",
+      82.8548000426963,
+      ""
+    ],
+    [
+      "invalidate",
+      87.4124999390915,
+      ""
+    ],
+    [
+      "reset",
+      196.11249992158264,
+      ""
+    ],
+    [
+      "add_box",
+      21.44930011127144,
+      ""
+    ],
+    [
+      "update_box",
+      84.7774000139907,
+      ""
+    ],
+    [
+      "remove_box",
+      58.421800029464066,
+      ""
+    ],
+    [
+      "blocker",
+      36.42080002464354,
+      ""
+    ],
+    [
+      "demo",
+      67.01450003311038,
+      "Collision clearance rejected at sample 53: obstacle, link 6, distance -0.0010 m"
+    ],
+    [
+      "clear_boxes",
+      42.914400110021234,
+      ""
+    ],
+    [
+      "demo",
+      166.88899998553097,
+      ""
+    ],
+    [
+      "add_box",
+      79.7089000698179,
+      ""
+    ],
+    [
+      "reset",
+      124.14269999135286,
+      ""
+    ],
+    [
+      "set_mode",
+      89.97490000911057,
+      ""
+    ],
+    [
+      "reset",
+      52.90520004928112,
+      ""
+    ],
+    [
+      "preview_joint",
+      77.03409995883703,
+      "Joint limit exceeded"
+    ],
+    [
+      "reset",
+      158.15149992704391,
+      ""
+    ],
+    [
+      "home",
+      67.52829998731613,
+      "Event log unavailable: [Errno 13] Permission denied: 'outputs\\\\v0.2.0\\\\gui-final\\\\session\\\\session.jsonl'"
+    ],
+    [
+      "reset",
+      135.42800000868738,
+      ""
+    ],
+    [
+      "home",
+      62.601700075902045,
+      ""
+    ],
+    [
+      "reset",
+      99.12180004175752,
+      ""
+    ],
+    [
+      "teach_save",
+      53.92910004593432,
+      ""
+    ],
+    [
+      "teach_delete",
+      100.39450007025152,
+      ""
+    ],
+    [
+      "reset",
+      101.23490006662905,
+      ""
+    ],
+    [
+      "reset",
+      172.11179994046688,
+      ""
+    ],
+    [
+      "demo",
+      256.8839999148622,
+      ""
+    ],
+    [
+      "demo",
+      131.54820003546774,
+      ""
+    ],
+    [
+      "demo",
+      196.26750005409122,
+      ""
+    ],
+    [
+      "demo",
+      270.2060000738129,
+      ""
+    ],
+    [
+      "demo",
+      174.38049998600036,
+      ""
+    ],
+    [
+      "demo",
+      153.17089995369315,
+      ""
+    ],
+    [
+      "demo",
+      136.0273000318557,
+      ""
+    ]
+  ],
+  "command_acknowledgements_ms": [
+    [
+      "reset",
+      6.562900030985475
+    ],
+    [
+      "preview_joint",
+      23.774100001901388
+    ],
+    [
+      "execute",
+      9.86610003747046
+    ],
+    [
+      "home",
+      23.841399932280183
+    ],
+    [
+      "reset",
+      2.2293999791145325
+    ],
+    [
+      "preview_joint",
+      22.015700000338256
+    ],
+    [
+      "invalidate",
+      28.36370002478361
+    ],
+    [
+      "reset",
+      11.567400069907308
+    ],
+    [
+      "jog",
+      13.202900066971779
+    ],
+    [
+      "set_mode",
+      4.260399960912764
+    ],
+    [
+      "reset",
+      50.86660000961274
+    ],
+    [
+      "set_mode",
+      24.513900047168136
+    ],
+    [
+      "preview_pose",
+      7.467000046744943
+    ],
+    [
+      "execute",
+      15.77749999705702
+    ],
+    [
+      "invalidate",
+      30.03809996880591
+    ],
+    [
+      "preview_pose",
+      39.366999990306795
+    ],
+    [
+      "reset",
+      17.94229994993657
+    ],
+    [
+      "demo",
+      16.785699990577996
+    ],
+    [
+      "pause",
+      13.997800066135824
+    ],
+    [
+      "set_speed",
+      20.95699997153133
+    ],
+    [
+      "resume",
+      7.851999951526523
+    ],
+    [
+      "reset",
+      44.69829995650798
+    ],
+    [
+      "set_mode",
+      43.06890000589192
+    ],
+    [
+      "demo",
+      20.346399978734553
+    ],
+    [
+      "reset",
+      14.410499949008226
+    ],
+    [
+      "set_mode",
+      35.52580007817596
+    ],
+    [
+      "teach_save",
+      11.150900041684508
+    ],
+    [
+      "teach_preview",
+      13.021899969317019
+    ],
+    [
+      "teach_delete",
+      7.476300001144409
+    ],
+    [
+      "invalidate",
+      83.03419989533722
+    ],
+    [
+      "reset",
+      77.83399999607354
+    ],
+    [
+      "add_box",
+      15.428700018674135
+    ],
+    [
+      "update_box",
+      14.357400010339916
+    ],
+    [
+      "remove_box",
+      23.094799951650202
+    ],
+    [
+      "blocker",
+      19.21639998909086
+    ],
+    [
+      "demo",
+      11.49579999037087
+    ],
+    [
+      "clear_boxes",
+      12.51220004633069
+    ],
+    [
+      "demo",
+      18.507900065742433
+    ],
+    [
+      "add_box",
+      13.476000051014125
+    ],
+    [
+      "reset",
+      23.34700000938028
+    ],
+    [
+      "set_mode",
+      24.782399996183813
+    ],
+    [
+      "reset",
+      17.47079996857792
+    ],
+    [
+      "preview_joint",
+      57.298699975945055
+    ],
+    [
+      "reset",
+      16.777799930423498
+    ],
+    [
+      "home",
+      14.87820001784712
+    ],
+    [
+      "reset",
+      6.013200036250055
+    ],
+    [
+      "home",
+      15.770800062455237
+    ],
+    [
+      "reset",
+      21.60620002541691
+    ],
+    [
+      "teach_save",
+      8.88079998549074
+    ],
+    [
+      "teach_delete",
+      33.960800035856664
+    ],
+    [
+      "reset",
+      37.753600045107305
+    ],
+    [
+      "reset",
+      21.54710004106164
+    ],
+    [
+      "demo",
+      14.105599955655634
+    ],
+    [
+      "demo",
+      23.691500071436167
+    ],
+    [
+      "demo",
+      10.441499995067716
+    ],
+    [
+      "demo",
+      14.910700032487512
+    ],
+    [
+      "demo",
+      11.097399983555079
+    ],
+    [
+      "demo",
+      9.916499955579638
+    ],
+    [
+      "demo",
+      2.700400073081255
+    ]
+  ],
+  "command_feedback_p95_ms": 51.509810006245935,
+  "command_feedback_definition": "Submission to worker acceptance received by GUI event loop; completion latency is separately reported in responses",
+  "shutdown_latency_ms": 348.99379999842495,
+  "method": "Shown Qt workstation with QTest widget input, no mock rendering",
+  "passed": true,
+  "source_sha256": "544d1b07b03a6454211fcc476c83ae5c120f79184584ba34e5eb8138ab18b5b6",
+  "source_unchanged_during_run": true
+}

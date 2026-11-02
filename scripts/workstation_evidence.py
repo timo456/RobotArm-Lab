@@ -51,7 +51,7 @@ def save_xml(source: Path, target: Path) -> None:
 def main() -> None:
     DEST.mkdir(exist_ok=True)
     sources = {
-        "gui-final": "gui-final/results.json",
+        "gui-final": "gui-timing-final/results.json",
         "software-functional": "software-functional-final/results.json",
         "small-functional": "small-functional-final/results.json",
         "soak": "soak-first/results.json",
@@ -88,7 +88,7 @@ def main() -> None:
         for filename in ("results.json", "capture.json"):
             source = folder / filename
             if source.exists() and folder.name not in {
-                "gui-final",
+                "gui-timing-final",
                 "soak-first",
                 "visual-matrix-v2",
             }:
@@ -147,7 +147,7 @@ def main() -> None:
     manifest = dict(
         source_sha256=hashes.pop(),
         local_checks_passed=True,
-        remote_ci_status="not yet verified",
+        remote_ci_evidence="Recorded separately in remote-ci.json; inspect its tested commit",
         evidence=sources,
         media=[
             dict(

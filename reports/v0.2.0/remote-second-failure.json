@@ -1,0 +1,21 @@
+{
+  "run_id": 41506962745,
+  "commit": "f4439335775371a53bff853759d4aaf6d800b653",
+  "job_id": 125488610903,
+  "conclusion": "failure",
+  "scenario_console": [
+    "2026-11-02T19:08:51.5148578Z {\"name\": \"joint_preview_execute\", \"passed\": true, \"elapsed_ms\": 6719.271863999992}",
+    "2026-11-02T19:08:52.5975296Z {\"name\": \"stale_input\", \"passed\": true, \"elapsed_ms\": 1005.0015199999933}",
+    "2026-11-02T19:08:54.5620325Z {\"name\": \"joint_jog_mode\", \"passed\": true, \"elapsed_ms\": 1879.1967650000033}",
+    "2026-11-02T19:08:58.4676673Z {\"name\": \"tcp_ik_unreachable\", \"passed\": true, \"elapsed_ms\": 3825.264353999998}",
+    "2026-11-02T19:09:01.3535408Z {\"name\": \"pause_resume_speed_freeze\", \"passed\": false, \"error\": \"205.17285900000104\", \"traceback\": \"Traceback (most recent call last):\\n  File \\\"/home/runner/work/RobotArm-Lab/RobotArm-Lab/scripts/workstation_verify.py\\\", line 88, in scenario\\n    function()\\n  File \\\"/home/runner/work/RobotArm-Lab/RobotArm-Lab/scripts/workstation_verify.py\\\", line 176, in playback\\n    assert self.freeze_ms <= 200, self.freeze_ms\\n           ^^^^^^^^^^^^^^^^^^^^^\\nAssertionError: 205.17285900000104\\n\", \"elapsed_ms\": 2809.926031999993}",
+    "2026-11-02T19:09:11.1261020Z {\"name\": \"demo_complete\", \"passed\": true, \"elapsed_ms\": 9686.719537000003}",
+    "2026-11-02T19:09:14.3112346Z {\"name\": \"teach_persistence\", \"passed\": true, \"elapsed_ms\": 3103.5036359999995}",
+    "2026-11-02T19:09:18.2175234Z {\"name\": \"collision_blocking\", \"passed\": true, \"elapsed_ms\": 3830.058938999997}",
+    "2026-11-02T19:09:19.2456984Z {\"name\": \"camera_capture\", \"passed\": true, \"elapsed_ms\": 947.9871979999928}",
+    "2026-11-02T19:09:19.9439937Z {\"name\": \"invalid_command\", \"passed\": true, \"elapsed_ms\": 621.2438019999809}",
+    "2026-11-02T19:09:21.8526200Z {\"name\": \"log_io_failure_recovery\", \"passed\": true, \"elapsed_ms\": 1825.998616999982}",
+    "2026-11-02T19:09:23.6853444Z {\"name\": \"teach_restart_persistence\", \"passed\": true, \"elapsed_ms\": 1754.3414910000195}",
+    "2026-11-02T19:09:24.7750497Z {\"name\": \"shutdown_during_planning\", \"passed\": true, \"elapsed_ms\": 1011.9197740000061}"
+  ]
+}

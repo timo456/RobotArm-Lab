@@ -1,9 +1,9 @@
 {
   "source_sha256": "544d1b07b03a6454211fcc476c83ae5c120f79184584ba34e5eb8138ab18b5b6",
   "local_checks_passed": true,
-  "remote_ci_status": "not yet verified",
+  "remote_ci_evidence": "Recorded separately in remote-ci.json; inspect its tested commit",
   "evidence": {
-    "gui-final": "gui-final/results.json",
+    "gui-final": "gui-timing-final/results.json",
     "software-functional": "software-functional-final/results.json",
     "small-functional": "small-functional-final/results.json",
     "soak": "soak-first/results.json",

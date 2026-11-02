@@ -7,11 +7,12 @@ import os
 import platform
 import sys
 import traceback
+from collections import deque
 from pathlib import Path
 from time import perf_counter
 
 import numpy as np
-from PySide6.QtCore import QPoint, QPointF, Qt
+from PySide6.QtCore import QPoint, QPointF, Qt, QThread
 from PySide6.QtGui import QSurfaceFormat, QWheelEvent
 from PySide6.QtTest import QTest
 from PySide6.QtWidgets import QApplication, QScrollArea
@@ -21,6 +22,19 @@ from robotarm_lab.config import load_config
 from robotarm_lab.kinematics import fk
 from robotarm_lab.model import HOME
 from robotarm_lab.workstation.window import Workstation
+
+
+class ObservedWorkstation(Workstation):
+    """Record completion of the real GUI receive slot, without changing its behavior."""
+
+    def __init__(self, *args, **kwargs):
+        self.state_receipts = deque(maxlen=4096)
+        super().__init__(*args, **kwargs)
+
+    def receive(self, snapshot):
+        super().receive(snapshot)
+        assert QThread.currentThread() == self.thread()
+        self.state_receipts.append((self.state.text(), perf_counter()))
 
 
 class Audit:
@@ -172,7 +186,21 @@ class Audit:
         start = perf_counter()
         QTest.mouseClick(button, Qt.MouseButton.LeftButton)
         self.wait(lambda: self.window.snapshot.state == "STOPPED", 1)
-        self.freeze_ms = (perf_counter() - start) * 1000
+        self.freeze_poll_ms = (perf_counter() - start) * 1000
+        self.freeze_ms = next(
+            (stamp - start) * 1000
+            for state, stamp in self.window.state_receipts
+            if state == "STOPPED" and stamp >= start
+        )
+        print(
+            json.dumps(
+                {
+                    "freeze_poll_ms": self.freeze_poll_ms,
+                    "freeze_state_delivery_ms": self.freeze_ms,
+                }
+            ),
+            flush=True,
+        )
         assert self.freeze_ms <= 200, self.freeze_ms
         before = self.window.snapshot.q
         QTest.qWait(150)
@@ -378,7 +406,7 @@ def main():
     QSurfaceFormat.setDefaultFormat(fmt)
     app = QApplication([])
     app.setStyle("Fusion")
-    window = Workstation(load_config(), args.output / "session")
+    window = ObservedWorkstation(load_config(), args.output / "session")
     window.resize(args.width, args.height)
     window.show()
     audit = Audit(window, args.output)
@@ -430,6 +458,11 @@ def main():
             logical_size=[window.width(), window.height()],
             scale_env=os.environ.get("QT_SCREEN_SCALE_FACTORS"),
             freeze_latency_ms=getattr(audit, "freeze_ms", None),
+            freeze_poll_return_ms=getattr(audit, "freeze_poll_ms", None),
+            freeze_latency_definition=(
+                "Actual QTest input dispatch to completed GUI receive slot displaying STOPPED; "
+                "polling return overhead reported separately"
+            ),
             responses=audit.responses,
             command_acknowledgements_ms=audit.acknowledgements,
             command_feedback_p95_ms=float(

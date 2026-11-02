@@ -1,0 +1,582 @@
+{
+  "scenarios": [
+    {
+      "name": "joint_preview_execute",
+      "passed": true,
+      "elapsed_ms": 4962.470399914309
+    },
+    {
+      "name": "stale_input",
+      "passed": true,
+      "elapsed_ms": 647.9561000596732
+    },
+    {
+      "name": "joint_jog_mode",
+      "passed": true,
+      "elapsed_ms": 1187.4303000513464
+    },
+    {
+      "name": "tcp_ik_unreachable",
+      "passed": true,
+      "elapsed_ms": 3170.0538999866694
+    },
+    {
+      "name": "pause_resume_speed_freeze",
+      "passed": false,
+      "error": "",
+      "traceback": "Traceback (most recent call last):\n  File \"<project>\\scripts\\workstation_verify.py\", line 96, in scenario\n    function()\n  File \"<project>\\scripts\\workstation_verify.py\", line 184, in playback\n    self.freeze_state_delivery_ms = next(\n                                    ^^^^^\nStopIteration\n",
+      "elapsed_ms": 3085.4344998952
+    },
+    {
+      "name": "demo_complete",
+      "passed": true,
+      "elapsed_ms": 12656.626099953428
+    },
+    {
+      "name": "teach_persistence",
+      "passed": true,
+      "elapsed_ms": 3194.241699995473
+    },
+    {
+      "name": "collision_blocking",
+      "passed": true,
+      "elapsed_ms": 4257.983300019987
+    },
+    {
+      "name": "camera_capture",
+      "passed": true,
+      "elapsed_ms": 1096.0404999786988
+    },
+    {
+      "name": "invalid_command",
+      "passed": true,
+      "elapsed_ms": 542.2892000060529
+    },
+    {
+      "name": "log_io_failure_recovery",
+      "passed": true,
+      "elapsed_ms": 2047.8513999842107
+    },
+    {
+      "name": "teach_restart_persistence",
+      "passed": true,
+      "elapsed_ms": 1806.3074999954551
+    },
+    {
+      "name": "shutdown_during_planning",
+      "passed": true,
+      "elapsed_ms": 692.1332000056282
+    }
+  ],
+  "metrics": null,
+  "checks": {},
+  "qt_errors": [],
+  "scope": "CI correctness only",
+  "renderer": "Gallium 0.4 on llvmpipe (LLVM 3.6, 256 bits) / 3.0 Mesa 11.2.2",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "dpr": 1.25,
+  "logical_size": [
+    1366,
+    768
+  ],
+  "scale_env": null,
+  "freeze_latency_ms": 187.76969995815307,
+  "freeze_state_delivery_ms": null,
+  "responses": [
+    [
+      "reset",
+      179.37820008955896,
+      ""
+    ],
+    [
+      "preview_joint",
+      212.74190000258386,
+      ""
+    ],
+    [
+      "execute",
+      164.88520009443164,
+      ""
+    ],
+    [
+      "home",
+      425.81399995833635,
+      ""
+    ],
+    [
+      "reset",
+      192.74259998928756,
+      ""
+    ],
+    [
+      "preview_joint",
+      115.37240003235638,
+      ""
+    ],
+    [
+      "invalidate",
+      116.5244000731036,
+      ""
+    ],
+    [
+      "reset",
+      135.5065000243485,
+      ""
+    ],
+    [
+      "jog",
+      180.962200043723,
+      ""
+    ],
+    [
+      "set_mode",
+      81.88950002659112,
+      ""
+    ],
+    [
+      "reset",
+      180.25450001005083,
+      ""
+    ],
+    [
+      "set_mode",
+      53.393099922686815,
+      ""
+    ],
+    [
+      "preview_pose",
+      350.01159994862974,
+      ""
+    ],
+    [
+      "execute",
+      77.0456000464037,
+      ""
+    ],
+    [
+      "invalidate",
+      104.68059999402612,
+      ""
+    ],
+    [
+      "preview_pose",
+      203.16700008697808,
+      "Unreachable target: outside conservative reach bound"
+    ],
+    [
+      "reset",
+      340.2154999785125,
+      ""
+    ],
+    [
+      "demo",
+      669.324200018309,
+      ""
+    ],
+    [
+      "pause",
+      323.25789995957166,
+      ""
+    ],
+    [
+      "set_speed",
+      161.3397999899462,
+      ""
+    ],
+    [
+      "resume",
+      422.254899982363,
+      ""
+    ],
+    [
+      "reset",
+      298.7592000281438,
+      ""
+    ],
+    [
+      "set_mode",
+      381.15549995563924,
+      ""
+    ],
+    [
+      "demo",
+      951.6526999650523,
+      ""
+    ],
+    [
+      "reset",
+      375.1337000867352,
+      ""
+    ],
+    [
+      "set_mode",
+      340.37730004638433,
+      ""
+    ],
+    [
+      "teach_save",
+      287.10159996990114,
+      ""
+    ],
+    [
+      "teach_preview",
+      367.4335000105202,
+      ""
+    ],
+    [
+      "set_mode",
+      159.84810004010797,
+      ""
+    ],
+    [
+      "program",
+      558.3268000045791,
+      ""
+    ],
+    [
+      "teach_delete",
+      291.83549992740154,
+      ""
+    ],
+    [
+      "invalidate",
+      178.17049997393042,
+      ""
+    ],
+    [
+      "reset",
+      354.7870999900624,
+      ""
+    ],
+    [
+      "set_mode",
+      200.4244999261573,
+      ""
+    ],
+    [
+      "add_box",
+      140.2702999766916,
+      ""
+    ],
+    [
+      "update_box",
+      540.6298000598326,
+      ""
+    ],
+    [
+      "remove_box",
+      169.29569991771132,
+      ""
+    ],
+    [
+      "blocker",
+      157.9928999999538,
+      ""
+    ],
+    [
+      "demo",
+      356.49000003468245,
+      "Collision clearance rejected at sample 53: obstacle, link 6, distance -0.0010 m"
+    ],
+    [
+      "clear_boxes",
+      141.1122001009062,
+      ""
+    ],
+    [
+      "demo",
+      736.2129000248387,
+      ""
+    ],
+    [
+      "add_box",
+      342.51760004553944,
+      ""
+    ],
+    [
+      "reset",
+      325.65249991603196,
+      ""
+    ],
+    [
+      "set_mode",
+      346.04899992700666,
+      ""
+    ],
+    [
+      "reset",
+      321.76760002039373,
+      ""
+    ],
+    [
+      "preview_joint",
+      37.19130007084459,
+      "Joint limit exceeded"
+    ],
+    [
+      "reset",
+      359.47330005001277,
+      ""
+    ],
+    [
+      "home",
+      271.9898000359535,
+      "Event log unavailable: [Errno 13] Permission denied: 'outputs\\\\v0.2.0\\\\freeze-diagnostic\\\\session\\\\session.jsonl'"
+    ],
+    [
+      "reset",
+      359.1745999874547,
+      ""
+    ],
+    [
+      "home",
+      452.6186999864876,
+      ""
+    ],
+    [
+      "reset",
+      360.775199951604,
+      ""
+    ],
+    [
+      "teach_save",
+      389.7961999755353,
+      ""
+    ],
+    [
+      "teach_delete",
+      169.30739989038557,
+      ""
+    ],
+    [
+      "reset",
+      114.20559999532998,
+      ""
+    ]
+  ],
+  "command_acknowledgements_ms": [
+    [
+      "reset",
+      27.70190010778606
+    ],
+    [
+      "preview_joint",
+      18.390500103123486
+    ],
+    [
+      "execute",
+      49.12290000356734
+    ],
+    [
+      "home",
+      71.10379997175187
+    ],
+    [
+      "reset",
+      55.27630005963147
+    ],
+    [
+      "preview_joint",
+      14.880700036883354
+    ],
+    [
+      "invalidate",
+      84.71510000526905
+    ],
+    [
+      "reset",
+      14.036900014616549
+    ],
+    [
+      "jog",
+      13.807700015604496
+    ],
+    [
+      "set_mode",
+      17.69050001166761
+    ],
+    [
+      "reset",
+      16.60880004055798
+    ],
+    [
+      "set_mode",
+      14.951599994674325
+    ],
+    [
+      "preview_pose",
+      60.458799940533936
+    ],
+    [
+      "execute",
+      21.937700104899704
+    ],
+    [
+      "invalidate",
+      62.97520000953227
+    ],
+    [
+      "preview_pose",
+      140.43700008187443
+    ],
+    [
+      "reset",
+      91.27049997914582
+    ],
+    [
+      "demo",
+      16.96859998628497
+    ],
+    [
+      "pause",
+      72.70029990468174
+    ],
+    [
+      "set_speed",
+      21.378800040110946
+    ],
+    [
+      "resume",
+      55.887999944388866
+    ],
+    [
+      "reset",
+      17.04740000423044
+    ],
+    [
+      "set_mode",
+      79.15439992211759
+    ],
+    [
+      "demo",
+      69.7603999869898
+    ],
+    [
+      "reset",
+      22.201600018888712
+    ],
+    [
+      "set_mode",
+      74.71590000204742
+    ],
+    [
+      "teach_save",
+      35.3380999295041
+    ],
+    [
+      "teach_preview",
+      55.472200037911534
+    ],
+    [
+      "set_mode",
+      22.341600037179887
+    ],
+    [
+      "program",
+      24.042799952439964
+    ],
+    [
+      "teach_delete",
+      20.028900005854666
+    ],
+    [
+      "invalidate",
+      140.38340002298355
+    ],
+    [
+      "reset",
+      180.73400005232543
+    ],
+    [
+      "set_mode",
+      67.46189994737506
+    ],
+    [
+      "add_box",
+      17.264000023715198
+    ],
+    [
+      "update_box",
+      73.25300003867596
+    ],
+    [
+      "remove_box",
+      17.942999955266714
+    ],
+    [
+      "blocker",
+      33.54610002133995
+    ],
+    [
+      "demo",
+      72.56180001422763
+    ],
+    [
+      "clear_boxes",
+      18.811700050719082
+    ],
+    [
+      "demo",
+      55.98890001419932
+    ],
+    [
+      "add_box",
+      100.0991000328213
+    ],
+    [
+      "reset",
+      67.69079994410276
+    ],
+    [
+      "set_mode",
+      87.4642999842763
+    ],
+    [
+      "reset",
+      34.048000001348555
+    ],
+    [
+      "preview_joint",
+      18.865999998524785
+    ],
+    [
+      "reset",
+      72.33190000988543
+    ],
+    [
+      "home",
+      53.686700062826276
+    ],
+    [
+      "reset",
+      62.371800071559846
+    ],
+    [
+      "home",
+      51.81880004238337
+    ],
+    [
+      "reset",
+      84.33480001986027
+    ],
+    [
+      "teach_save",
+      53.978399955667555
+    ],
+    [
+      "teach_delete",
+      18.477599951438606
+    ],
+    [
+      "reset",
+      13.948899926617742
+    ]
+  ],
+  "command_feedback_p95_ms": 114.19860502937786,
+  "command_feedback_definition": "Submission to worker acceptance received by GUI event loop; completion latency is separately reported in responses",
+  "shutdown_latency_ms": 130.095100030303,
+  "method": "Shown Qt workstation with QTest widget input, no mock rendering",
+  "passed": false,
+  "source_sha256": "544d1b07b03a6454211fcc476c83ae5c120f79184584ba34e5eb8138ab18b5b6",
+  "source_unchanged_during_run": true
+}

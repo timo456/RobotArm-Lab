@@ -1,0 +1,5 @@
+include acceptance.json requirements-lock.txt THIRD_PARTY_NOTICES.md CONTRIBUTING.md
+recursive-include scripts *.py *.ps1
+recursive-include docs *.md *.png *.gif
+recursive-include reports *.json *.md *.xml *.txt *.csv
+recursive-include .github *.yml

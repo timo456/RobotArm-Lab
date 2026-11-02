@@ -1,0 +1,134 @@
+{
+  "totals": {
+    "covered_lines": 460,
+    "num_statements": 682,
+    "percent_covered": 67.44868035190616,
+    "percent_covered_display": "67",
+    "missing_lines": 222,
+    "excluded_lines": 0,
+    "percent_statements_covered": 67.44868035190616,
+    "percent_statements_covered_display": "67"
+  },
+  "files": {
+    "src\\robotarm_lab\\__init__.py": {
+      "covered_lines": 1,
+      "num_statements": 1,
+      "percent_covered": 100.0,
+      "percent_covered_display": "100",
+      "missing_lines": 0,
+      "excluded_lines": 0,
+      "percent_statements_covered": 100.0,
+      "percent_statements_covered_display": "100"
+    },
+    "src\\robotarm_lab\\__main__.py": {
+      "covered_lines": 0,
+      "num_statements": 2,
+      "percent_covered": 0.0,
+      "percent_covered_display": "0",
+      "missing_lines": 2,
+      "excluded_lines": 0,
+      "percent_statements_covered": 0.0,
+      "percent_statements_covered_display": "0"
+    },
+    "src\\robotarm_lab\\cli.py": {
+      "covered_lines": 0,
+      "num_statements": 26,
+      "percent_covered": 0.0,
+      "percent_covered_display": "0",
+      "missing_lines": 26,
+      "excluded_lines": 0,
+      "percent_statements_covered": 0.0,
+      "percent_statements_covered_display": "0"
+    },
+    "src\\robotarm_lab\\config.py": {
+      "covered_lines": 34,
+      "num_statements": 34,
+      "percent_covered": 100.0,
+      "percent_covered_display": "100",
+      "missing_lines": 0,
+      "excluded_lines": 0,
+      "percent_statements_covered": 100.0,
+      "percent_statements_covered_display": "100"
+    },
+    "src\\robotarm_lab\\controller.py": {
+      "covered_lines": 101,
+      "num_statements": 102,
+      "percent_covered": 99.01960784313725,
+      "percent_covered_display": "99",
+      "missing_lines": 1,
+      "excluded_lines": 0,
+      "percent_statements_covered": 99.01960784313725,
+      "percent_statements_covered_display": "99"
+    },
+    "src\\robotarm_lab\\demo.py": {
+      "covered_lines": 0,
+      "num_statements": 38,
+      "percent_covered": 0.0,
+      "percent_covered_display": "0",
+      "missing_lines": 38,
+      "excluded_lines": 0,
+      "percent_statements_covered": 0.0,
+      "percent_statements_covered_display": "0"
+    },
+    "src\\robotarm_lab\\experiments.py": {
+      "covered_lines": 122,
+      "num_statements": 128,
+      "percent_covered": 95.3125,
+      "percent_covered_display": "95",
+      "missing_lines": 6,
+      "excluded_lines": 0,
+      "percent_statements_covered": 95.3125,
+      "percent_statements_covered_display": "95"
+    },
+    "src\\robotarm_lab\\gui.py": {
+      "covered_lines": 0,
+      "num_statements": 141,
+      "percent_covered": 0.0,
+      "percent_covered_display": "0",
+      "missing_lines": 141,
+      "excluded_lines": 0,
+      "percent_statements_covered": 0.0,
+      "percent_statements_covered_display": "0"
+    },
+    "src\\robotarm_lab\\kinematics.py": {
+      "covered_lines": 49,
+      "num_statements": 50,
+      "percent_covered": 98.0,
+      "percent_covered_display": "98",
+      "missing_lines": 1,
+      "excluded_lines": 0,
+      "percent_statements_covered": 98.0,
+      "percent_statements_covered_display": "98"
+    },
+    "src\\robotarm_lab\\model.py": {
+      "covered_lines": 34,
+      "num_statements": 35,
+      "percent_covered": 97.14285714285714,
+      "percent_covered_display": "97",
+      "missing_lines": 1,
+      "excluded_lines": 0,
+      "percent_statements_covered": 97.14285714285714,
+      "percent_statements_covered_display": "97"
+    },
+    "src\\robotarm_lab\\simulation.py": {
+      "covered_lines": 76,
+      "num_statements": 81,
+      "percent_covered": 93.82716049382717,
+      "percent_covered_display": "94",
+      "missing_lines": 5,
+      "excluded_lines": 0,
+      "percent_statements_covered": 93.82716049382717,
+      "percent_statements_covered_display": "94"
+    },
+    "src\\robotarm_lab\\trajectory.py": {
+      "covered_lines": 43,
+      "num_statements": 44,
+      "percent_covered": 97.72727272727273,
+      "percent_covered_display": "98",
+      "missing_lines": 1,
+      "excluded_lines": 0,
+      "percent_statements_covered": 97.72727272727273,
+      "percent_statements_covered_display": "98"
+    }
+  }
+}

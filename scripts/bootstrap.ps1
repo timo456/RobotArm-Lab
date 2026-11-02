@@ -1,0 +1,16 @@
+$ErrorActionPreference = 'Stop'
+$projectRoot = Split-Path -Parent $PSScriptRoot
+Set-Location -LiteralPath $projectRoot
+New-Item -ItemType Directory -Force .tmp, .cache\pip | Out-Null
+$env:TEMP = Join-Path $projectRoot '.tmp'
+$env:TMP = $env:TEMP
+$env:PIP_CACHE_DIR = Join-Path $projectRoot '.cache\pip'
+if (-not (Test-Path .venv\Scripts\python.exe)) {
+    py -3.12 -m venv .venv
+    if ($LASTEXITCODE -ne 0) { throw 'Python 3.12 venv creation failed' }
+}
+& .venv\Scripts\python.exe -m pip install -r requirements-lock.txt
+if ($LASTEXITCODE -ne 0) { throw 'Dependency install failed; see README for C++ prerequisites' }
+& .venv\Scripts\python.exe -m pip install --no-deps --no-build-isolation -e .
+if ($LASTEXITCODE -ne 0) { throw 'Project installation failed' }
+Write-Host 'Ready: .\.venv\Scripts\python.exe -m robotarm_lab gui'

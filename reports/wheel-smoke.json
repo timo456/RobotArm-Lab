@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "pytest_exit_code": 0,
+  "loaded_from_wheel": true,
+  "render_shape": [
+    240,
+    320,
+    3
+  ],
+  "editable_site_disabled": true
+}

@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "checks": {
+    "rendered_tk_image": true,
+    "controls_within_window": true,
+    "demo_completes": true,
+    "home_completes": true,
+    "blocker_rejects_demo": true,
+    "rejection_preserves_pose": true,
+    "stop": true,
+    "reset": true,
+    "ik_button": true,
+    "invalid_input_message": true,
+    "capture": true,
+    "no_callback_errors": true,
+    "scheduled_mainloop_ticks": true
+  },
+  "callback_errors": [],
+  "method": "Real Tk widgets and application callbacks; no mouse injection"
+}

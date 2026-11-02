@@ -1,0 +1,10 @@
+{
+  "velocity": [1.2, 1.0, 1.0, 1.5, 1.5, 1.8],
+  "acceleration": [2.4, 2.0, 2.0, 3.0, 3.0, 3.6],
+  "collision_margin": 0.003,
+  "collision_joint_step": 0.01,
+  "control_dt": 0.01,
+  "ik_position_tolerance": 0.0001,
+  "ik_orientation_tolerance": 0.001,
+  "ik_restarts": 8
+}

@@ -1,0 +1,10 @@
+{
+  "local_engineering_go": true,
+  "unit_tests": 277,
+  "unit_tests_passed_without_skips": true,
+  "legacy_protocol_passed": true,
+  "remote_ci_verified": false,
+  "linux_execution_verified": false,
+  "native_mouse_and_pixel_capture_verified": false,
+  "published": false
+}

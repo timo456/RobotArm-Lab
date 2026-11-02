@@ -9,6 +9,7 @@ import numpy as np
 from PIL import Image, ImageTk
 from scipy.spatial.transform import Rotation
 
+from . import __version__
 from .config import Config
 from .controller import Controller
 from .kinematics import fk
@@ -27,7 +28,7 @@ class App:
         self.world.add_box([0.40, 0.40, 0.20], [0.08, 0.08, 0.20])
         self.closed = False
         self.frames = 0
-        root.title("RobotArm-Lab | RAL-6 Control Station")
+        root.title(f"RobotArm-Lab v{__version__} | RAL-6 Control Station")
         root.geometry("1250x820")
         root.minsize(1100, 780)
         root.configure(bg="#111b2b")
@@ -142,9 +143,28 @@ class App:
             foreground="#9daec0",
             padding=(20, 6),
         ).pack(fill="x")
+        ttk.Label(
+            root,
+            text="F5 Home | F6 Demo | F7 Blocker | F8 Clear | F9 Reset | Esc Stop | "
+            "Ctrl+L focus TCP X | Ctrl+I IK | Ctrl+Enter joints",
+            foreground="#9daec0",
+            padding=(20, 4),
+        ).pack(fill="x")
+        shortcuts = {
+            "<F5>": ("home", self.controller.home),
+            "<F6>": ("demo", self.demo),
+            "<F7>": ("blocker", self.blocker),
+            "<F8>": ("clear", self.world.clear_obstacles),
+            "<F9>": ("reset", self.reset),
+            "<Escape>": ("stop", self.controller.stop),
+            "<Control-l>": ("focus_tcp_x", self.pose_entries[0].focus_set),
+            "<Control-i>": ("ik", self._pose_command),
+            "<Control-Return>": ("joints", self._joint_command),
+        }
+        for key, (name, action) in shortcuts.items():
+            root.bind(key, lambda event, n=name, a=action: self._shortcut(n, a))
         root.protocol("WM_DELETE_WINDOW", self.close)
-        if auto_schedule:
-            root.after(30, self.tick)
+        self.timer: str | None = root.after(30, self.tick) if auto_schedule else None
 
     def invoke(self, action: Callable[[], object]) -> None:
         try:
@@ -152,21 +172,30 @@ class App:
             self.root.update_idletasks()
             action()
             self.status.set(f"{self.controller.state} — command accepted")
-        except (ValueError, RuntimeError) as exc:
+        except (ValueError, RuntimeError, OSError) as exc:
             self.status.set(f"REJECTED — {exc}")
 
     def move_joints(self) -> None:
-        self.invoke(lambda: self.controller.move(np.deg2rad([s.get() for s in self.sliders])))
+        self.invoke(self._joint_command)
 
-    def move_pose(self) -> None:
+    def _joint_command(self) -> None:
+        self.controller.move(np.deg2rad([s.get() for s in self.sliders]))
+
+    def _shortcut(self, name: str, action: Callable[[], object]) -> str:
         def execute() -> None:
-            values = np.array([float(e.get()) for e in self.pose_entries])
-            target = Pose(
-                values[:3], Rotation.from_euler("xyz", values[3:], degrees=True).as_matrix()
-            )
-            self.controller.move_pose(target)
+            self.controller.event("keyboard_action", action=name)
+            action()
 
         self.invoke(execute)
+        return "break"
+
+    def move_pose(self) -> None:
+        self.invoke(self._pose_command)
+
+    def _pose_command(self) -> None:
+        values = np.array([float(e.get()) for e in self.pose_entries])
+        target = Pose(values[:3], Rotation.from_euler("xyz", values[3:], degrees=True).as_matrix())
+        self.controller.move_pose(target)
 
     def demo(self) -> None:
         target = np.array([-0.65, -0.8, 1.15, 0.35, -0.35, 0.5])
@@ -190,6 +219,19 @@ class App:
     def tick(self) -> None:
         if self.closed:
             return
+        try:
+            self._update_frame()
+        except (ValueError, RuntimeError, OSError) as exc:
+            self.controller.trajectory = None
+            self.controller.velocity[:] = 0
+            self.controller.acceleration[:] = 0
+            self.controller.state = "FAULT"
+            self.status.set(f"FAULT — {exc}")
+        finally:
+            if self.auto_schedule and not self.closed:
+                self.timer = self.root.after(20, self.tick)
+
+    def _update_frame(self) -> None:
         self.controller.step(0.02)
         if self.controller.state == "BLOCKED":
             self.status.set("BLOCKED — " + self.controller.last_error)
@@ -207,11 +249,13 @@ class App:
             f"peak |qdot|={np.max(np.abs(self.controller.velocity)):.3f} rad/s  "
             f"obstacles={len(self.world.obstacles)}"
         )
-        if self.auto_schedule:
-            self.root.after(20, self.tick)
 
     def close(self) -> None:
+        if self.closed:
+            return
         self.closed = True
+        if self.timer is not None:
+            self.root.after_cancel(self.timer)
         self.world.close()
         self.root.destroy()
 

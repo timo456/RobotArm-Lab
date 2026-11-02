@@ -1,5 +1,11 @@
 # Publishing checklist (user-controlled)
 
+For v0.1.1, review `RELEASE_READINESS_v0.1.1.md`, `reports/v0.1.1/decision.json`
+and `CHANGELOG.md` before publishing. A local engineering GO does not mean remote CI
+has passed. The project's source wheel/ZIP excludes dependency caches and virtualenvs.
+Do not upload the local PyBullet build as an official upstream wheel. Its hashes and
+provenance are local validation evidence; binary redistribution needs complete notices.
+
 This delivery creates local Git history only. No remote, push or public publishing
 was performed. Review README, license ownership, reports and generated media first.
 

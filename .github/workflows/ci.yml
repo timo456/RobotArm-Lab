@@ -23,14 +23,25 @@ jobs:
           python-version: ${{ matrix.python }}
           cache: pip
           cache-dependency-path: requirements-lock.txt
-      - run: python -m pip install -r requirements-lock.txt
+      - uses: actions/cache@v4
+        with:
+          path: .cache/wheelhouse
+          key: wheels-${{ runner.os }}-${{ matrix.python }}-${{ hashFiles('requirements-lock.txt') }}
+      - run: python -m pip install --only-binary=:all: packaging==26.3
+      - if: runner.os == 'Linux'
+        run: python scripts/prepare_wheelhouse.py
+      - if: runner.os == 'Windows'
+        run: python scripts/prepare_wheelhouse.py --allow-source-build
+      - run: python -m pip install --no-index --only-binary=:all: --find-links .cache/wheelhouse -r requirements-lock.txt
       - run: python -m pip install --no-deps --no-build-isolation -e .
       - run: python -m ruff check .
       - run: python -m ruff format --check .
       - run: python -m pytest --cov=robotarm_lab --cov-report=xml:outputs/coverage.xml --junitxml=outputs/pytest.xml
       - run: python -m robotarm_lab benchmark --output outputs/benchmark
+      - run: python scripts/hardening.py --output outputs/hardening
       - run: python -m robotarm_lab demo --output outputs/demo
       - run: python -m build --no-isolation
+      - run: python scripts/clean_environment.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:

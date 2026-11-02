@@ -11,6 +11,7 @@ from .kinematics import pose_error, solve_ik
 from .model import HOME, Array, CommandError, Pose
 from .simulation import World
 from .trajectory import Trajectory, plan
+from .validation import scalar
 
 
 class Controller:
@@ -31,14 +32,21 @@ class Controller:
 
     def event(self, kind: str, **data: object) -> None:
         if self.log:
-            with self.log.open("a", encoding="utf-8") as stream:
-                stream.write(
-                    json.dumps(
-                        {"time_unix": time(), "event": kind, "state": self.state, **data},
-                        allow_nan=False,
+            try:
+                with self.log.open("a", encoding="utf-8") as stream:
+                    stream.write(
+                        json.dumps(
+                            {"time_unix": time(), "event": kind, "state": self.state, **data},
+                            allow_nan=False,
+                        )
+                        + "\n"
                     )
-                    + "\n"
-                )
+            except OSError as exc:
+                self.trajectory = None
+                self.velocity[:] = 0
+                self.acceleration[:] = 0
+                self.state, self.last_error = "FAULT", f"Event log unavailable: {exc}"
+                raise CommandError(self.last_error) from exc
 
     def validate_path(self, trajectory: Trajectory) -> None:
         for i, q in enumerate(trajectory.collision_samples(self.config.collision_joint_step)):
@@ -85,8 +93,8 @@ class Controller:
         return self.move(result.q)
 
     def step(self, dt: float | None = None) -> None:
-        dt = self.config.control_dt if dt is None else dt
-        if not np.isfinite(dt) or dt <= 0 or dt > 0.05:
+        dt = scalar(self.config.control_dt if dt is None else dt, "Execution step")
+        if dt <= 0 or dt > 0.05:
             raise CommandError("Execution step must be in (0, 0.05] seconds")
         if self.state != "RUNNING" or self.trajectory is None:
             return
@@ -128,8 +136,7 @@ class Controller:
     def reset(self) -> None:
         """Explicit simulation reset: clear obstacles and place arm at home."""
         self.stop()
-        self.world.clear_obstacles()
-        self.world.set_q(HOME)
+        self.world.reset_scene()
         self.state, self.last_error = "IDLE", ""
         self.elapsed = 0.0
         self.event("reset")

@@ -1,11 +1,12 @@
-# RobotArm-Lab
+# RobotArm-Lab v0.1.1
 
 An inspectable six-axis robot control laboratory: independent forward kinematics,
-bounded numerical inverse kinematics, synchronized quintic trajectories, transactional
+geometric-branch inverse kinematics with bounded refinement, synchronized quintic trajectories,
+transactional
 collision rejection, and a desktop control station. Built for engineering study and a
 public software portfolio.
 
-![Executed simulation](docs/media/demo.gif)
+![Executed simulation v0.1.1](docs/media/demo-v0.1.1.gif)
 
 **Scope:** an original industrial-style RAL-6 arm in **kinematic simulation**. PyBullet
 provides collision geometry and rendering. Motion follows position references exactly;
@@ -15,10 +16,12 @@ Simulation checks are not functional-safety certification.
 ## Quick start — Windows / Python 3.12
 
 Use a local checkout such as `E:\GitHubProjects\RobotArm-Lab`. Install CPython 3.12
-with Tcl/Tk. PyBullet 3.2.7 has no official Windows wheel for this interpreter, so its
-first install requires **Visual Studio 2022 Build Tools**, the **Desktop development
-with C++** workload, and a Windows SDK. Source builds and USB-disk installation can
-take several minutes. No global Python packages are changed.
+with Tcl/Tk. PyBullet 3.2.7 has no official Windows wheel for this interpreter.
+The installer first reuses compatible trusted local wheels and never silently builds
+from source. This delivery includes a locally built wheel in the ignored E: cache;
+fresh Git clones do not include that binary. If no wheel is available, an explicit
+source build requires Visual Studio 2022 Build Tools, Desktop development with C++
+and a Windows SDK. No global Python packages are changed.
 
 ```powershell
 cd E:\GitHubProjects\RobotArm-Lab
@@ -27,7 +30,9 @@ $env:TEMP = "$PWD\.tmp"
 $env:TMP = $env:TEMP
 $env:PIP_CACHE_DIR = "$PWD\.cache\pip"
 py -3.12 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements-lock.txt
+.\.venv\Scripts\python.exe -m pip install --only-binary=:all: packaging==26.3
+.\.venv\Scripts\python.exe scripts\prepare_wheelhouse.py
+.\.venv\Scripts\python.exe -m pip install --no-index --only-binary=:all: --find-links .cache\wheelhouse -r requirements-lock.txt
 .\.venv\Scripts\python.exe -m pip install --no-deps --no-build-isolation -e .
 .\.venv\Scripts\python.exe -m robotarm_lab gui
 ```
@@ -35,6 +40,9 @@ py -3.12 -m venv .venv
 Keep using the `.venv` interpreter; activation and execution-policy changes are not
 required. All generated output defaults to `outputs/` inside the current directory.
 The bootstrap helper `scripts/bootstrap.ps1` performs these same local setup steps.
+On a fresh Windows clone with C++ tools, explicitly use
+`scripts/bootstrap.ps1 -AllowSourceBuild` (or `prepare_wheelhouse.py --allow-source-build`).
+One built wheel is cached for subsequent installations. No unofficial fork is substituted.
 For Linux, Python 3.11 has an upstream PyBullet wheel; install Tk separately for the GUI
 (`python3-tk` on Debian/Ubuntu), then use `.venv/bin/python` with the same module commands.
 
@@ -46,15 +54,22 @@ For Linux, Python 3.11 has an upstream PyBullet wheel; install Tk separately for
 .\.venv\Scripts\python.exe -m ruff check .
 .\.venv\Scripts\python.exe -m ruff format --check .
 .\.venv\Scripts\python.exe -m robotarm_lab benchmark --protocol acceptance.json --output outputs\benchmark
+.\.venv\Scripts\python.exe scripts\hardening.py --output outputs\hardening
+.\.venv\Scripts\python.exe scripts\gui_smoke.py --output outputs\gui-smoke
 .\.venv\Scripts\python.exe -m build --no-isolation
+.\.venv\Scripts\python.exe scripts\clean_environment.py
 ```
 
 The benchmark exits with status 1 on any failed acceptance gate. The full fixed-seed
 case records, dependency versions, source digest, protocol digest, and timing results
 are saved in JSON; no failed attempts are discarded. The committed
-[experiment report](reports/verified/report.md) and [validation notes](docs/VALIDATION.md)
-distinguish measured behavior from untested environments. Acceptance thresholds were
-committed before the first validation run; `acceptance.json` is the source of truth.
+[v0.1.1 readiness report](docs/RELEASE_READINESS_v0.1.1.md) distinguishes measured
+behavior from untested environments and compares both revisions on the same corpus.
+`reports/verified/` and [v0.1.0 notes](docs/VALIDATION.md) are preserved historical evidence.
+Both `acceptance.json` and `acceptance-v0.1.1.json` were committed before their respective
+fix/validation cycles. `tests/data/hardening-corpus.json` contains explicit replay targets.
+The clean-environment script refuses an existing destination; pass a new
+`--environment .tmp/another-clean-env` to repeat it without deleting prior evidence.
 
 ## Operate the station
 
@@ -75,6 +90,8 @@ committed before the first validation run; `acceptance.json` is the source of tr
 The GUI advances fixed simulation steps and is not a hard-real-time loop. Planning is
 synchronous while the arm is stationary. Use the Python API for arbitrary box obstacles.
 Rejected commands preserve the current pose; requests during motion are rejected as busy.
+Keyboard controls: **F5** Home, **F6** Demo, **F7** blocker, **F8** clear, **F9** reset,
+**Esc** freeze, **Ctrl+L** focus TCP X, **Ctrl+I** IK, **Ctrl+Enter** joint command.
 
 ## Engineering design
 
@@ -94,7 +111,8 @@ flowchart LR
 
 - FK composes joint-origin translations and Rodrigues rotations. Its output is
   cross-checked against PyBullet's independently loaded URDF link frame, not its COM.
-- IK uses bounded SciPy least squares and deterministic restarts, with SO(3) rotation
+- IK enumerates the model's shoulder/elbow/wrist branches, then uses bounded SciPy
+  least squares and deterministic restarts, with SO(3) rotation
   vector residuals. Joint bounds and independent simulator pose errors are checked.
   Reach-bound rejection is conservative; solver failure is not proof of unreachability.
 - Each joint follows `q=q0+(q1-q0)(10u³−15u⁴+6u⁵)`. Duration is derived from the exact
@@ -103,6 +121,11 @@ flowchart LR
   are excluded as structural neighbors; the mounting base/floor contact is allowed.
   Whole-path preflight and runtime segment checks use a maximum 0.01 rad joint step
   and 3 mm margin by default. These are sampled checks, **not continuous guarantees**.
+- Collision samples stream in constant memory. Steps outside [1e-6,0.02] rad or
+  requests exceeding 10,000 samples are rejected before checking. Precision is never
+  automatically reduced. Fine requests remain supported when the path fits the budget.
+- Scene capacity is 128 active boxes / 128 distinct shapes per reset. Repeated shapes
+  are reused; reset reclaims native geometry. Log failure freezes the controller in FAULT.
 
 See [architecture and equations](docs/ARCHITECTURE.md),
 [繁體中文使用文件](docs/USER_GUIDE.zh-TW.md), [limitations](docs/LIMITATIONS.md), and

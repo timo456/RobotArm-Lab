@@ -1,5 +1,6 @@
 """White-box desktop smoke: real Tk widgets/callbacks, no OS input injection."""
 
+import argparse
 import json
 import tkinter as tk
 from pathlib import Path
@@ -12,7 +13,10 @@ from robotarm_lab.model import HOME
 
 
 def main() -> None:
-    output = Path("outputs/gui-smoke")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--output", type=Path, default=Path("outputs/gui-smoke"))
+    args = parser.parse_args()
+    output = args.output
     output.mkdir(parents=True, exist_ok=True)
     root = tk.Tk()
     errors: list[str] = []
@@ -59,6 +63,25 @@ def main() -> None:
         checks["invalid_input_message"] = "REJECTED" in app.status.get()
         app.capture()
         checks["capture"] = (output / "viewport.png").is_file()
+        original_log = app.controller.log
+        app.controller.log = output  # Deliberately unwritable as a file.
+        app.invoke(lambda: app.controller.move(HOME + 0.1))
+        checks["log_failure_is_visible_and_frozen"] = (
+            "REJECTED" in app.status.get()
+            and app.controller.state == "FAULT"
+            and app.controller.trajectory is None
+        )
+        app.controller.log = original_log
+        app.reset()
+        render = app.world.render
+        app.world.render = lambda *a: (_ for _ in ()).throw(RuntimeError("Injected render error"))
+        app.frames = 1
+        app.tick()
+        checks["render_failure_visible"] = "Injected render error" in app.status.get()
+        app.world.render = render
+        app.reset()
+        app.tick()
+        checks["recovery_after_fault"] = app.controller.state == "IDLE"
         checks["no_callback_errors"] = not errors
         result = {
             "passed": all(checks.values()),
@@ -71,6 +94,7 @@ def main() -> None:
         if not result["passed"]:
             raise SystemExit(1)
     finally:
+        app.close()
         app.close()
     root = tk.Tk()
     app = App(root, load_config(), output)

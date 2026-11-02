@@ -1,0 +1,217 @@
+{
+  "passed": true,
+  "checks": {
+    "keyboard_commands": true,
+    "move_completed": true,
+    "obstacle_rejected": true,
+    "ik_solved": true,
+    "stop_recorded": true,
+    "reset_recorded": true
+  },
+  "events": [
+    {
+      "time_unix": 1793635688.7768776,
+      "event": "keyboard_action",
+      "state": "IDLE",
+      "action": "demo"
+    },
+    {
+      "time_unix": 1793635688.7838774,
+      "event": "accepted",
+      "state": "RUNNING",
+      "goal": [
+        -0.65,
+        -0.8,
+        1.15,
+        0.35,
+        -0.35,
+        0.5
+      ],
+      "duration": 1.2504627059833637
+    },
+    {
+      "time_unix": 1793635695.213733,
+      "event": "completed",
+      "state": "IDLE",
+      "q": [
+        -0.65,
+        -0.8,
+        1.15,
+        0.35,
+        -0.35,
+        0.5
+      ]
+    },
+    {
+      "time_unix": 1793635739.2536376,
+      "event": "keyboard_action",
+      "state": "IDLE",
+      "action": "home"
+    },
+    {
+      "time_unix": 1793635739.260519,
+      "event": "accepted",
+      "state": "RUNNING",
+      "goal": [
+        0.0,
+        -0.5,
+        1.0,
+        0.0,
+        -0.5,
+        0.0
+      ],
+      "duration": 1.2504627059833637
+    },
+    {
+      "time_unix": 1793635745.7821522,
+      "event": "completed",
+      "state": "IDLE",
+      "q": [
+        0.0,
+        -0.5,
+        1.0,
+        0.0,
+        -0.5,
+        0.0
+      ]
+    },
+    {
+      "time_unix": 1793635798.834503,
+      "event": "keyboard_action",
+      "state": "IDLE",
+      "action": "blocker"
+    },
+    {
+      "time_unix": 1793635827.789599,
+      "event": "keyboard_action",
+      "state": "IDLE",
+      "action": "demo"
+    },
+    {
+      "time_unix": 1793635827.794114,
+      "event": "rejected",
+      "state": "IDLE",
+      "reason": "Collision clearance rejected at sample 25: obstacle, link 3, distance 0.0003 m"
+    },
+    {
+      "time_unix": 1793635866.8779602,
+      "event": "keyboard_action",
+      "state": "IDLE",
+      "action": "clear"
+    },
+    {
+      "time_unix": 1793635882.6718497,
+      "event": "keyboard_action",
+      "state": "IDLE",
+      "action": "demo"
+    },
+    {
+      "time_unix": 1793635882.688218,
+      "event": "accepted",
+      "state": "RUNNING",
+      "goal": [
+        -0.65,
+        -0.8,
+        1.15,
+        0.35,
+        -0.35,
+        0.5
+      ],
+      "duration": 1.2504627059833637
+    },
+    {
+      "time_unix": 1793635889.1190872,
+      "event": "completed",
+      "state": "IDLE",
+      "q": [
+        -0.65,
+        -0.8,
+        1.15,
+        0.35,
+        -0.35,
+        0.5
+      ]
+    },
+    {
+      "time_unix": 1793635898.163465,
+      "event": "keyboard_action",
+      "state": "IDLE",
+      "action": "stop"
+    },
+    {
+      "time_unix": 1793635898.163465,
+      "event": "stopped",
+      "state": "STOPPED"
+    },
+    {
+      "time_unix": 1793635944.366824,
+      "event": "keyboard_action",
+      "state": "STOPPED",
+      "action": "reset"
+    },
+    {
+      "time_unix": 1793635944.388581,
+      "event": "stopped",
+      "state": "STOPPED"
+    },
+    {
+      "time_unix": 1793635944.3936477,
+      "event": "reset",
+      "state": "IDLE"
+    },
+    {
+      "time_unix": 1793635990.7500305,
+      "event": "keyboard_action",
+      "state": "IDLE",
+      "action": "focus_tcp_x"
+    },
+    {
+      "time_unix": 1793636055.8757648,
+      "event": "keyboard_action",
+      "state": "IDLE",
+      "action": "ik"
+    },
+    {
+      "time_unix": 1793636055.8817892,
+      "event": "ik_solved",
+      "state": "IDLE",
+      "position_error": 3.5343319839054835e-05,
+      "orientation_error": 5.551115123125783e-17,
+      "elapsed_ms": 3.6821000976487994
+    },
+    {
+      "time_unix": 1793636055.882788,
+      "event": "accepted",
+      "state": "RUNNING",
+      "goal": [
+        0.0,
+        -0.5,
+        1.0,
+        0.0,
+        -0.5,
+        0.0
+      ],
+      "duration": 0.01
+    },
+    {
+      "time_unix": 1793636055.891327,
+      "event": "completed",
+      "state": "IDLE",
+      "q": [
+        0.0,
+        -0.5,
+        1.0,
+        0.0,
+        -0.5,
+        0.0
+      ]
+    }
+  ],
+  "method": "Native Windows sky.press_key input; independent JSONL command evidence",
+  "screenshots_verified": false,
+  "mouse_clicks_verified": false,
+  "stop_during_motion_native_verified": false,
+  "capture_error": "window capture timed out: timed out waiting on channel",
+  "click_error": "coordinate input geometry is unavailable",
+  "notes": "Escape arrived after motion completed; stop-during-motion is separately verified by controller and Tk callback tests, not this native trace"
+}

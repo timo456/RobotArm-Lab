@@ -7,7 +7,6 @@ import os
 import platform
 import time
 import tracemalloc
-from dataclasses import replace
 from pathlib import Path
 
 import numpy as np
@@ -25,12 +24,26 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def rss_bytes() -> int:
     if os.name == "nt":
+
         class Counters(ctypes.Structure):
-            _fields_ = [("cb", ctypes.c_ulong), ("PageFaultCount", ctypes.c_ulong),
-                        *[(name, ctypes.c_size_t) for name in (
-                            "PeakWorkingSetSize", "WorkingSetSize", "QuotaPeakPagedPoolUsage",
-                            "QuotaPagedPoolUsage", "QuotaPeakNonPagedPoolUsage",
-                            "QuotaNonPagedPoolUsage", "PagefileUsage", "PeakPagefileUsage")]]
+            _fields_ = [
+                ("cb", ctypes.c_ulong),
+                ("PageFaultCount", ctypes.c_ulong),
+                *[
+                    (name, ctypes.c_size_t)
+                    for name in (
+                        "PeakWorkingSetSize",
+                        "WorkingSetSize",
+                        "QuotaPeakPagedPoolUsage",
+                        "QuotaPagedPoolUsage",
+                        "QuotaPeakNonPagedPoolUsage",
+                        "QuotaNonPagedPoolUsage",
+                        "PagefileUsage",
+                        "PeakPagefileUsage",
+                    )
+                ],
+            ]
+
         counters = Counters()
         counters.cb = ctypes.sizeof(counters)
         handle = ctypes.windll.kernel32.GetCurrentProcess
@@ -40,12 +53,15 @@ def rss_bytes() -> int:
         if not query(handle(), ctypes.byref(counters), counters.cb):
             raise OSError("Unable to measure working set")
         return int(counters.WorkingSetSize)
-    return int(Path("/proc/self/statm").read_text().split()[1])*os.sysconf("SC_PAGE_SIZE")
+    return int(Path("/proc/self/statm").read_text().split()[1]) * os.sysconf("SC_PAGE_SIZE")
 
 
 def stats(values: list[float]) -> dict:
-    return dict(p50_ms=float(np.percentile(values, 50)), p95_ms=float(np.percentile(values, 95)),
-                max_ms=max(values))
+    return dict(
+        p50_ms=float(np.percentile(values, 50)),
+        p95_ms=float(np.percentile(values, 95)),
+        max_ms=max(values),
+    )
 
 
 def run(output: Path, baseline: bool = False) -> int:
@@ -65,15 +81,27 @@ def run(output: Path, baseline: bool = False) -> int:
                 result = solve_ik(target, case["seed"], config)
                 pe, re = pose_error(world.pose_at(result.q), target)
                 violation = int(np.sum((result.q < LOWER) | (result.q > UPPER)))
-                record.update(returned=True, position_error_m=pe, orientation_error_rad=re,
-                              q=result.q.tolist(), attempts=result.attempts, violations=violation,
-                              success=case["group"] != "unreachable" and violation == 0 and
-                              pe <= gates["ik_position_max_m"] and
-                              re <= gates["ik_orientation_max_rad"])
+                record.update(
+                    returned=True,
+                    position_error_m=pe,
+                    orientation_error_rad=re,
+                    diagnostics=list(getattr(result, "diagnostics", ())),
+                    q=result.q.tolist(),
+                    attempts=result.attempts,
+                    violations=violation,
+                    success=case["group"] != "unreachable"
+                    and violation == 0
+                    and pe <= gates["ik_position_max_m"]
+                    and re <= gates["ik_orientation_max_rad"],
+                )
             except CommandError as exc:
-                record.update(returned=False, reason=str(exc),
-                              success=case["group"] == "unreachable")
-            record["elapsed_ms"] = (time.perf_counter()-start)*1000
+                record.update(
+                    returned=False,
+                    reason=str(exc),
+                    diagnostics=list(getattr(exc, "diagnostics", ())),
+                    success=case["group"] == "unreachable",
+                )
+            record["elapsed_ms"] = (time.perf_counter() - start) * 1000
             records.append(record)
         for scene in corpus["scenes"]:
             world.clear_obstacles()
@@ -81,8 +109,10 @@ def run(output: Path, baseline: bool = False) -> int:
             world.add_box(scene["center"], scene["half_extents"])
             trajectory = plan(scene["start"], scene["goal"], config)
             known_contact = bool(world.collisions(scene["known_q"], 0))
-            dense_contact = any(world.collisions(q, 0) for q in
-                                trajectory.collision_samples(gates["collision_reference_joint_step"]))
+            dense_contact = any(
+                world.collisions(q, 0)
+                for q in trajectory.collision_samples(gates["collision_reference_joint_step"])
+            )
             controller = Controller(world, config)
             before = controller.q
             start = time.perf_counter()
@@ -92,26 +122,35 @@ def run(output: Path, baseline: bool = False) -> int:
                 controller.stop()
             except CommandError:
                 rejected = True
-            collision_records.append(dict(id=scene["id"], group=scene["group"],
-                                          reference_contact=dense_contact,
-                                          known_contact=known_contact, rejected=rejected,
-                                          unchanged=bool(np.array_equal(controller.q,before)),
-                                          elapsed_ms=(time.perf_counter()-start)*1000))
+            collision_records.append(
+                dict(
+                    id=scene["id"],
+                    group=scene["group"],
+                    reference_contact=dense_contact,
+                    known_contact=known_contact,
+                    rejected=rejected,
+                    unchanged=bool(np.array_equal(controller.q, before)),
+                    elapsed_ms=(time.perf_counter() - start) * 1000,
+                )
+            )
 
-    trajectory_ratio, violations = 0., 0
+    trajectory_ratio, violations = 0.0, 0
     for case in corpus["trajectories"]:
         trajectory = plan(case["start"], case["goal"], config)
-        delta = np.abs(trajectory.goal-trajectory.start)
-        trajectory_ratio = max(trajectory_ratio,
-                               float(np.max(1.875*delta/trajectory.duration/config.velocity)),
-                               float(np.max((10*np.sqrt(3)/3)*delta /
-                                            trajectory.duration**2/config.acceleration)))
+        delta = np.abs(trajectory.goal - trajectory.start)
+        trajectory_ratio = max(
+            trajectory_ratio,
+            float(np.max(1.875 * delta / trajectory.duration / config.velocity)),
+            float(
+                np.max((10 * np.sqrt(3) / 3) * delta / trajectory.duration**2 / config.acceleration)
+            ),
+        )
         for t in np.linspace(0, trajectory.duration, 101):
-            q,_,_ = trajectory.sample(t)
+            q, _, _ = trajectory.sample(t)
             violations += int(np.sum((q < LOWER) | (q > UPPER)))
 
     # Instrument the vulnerable revision to record a dangerous allocation request without OOM.
-    trajectory = plan(HOME, HOME+.1, config)
+    trajectory = plan(HOME, HOME + 0.1, config)
     unsafe_allocations = []
     original_linspace = np.linspace
 
@@ -128,7 +167,7 @@ def run(output: Path, baseline: bool = False) -> int:
     tracemalloc.start()
     try:
         for i in range(gates["resource_stress_repetitions"]):
-            step = [1e-300, float(np.nextafter(0., 1.)), 1e-12, 1e-6][i % 4]
+            step = [1e-300, float(np.nextafter(0.0, 1.0)), 1e-12, 1e-6][i % 4]
             start = time.perf_counter()
             try:
                 # Force consumption too, to detect implementations deferring validation.
@@ -139,7 +178,7 @@ def run(output: Path, baseline: bool = False) -> int:
                 reason, rejected = str(exc), True
             except (RuntimeError, OverflowError, ValueError) as exc:
                 reason, rejected = str(exc), False
-            elapsed = (time.perf_counter()-start)*1000
+            elapsed = (time.perf_counter() - start) * 1000
             rejects += rejected
             latencies.append(elapsed)
             if i < 4:
@@ -148,67 +187,112 @@ def run(output: Path, baseline: bool = False) -> int:
     finally:
         tracemalloc.stop()
         np.linspace = original_linspace
-    stress_rss_growth = max(0,rss_bytes()-stress_start_rss)
-    fine = plan(HOME, HOME+.008, config)
+    stress_rss_growth = max(0, rss_bytes() - stress_start_rss)
+    fine = plan(HOME, HOME + 0.008, config)
     start = time.perf_counter()
-    previous, spacing, count = None, 0., 0
+    previous, spacing, count = None, 0.0, 0
     for q in fine.collision_samples(1e-6):
         if previous is not None:
-            spacing = max(spacing, float(np.max(np.abs(q-previous))))
-        previous, count = q, count+1
-    scan_ms = (time.perf_counter()-start)*1000
+            spacing = max(spacing, float(np.max(np.abs(q - previous))))
+        previous, count = q, count + 1
+    scan_ms = (time.perf_counter() - start) * 1000
     summary = {}
     for group in ("cold", "boundary", "singular", "unreachable"):
         selected = [r for r in records if r["group"] == group]
         returned = [r for r in selected if r["returned"]]
-        summary[group] = dict(total=len(selected), successes=sum(r["success"] for r in selected),
-                              success_rate=sum(r["success"] for r in selected)/len(selected),
-                              **stats([r["elapsed_ms"] for r in selected]),
-                              max_position_error_m=max((r["position_error_m"] for r in returned),
-                                                       default=None),
-                              max_orientation_error_rad=max((r["orientation_error_rad"]
-                                                             for r in returned),default=None))
+        summary[group] = dict(
+            total=len(selected),
+            successes=sum(r["success"] for r in selected),
+            success_rate=sum(r["success"] for r in selected) / len(selected),
+            **stats([r["elapsed_ms"] for r in selected]),
+            max_position_error_m=max((r["position_error_m"] for r in returned), default=None),
+            max_orientation_error_rad=max(
+                (r["orientation_error_rad"] for r in returned), default=None
+            ),
+        )
     summary["collisions"] = dict(
         total=len(collision_records),
         reference_contacts=sum(r["reference_contact"] for r in collision_records),
-        false_negatives=sum(r["reference_contact"] and not r["rejected"] for r in collision_records),
-        conservative_rejections=sum(not r["reference_contact"] and r["rejected"]
-                                    for r in collision_records),
+        false_negatives=sum(
+            r["reference_contact"] and not r["rejected"] for r in collision_records
+        ),
+        conservative_rejections=sum(
+            not r["reference_contact"] and r["rejected"] for r in collision_records
+        ),
         pose_changes=sum(not r["unchanged"] for r in collision_records),
-        **stats([r["elapsed_ms"] for r in collision_records]))
-    summary["resources"] = dict(rejections=rejects, requests=len(latencies),
-                                peak_tracemalloc_bytes=peak, rss_growth_bytes=stress_rss_growth,
-                                process_rss_bytes=rss_bytes(), initial_rss_bytes=start_rss,
-                                audit_prevented_allocations=len(unsafe_allocations),
-                                supported_samples=count, supported_max_spacing=spacing,
-                                supported_scan_ms=scan_ms, **stats(latencies))
+        **stats([r["elapsed_ms"] for r in collision_records]),
+    )
+    summary["resources"] = dict(
+        rejections=rejects,
+        requests=len(latencies),
+        peak_tracemalloc_bytes=peak,
+        rss_growth_bytes=stress_rss_growth,
+        process_rss_bytes=rss_bytes(),
+        initial_rss_bytes=start_rss,
+        audit_prevented_allocations=len(unsafe_allocations),
+        supported_samples=count,
+        supported_max_spacing=spacing,
+        supported_scan_ms=scan_ms,
+        **stats(latencies),
+    )
     summary["trajectory_limit_ratio"] = trajectory_ratio
-    summary["joint_limit_violations"] = violations+sum(r.get("violations",0) for r in records)
-    checks = {f"{g}_success": summary[g]["success_rate"] >= gates["ik_success_min"]
-              for g in ("cold", "boundary", "singular", "unreachable")}
-    checks.update({f"{g}_latency": summary[g]["p95_ms"] <= gates["ik_p95_ms_max"] and
-                   summary[g]["max_ms"] <= gates["ik_max_ms_max"]
-                   for g in ("cold", "boundary", "singular", "unreachable")})
+    summary["joint_limit_violations"] = violations + sum(r.get("violations", 0) for r in records)
+    checks = {
+        f"{g}_success": summary[g]["success_rate"] >= gates["ik_success_min"]
+        for g in ("cold", "boundary", "singular", "unreachable")
+    }
+    checks.update(
+        {
+            f"{g}_latency": summary[g]["p95_ms"] <= gates["ik_p95_ms_max"]
+            and summary[g]["max_ms"] <= gates["ik_max_ms_max"]
+            for g in ("cold", "boundary", "singular", "unreachable")
+        }
+    )
     checks.update(
         collision_misses=summary["collisions"]["false_negatives"] == 0,
         collision_atomic=summary["collisions"]["pose_changes"] == 0,
-        thin_fixtures_contact=all(r["known_contact"] for r in collision_records if r["group"] == "thin"),
+        thin_fixtures_contact=all(
+            r["known_contact"] for r in collision_records if r["group"] == "thin"
+        ),
         trajectory_limits=trajectory_ratio <= gates["trajectory_limit_ratio_max"],
         joint_limits=summary["joint_limit_violations"] == 0,
         resource_fail_closed=rejects == len(latencies),
         resource_memory=peak <= gates["resource_peak_tracemalloc_bytes_max"],
         resource_rss=stress_rss_growth <= gates["resource_stress_rss_growth_bytes_max"],
         resource_latency=stats(latencies)["p95_ms"] <= gates["resource_rejection_p95_ms_max"],
-        resource_supported_precision=count <= gates["resource_max_samples"] and spacing <= 1e-6+1e-14,
-        resource_supported_time=scan_ms <= gates["resource_supported_scan_ms_max"])
-    result = dict(passed=all(checks.values()), baseline=baseline, checks=checks, summary=summary,
-                  ik_cases=records, collision_cases=collision_records, resource_cases=resource_cases,
-                  corpus_sha256=hashlib.sha256(corpus_bytes).hexdigest(),
-                  protocol_sha256=hashlib.sha256(protocol_bytes).hexdigest(),
-                  version=robotarm_lab.__version__, environment=dict(python=platform.python_version(),
-                  system=platform.system(), release=platform.release()),
-                  limitations="Dense discrete collision reference, not continuous ground truth; "
-                  "RSS includes allocator/cache effects; legacy OOM allocation instrumented, not executed")
-    (output / "results.json").write_text(json.dumps(result, indent=2, allow_nan=False), encoding="utf-8")
-    print(json.dumps({"passed":result["passed"],"summary":summary,"checks":checks},indent=2))
+        resource_supported_precision=count <= gates["resource_max_samples"]
+        and spacing <= 1e-6 + 1e-14,
+        resource_supported_time=scan_ms <= gates["resource_supported_scan_ms_max"],
+    )
+    result = dict(
+        passed=all(checks.values()),
+        baseline=baseline,
+        checks=checks,
+        summary=summary,
+        ik_cases=records,
+        collision_cases=collision_records,
+        resource_cases=resource_cases,
+        corpus_sha256=hashlib.sha256(corpus_bytes).hexdigest(),
+        protocol_sha256=hashlib.sha256(protocol_bytes).hexdigest(),
+        version=robotarm_lab.__version__,
+        environment=dict(
+            python=platform.python_version(), system=platform.system(), release=platform.release()
+        ),
+        limitations="Dense discrete collision reference, not continuous ground truth; "
+        "RSS includes allocator/cache effects; legacy OOM allocation instrumented, not executed",
+    )
+    digest = hashlib.sha256()
+    package = Path(robotarm_lab.__file__).parent
+    for path in sorted(package.rglob("*")):
+        if path.suffix in (".py", ".json", ".urdf"):
+            digest.update(path.relative_to(package).as_posix().encode())
+            digest.update(path.read_text(encoding="utf-8").encode())
+    result["source_sha256"] = digest.hexdigest()
+    result["harness_sha256"] = hashlib.sha256(
+        Path(__file__).read_text(encoding="utf-8").encode()
+    ).hexdigest()
+    (output / "results.json").write_text(
+        json.dumps(result, indent=2, allow_nan=False), encoding="utf-8"
+    )
+    print(json.dumps({"passed": result["passed"], "summary": summary, "checks": checks}, indent=2))
     return 0 if result["passed"] or baseline else 1

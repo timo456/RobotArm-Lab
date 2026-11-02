@@ -42,8 +42,8 @@ class Pose:
             raise CommandError("Pose requires xyz position and a 3x3 rotation matrix")
         if not np.all(np.isfinite(p)) or not np.all(np.isfinite(r)):
             raise CommandError("Pose must be finite")
-        if not np.allclose(r.T @ r, np.eye(3), atol=1e-7) or not np.isclose(
-            np.linalg.det(r), 1, atol=1e-7
+        if not np.allclose(r.T @ r, np.eye(3), atol=1e-7, rtol=0) or not np.isclose(
+            np.linalg.det(r), 1, atol=1e-7, rtol=0
         ):
             raise CommandError("Rotation must belong to SO(3)")
         p.setflags(write=False)

@@ -19,11 +19,11 @@ with World() as world:
     for joint in range(6):
         for bound, sign in [(LOWER, 1), (UPPER, -1)]:
             for offset in protocol["boundary_offsets_rad"]:
-                q = rng.uniform(LOWER*.8, UPPER*.8)
-                q[joint] = bound[joint] + sign*offset
+                q = rng.uniform(LOWER * 0.8, UPPER * 0.8)
+                q[joint] = bound[joint] + sign * offset
                 targets.append(("boundary", q))
     for i in range(24):
-        q = rng.uniform(LOWER*.7, UPPER*.7)
+        q = rng.uniform(LOWER * 0.7, UPPER * 0.7)
         if i % 3 != 1:
             q[4] = 0
         if i % 3 != 0:
@@ -31,46 +31,76 @@ with World() as world:
         targets.append(("singular", q))
     for index, (group, q) in enumerate(targets):
         pose = world.pose_at(q)
-        cases.append(dict(id=index, group=group, source_q=q.tolist(), seed=HOME.tolist(),
-                          position=pose.position.tolist(), rotation=pose.rotation.tolist()))
+        cases.append(
+            dict(
+                id=index,
+                group=group,
+                source_q=q.tolist(),
+                seed=HOME.tolist(),
+                position=pose.position.tolist(),
+                rotation=pose.rotation.tolist(),
+            )
+        )
     for i in range(24):
         rotation = np.eye(3)
         if i < 8:
-            p = np.array([2.0+i*.1, 0, .34])
+            p = np.array([2.0 + i * 0.1, 0, 0.34])
             reason = "outside_outer_bound"
         elif i < 16:
-            p = np.array([.9+(i-8)*.01, 0, .34])
+            p = np.array([0.9 + (i - 8) * 0.01, 0, 0.34])
             rotation = Rotation.from_euler("z", np.pi).as_matrix()
             reason = "wrist_center_too_far"
         else:
-            p = np.array([.22+(i-16)*.002, 0, .34])
+            p = np.array([0.22 + (i - 16) * 0.002, 0, 0.34])
             reason = "wrist_center_inner_void"
-        cases.append(dict(id=len(cases), group="unreachable", expected_reason=reason,
-                          seed=HOME.tolist(), position=p.tolist(), rotation=rotation.tolist()))
+        cases.append(
+            dict(
+                id=len(cases),
+                group="unreachable",
+                expected_reason=reason,
+                seed=HOME.tolist(),
+                position=p.tolist(),
+                rotation=rotation.tolist(),
+            )
+        )
 
 scenes = []
 for i in range(48):
-    q0 = HOME + rng.uniform(-.1, .1, 6)
+    q0 = HOME + rng.uniform(-0.1, 0.1, 6)
     q1 = q0.copy()
-    q0[0], q1[0] = -.8, .8
-    alpha = float(rng.uniform(.25, .75))
-    known_q = q0+(q1-q0)*alpha
+    q0[0], q1[0] = -0.8, 0.8
+    alpha = float(rng.uniform(0.25, 0.75))
+    known_q = q0 + (q1 - q0) * alpha
     p = fk(known_q).position
     if i < 32:
-        extents = rng.uniform(.005, .06, 3)
-        p = p + rng.uniform(-.03, .03, 3)
+        extents = rng.uniform(0.005, 0.06, 3)
+        p = p + rng.uniform(-0.03, 0.03, 3)
         if i % 4 == 0:
-            p = np.array([1.5, float(rng.uniform(-1, 1)), .5])
+            p = np.array([1.5, float(rng.uniform(-1, 1)), 0.5])
     else:
-        extents = np.array([.00025, .008, .08])
-    scenes.append(dict(id=i, group="random" if i < 32 else "thin", start=q0.tolist(),
-                       goal=q1.tolist(), center=p.tolist(), half_extents=extents.tolist(),
-                       known_q=known_q.tolist()))
+        extents = np.array([0.00025, 0.008, 0.08])
+    scenes.append(
+        dict(
+            id=i,
+            group="random" if i < 32 else "thin",
+            start=q0.tolist(),
+            goal=q1.tolist(),
+            center=p.tolist(),
+            half_extents=extents.tolist(),
+            known_q=known_q.tolist(),
+        )
+    )
 
-trajectories = [dict(start=a.tolist(), goal=b.tolist())
-                for a,b in rng.uniform(LOWER, UPPER, (100, 2, 6))]
-result = dict(protocol="acceptance-v0.1.1.json", seed=protocol["seed"], ik=cases,
-              scenes=scenes, trajectories=trajectories)
+trajectories = [
+    dict(start=a.tolist(), goal=b.tolist()) for a, b in rng.uniform(LOWER, UPPER, (100, 2, 6))
+]
+result = dict(
+    protocol="acceptance-v0.1.1.json",
+    seed=protocol["seed"],
+    ik=cases,
+    scenes=scenes,
+    trajectories=trajectories,
+)
 destination = ROOT / "tests/data/hardening-corpus.json"
 destination.parent.mkdir(exist_ok=True)
 if destination.exists():

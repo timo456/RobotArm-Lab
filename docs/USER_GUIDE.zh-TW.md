@@ -1,5 +1,8 @@
 # RobotArm-Lab 使用文件
 
+目前版本：**v0.1.1**。新增極小步長防護、幾何 IK 分支、資源上限、鍵盤操作與
+離線 wheel 安裝。新版實測及舊版比較請看 [發布驗收](RELEASE_READINESS_v0.1.1.md)。
+
 這是一套可實際操作、可重現驗證的六軸機械手臂**運動學模擬**。模型 RAL-6
 為本專案原創幾何，不代表任何特定廠牌。它示範運動學、軌跡時間參數化與碰撞拒絕，
 不包含實體伺服控制、安全 PLC、力矩控制或工業安全認證。
@@ -8,7 +11,8 @@
 
 建議 Windows 10、Python 3.12（含 Tcl/Tk）。PyBullet 3.2.7 在此 Windows 組合須
 從原始碼編譯，需要已安裝的 Visual Studio 2022 Build Tools、C++ 桌面開發工具與
-Windows SDK。請參照英文 README 的完整安裝命令，或在專案根目錄執行：
+Windows SDK（只有沒有相容 wheel、且明確選擇編譯時才需要）。安裝會優先重用
+本機可信任的 PyBullet wheel，預設不會偷偷編譯。請參照英文 README，或執行：
 
 ```powershell
 .\scripts\bootstrap.ps1
@@ -16,6 +20,9 @@ Windows SDK。請參照英文 README 的完整安裝命令，或在專案根目�
 ```
 
 安裝腳本只建立專案內的 `.venv`、`.tmp` 與 `.cache`，不修改全域 Python。
+全新 Windows Git checkout 沒有相容 wheel 時，請使用
+`scripts/bootstrap.ps1 -AllowSourceBuild` 明確啟用一次原始碼編譯。後續會重用快取。
+本交付的 E 槽快取包含已實測的 CPython 3.12 wheel，不會把二進位檔提交到 Git。
 本交付位於 `E:\GitHubProjects\RobotArm-Lab`；執行前請確認 E 槽已連接。
 若 PowerShell 阻擋腳本，可直接使用 README 的逐行命令，不需更改系統執行原則。
 
@@ -32,6 +39,9 @@ Windows SDK。請參照英文 README 的完整安裝命令，或在專案根目�
 - STOP / FREEZE 立即凍結模擬。真實機械手臂不可能如此瞬間停止，此處不模擬煞車距離。
 - 視角滑桿旋轉相機；Save viewport PNG 將目前 3D 畫面存入輸出目錄。
 
+鍵盤：F5 Home、F6 Demo、F7 障礙物、F8 清除、F9 Reset、Esc 停止；
+Ctrl+L 將焦點放到 TCP X，Ctrl+I 執行 IK，Ctrl+Enter 執行關節目標。
+
 狀態列顯示 IDLE、RUNNING、STOPPED、BLOCKED；拒絕指令會顯示原因。
 監控包含六軸角度、TCP、最大關節速度、障礙物數量與模擬時間。
 執行中的新命令會被拒絕；請先等待完成或停止。GUI 不是即時控制系統；畫面較慢時，
@@ -43,6 +53,8 @@ Windows SDK。請參照英文 README 的完整安裝命令，或在專案根目�
 .\.venv\Scripts\python.exe -m pytest
 .\.venv\Scripts\python.exe -m robotarm_lab benchmark --output outputs\benchmark
 .\.venv\Scripts\python.exe -m robotarm_lab demo --output outputs\demo
+.\.venv\Scripts\python.exe scripts\hardening.py --output outputs\hardening
+.\.venv\Scripts\python.exe scripts\gui_smoke.py --output outputs\gui-smoke
 ```
 
 批次驗證使用固定種子 20261102，門檻於第一次驗證前存入 `acceptance.json`。
@@ -68,3 +80,9 @@ Windows SDK。請參照英文 README 的完整安裝命令，或在專案根目�
 
 預設每段關節插值最大 0.01 rad、碰撞餘裕 3 mm，屬離散取樣檢查，可能漏掉
 非常薄或高速相對運動的障礙物。不得據此宣稱真機安全、零碰撞保證或安全認證。
+
+v0.1.1 明確限制碰撞步長為 [1e-6,0.02] rad，每次路徑檢查至多 10,000 個取樣。
+超過預算會在配置記憶體或查詢模擬器之前拒絕，**不會自動放大步長**。
+短路徑仍可使用 1e-6 rad 精度；API 現在回傳逐點 iterator。
+最多 128 個有效障礙物及 128 種形狀；Reset 會回收形狀資源。
+紀錄寫入失敗會進入 FAULT 並凍結模擬；請修復輸出路徑再重置。

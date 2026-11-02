@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="8" skipped="0" tests="14" time="0.836" timestamp="2026-11-02T23:52:25.715636+08:00"><testcase classname="tests.test_resources" name="test_config_rejects_unsupported_steps[1e-300]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">step = 1e-300
+
+    @pytest.mark.parametrize("step", [1e-300, np.nextafter(0., 1.), 1e-12, 0., -1.,
+                                      float("inf"), float("nan"), True, [0.01], "0.01"])
+    def test_config_rejects_unsupported_steps(step):
+&gt;       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_resources.py:18: Failed</failure></testcase><testcase classname="tests.test_resources" name="test_config_rejects_unsupported_steps[5e-324]" time="0.001"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">step = np.float64(5e-324)
+
+    @pytest.mark.parametrize("step", [1e-300, np.nextafter(0., 1.), 1e-12, 0., -1.,
+                                      float("inf"), float("nan"), True, [0.01], "0.01"])
+    def test_config_rejects_unsupported_steps(step):
+&gt;       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_resources.py:18: Failed</failure></testcase><testcase classname="tests.test_resources" name="test_config_rejects_unsupported_steps[1e-12]" time="0.001"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">step = 1e-12
+
+    @pytest.mark.parametrize("step", [1e-300, np.nextafter(0., 1.), 1e-12, 0., -1.,
+                                      float("inf"), float("nan"), True, [0.01], "0.01"])
+    def test_config_rejects_unsupported_steps(step):
+&gt;       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_resources.py:18: Failed</failure></testcase><testcase classname="tests.test_resources" name="test_config_rejects_unsupported_steps[0.0]" time="0.001" /><testcase classname="tests.test_resources" name="test_config_rejects_unsupported_steps[-1.0]" time="0.000" /><testcase classname="tests.test_resources" name="test_config_rejects_unsupported_steps[inf]" time="0.000" /><testcase classname="tests.test_resources" name="test_config_rejects_unsupported_steps[nan]" time="0.000" /><testcase classname="tests.test_resources" name="test_config_rejects_unsupported_steps[True]" time="0.000" /><testcase classname="tests.test_resources" name="test_config_rejects_unsupported_steps[step8]" time="0.001"><failure message="TypeError: '&lt;=' not supported between instances of 'list' and 'int'">step = [0.01]
+
+    @pytest.mark.parametrize("step", [1e-300, np.nextafter(0., 1.), 1e-12, 0., -1.,
+                                      float("inf"), float("nan"), True, [0.01], "0.01"])
+    def test_config_rejects_unsupported_steps(step):
+        with pytest.raises(ValueError):
+&gt;           replace(load_config(), collision_joint_step=step)
+
+tests\test_resources.py:19:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+&lt;user-home&gt;\AppData\Local\Programs\Python\Python312\Lib\dataclasses.py:1581: in replace
+    return obj.__class__(**changes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+&lt;string&gt;:11: in __init__
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = Config(velocity=array([1.2, 1. , 1. , 1.5, 1.5, 1.8]), acceleration=array([2.4, 2. , 2. , 3. , 3. , 3.6]), collision_m...lision_joint_step=[0.01], control_dt=0.01, ik_position_tolerance=0.0001, ik_orientation_tolerance=0.001, ik_restarts=8)
+
+    def __post_init__(self) -&gt; None:
+        for name in ("velocity", "acceleration"):
+            a = np.array(getattr(self, name), dtype=float)
+            if a.shape != (6,) or not np.all(np.isfinite(a)) or np.any(a &lt;= 0):
+                raise ValueError(f"{name}: expected six finite positive limits")
+            a.setflags(write=False)
+            object.__setattr__(self, name, a)
+        for name in (
+            "collision_margin",
+            "collision_joint_step",
+            "control_dt",
+            "ik_position_tolerance",
+            "ik_orientation_tolerance",
+        ):
+            v = getattr(self, name)
+&gt;           if not np.isfinite(v) or v &lt;= 0:
+                                     ^^^^^^
+E           TypeError: '&lt;=' not supported between instances of 'list' and 'int'
+
+src\robotarm_lab\config.py:39: TypeError</failure></testcase><testcase classname="tests.test_resources" name="test_config_rejects_unsupported_steps[0.01]" time="0.047"><failure message="TypeError: ufunc 'isfinite' not supported for the input types, and the inputs could not be safely coerced to any supported types according to the casting rule ''safe''">step = '0.01'
+
+    @pytest.mark.parametrize("step", [1e-300, np.nextafter(0., 1.), 1e-12, 0., -1.,
+                                      float("inf"), float("nan"), True, [0.01], "0.01"])
+    def test_config_rejects_unsupported_steps(step):
+        with pytest.raises(ValueError):
+&gt;           replace(load_config(), collision_joint_step=step)
+
+tests\test_resources.py:19:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+&lt;user-home&gt;\AppData\Local\Programs\Python\Python312\Lib\dataclasses.py:1581: in replace
+    return obj.__class__(**changes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+&lt;string&gt;:11: in __init__
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = Config(velocity=array([1.2, 1. , 1. , 1.5, 1.5, 1.8]), acceleration=array([2.4, 2. , 2. , 3. , 3. , 3.6]), collision_m...lision_joint_step='0.01', control_dt=0.01, ik_position_tolerance=0.0001, ik_orientation_tolerance=0.001, ik_restarts=8)
+
+    def __post_init__(self) -&gt; None:
+        for name in ("velocity", "acceleration"):
+            a = np.array(getattr(self, name), dtype=float)
+            if a.shape != (6,) or not np.all(np.isfinite(a)) or np.any(a &lt;= 0):
+                raise ValueError(f"{name}: expected six finite positive limits")
+            a.setflags(write=False)
+            object.__setattr__(self, name, a)
+        for name in (
+            "collision_margin",
+            "collision_joint_step",
+            "control_dt",
+            "ik_position_tolerance",
+            "ik_orientation_tolerance",
+        ):
+            v = getattr(self, name)
+&gt;           if not np.isfinite(v) or v &lt;= 0:
+                   ^^^^^^^^^^^^^^
+E           TypeError: ufunc 'isfinite' not supported for the input types, and the inputs could not be safely coerced to any supported types according to the casting rule ''safe''
+
+src\robotarm_lab\config.py:39: TypeError</failure></testcase><testcase classname="tests.test_resources" name="test_oversized_sampling_rejects_before_any_allocation" time="0.001"><failure message="Failed: Eager allocation attempted">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000000006824ADB0&gt;
+
+    def test_oversized_sampling_rejects_before_any_allocation(monkeypatch):
+        trajectory = plan(HOME, HOME+.2, load_config())
+        monkeypatch.setattr(np, "linspace", lambda *a, **kw: pytest.fail("Eager allocation attempted"))
+        with pytest.raises(CommandError, match="budget|step"):
+&gt;           trajectory.collision_samples(1e-6)
+
+tests\test_resources.py:26:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\robotarm_lab\trajectory.py:49: in collision_samples
+    return np.linspace(self.start, self.goal, count + 1)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+a = (array([ 0. , -0.5,  1. ,  0. , -0.5,  0. ]), array([ 0.2, -0.3,  1.2,  0.2, -0.3,  0.2]), 200002)
+kw = {}
+
+&gt;   monkeypatch.setattr(np, "linspace", lambda *a, **kw: pytest.fail("Eager allocation attempted"))
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: Eager allocation attempted
+
+tests\test_resources.py:24: Failed</failure></testcase><testcase classname="tests.test_resources" name="test_stream_preserves_precision_and_endpoints" time="0.001"><failure message="assert &lt;iterator object at 0x0000000068248EE0&gt; is array([[ 0.00000000e+00, -5.00000000e-01,  1.00000000e+00,\n         0.00000000e+00, -5.00000000e-01,  0.00000000e+00],..., -4.96000000e-01,  1.00400000e+00,\n         4.00000000e-03, -4.96000000e-01,  4.00000000e-03]],\n      shape=(4002, 6))&#10; +  where &lt;iterator object at 0x0000000068248EE0&gt; = iter(array([[ 0.00000000e+00, -5.00000000e-01,  1.00000000e+00,\n         0.00000000e+00, -5.00000000e-01,  0.00000000e+00],..., -4.96000000e-01,  1.00400000e+00,\n         4.00000000e-03, -4.96000000e-01,  4.00000000e-03]],\n      shape=(4002, 6)))">def test_stream_preserves_precision_and_endpoints():
+        trajectory = plan(HOME, HOME+.004, load_config())
+        samples = trajectory.collision_samples(1e-6)
+&gt;       assert iter(samples) is samples
+E       assert &lt;iterator object at 0x0000000068248EE0&gt; is array([[ 0.00000000e+00, -5.00000000e-01,  1.00000000e+00,\n         0.00000000e+00, -5.00000000e-01,  0.00000000e+00],..., -4.96000000e-01,  1.00400000e+00,\n         4.00000000e-03, -4.96000000e-01,  4.00000000e-03]],\n      shape=(4002, 6))
+E        +  where &lt;iterator object at 0x0000000068248EE0&gt; = iter(array([[ 0.00000000e+00, -5.00000000e-01,  1.00000000e+00,\n         0.00000000e+00, -5.00000000e-01,  0.00000000e+00],..., -4.96000000e-01,  1.00400000e+00,\n         4.00000000e-03, -4.96000000e-01,  4.00000000e-03]],\n      shape=(4002, 6)))
+
+tests\test_resources.py:32: AssertionError</failure></testcase><testcase classname="tests.test_resources" name="test_bounded_peak_allocation" time="0.196" /><testcase classname="tests.test_resources" name="test_budget_rejection_is_atomic_and_does_not_query_world" time="0.017"><failure message="Failed: Queried before budget check">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x00000000681EB980&gt;
+
+    def test_budget_rejection_is_atomic_and_does_not_query_world(monkeypatch):
+        with World() as world:
+            controller = Controller(world, replace(load_config(), collision_joint_step=1e-6))
+            monkeypatch.setattr(world, "collisions", lambda *a: pytest.fail("Queried before budget check"))
+            with pytest.raises(CommandError, match="budget"):
+&gt;               controller.move(HOME+.1)
+
+tests\test_resources.py:57:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\robotarm_lab\controller.py:57: in move
+    self.validate_path(trajectory)
+src\robotarm_lab\controller.py:45: in validate_path
+    hits = self.world.collisions(q, self.config.collision_margin)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+a = (array([ 0. , -0.5,  1. ,  0. , -0.5,  0. ]), 0.003)
+
+&gt;   monkeypatch.setattr(world, "collisions", lambda *a: pytest.fail("Queried before budget check"))
+                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: Queried before budget check
+
+tests\test_resources.py:55: Failed</failure></testcase></testsuite></testsuites>

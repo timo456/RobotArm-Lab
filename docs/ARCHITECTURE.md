@@ -29,9 +29,18 @@ The model constants and generated URDF are separate representations; random FK t
 would expose transform order, axis, TCP-offset and COM/frame mistakes.
 
 IK minimizes `[p(q)-p_target, 0.3 log(R_target R(q)^T)]` with box constraints.
+In v0.1.1, analytic seeds use the spherical wrist center
+`w = p_target - 0.22 R_target[:,0]`. Relative to the shoulder at [0,0,0.34],
+the two-link lengths are 0.32 and 0.38 m. The cosine law produces both elbow branches;
+signed radial distance covers both shoulder headings. Decomposing the remaining rotation
+as intrinsic XYX yields both wrist branches. A candidate is only a seed: all accepted
+results still pass unweighted FK errors, joint bounds and simulator pose validation.
+The necessary wrist-center reach annulus is [0.06,0.70] m with tolerance-aware boundaries.
+This model-specific construction must be updated when geometry changes.
 Finite-difference Jacobians and trust-region reflective least squares come from SciPy.
 The 0.3 m/rad weight balances residual units; acceptance uses **unweighted** errors.
-Initial guess, Home, target-bearing elbow/wrist branches, then seeded random restarts
+Initial guess, analytic shoulder/elbow/wrist branches, Home, coarse geometric branches,
+then seeded random restarts
 are tried in that order. Results are
 accepted only within position and SO(3) angular tolerances, including near singularities.
 An outer sphere of radius 1.09 m around J1 provides a fast conservative reach bound.
@@ -52,6 +61,8 @@ stateDiagram-v2
   RUNNING --> IDLE: endpoint reached
   RUNNING --> BLOCKED: runtime clearance violation
   RUNNING --> STOPPED: explicit freeze
+  RUNNING --> FAULT: log or GUI runtime error
+  FAULT --> IDLE: repair fault and reset
   BLOCKED --> RUNNING: new valid plan
   STOPPED --> RUNNING: new valid plan
   BLOCKED --> IDLE: scene reset
@@ -65,6 +76,12 @@ User controls go through Controller, while low-level World.set_q is for initiali
 model validation and explicit reset. Runtime rechecks cover the incremental geometric
 segment even if the time step changes. Obstacles inserted on the current arm can already
 overlap it; execution freezes rather than claiming to prevent arbitrary scene edits.
+
+v0.1.1 validates collision step [1e-6,0.02] rad and computes the sample budget before
+division/allocation. More than 10,000 samples is a rejected command; accepted paths
+use an O(1)-storage iterator with exact endpoints. The sampler never changes resolution
+to fit a budget. Distinct cached box geometries and active boxes each have a 128-item
+limit; explicit reset rebuilds the native scene. Event-log I/O errors freeze in FAULT.
 
 ## Extension boundaries
 

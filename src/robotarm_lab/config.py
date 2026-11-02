@@ -41,6 +41,8 @@ class Config:
                 raise ValueError(f"{name} must be finite and positive")
             object.__setattr__(self, name, v)
         collision_step(self.collision_joint_step)
+        if self.control_dt < 1e-6 or self.collision_margin > 1:
+            raise ValueError("control_dt must be >=1e-6 s and collision_margin <=1 m")
         if self.collision_joint_step > 0.02 or self.control_dt > 0.05:
             raise ValueError("Collision step <= 0.02 rad and control_dt <= 0.05 s required")
         if type(self.ik_restarts) is not int or not 1 <= self.ik_restarts <= 32:

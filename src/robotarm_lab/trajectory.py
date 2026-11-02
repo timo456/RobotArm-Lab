@@ -18,8 +18,8 @@ class Trajectory:
 
     def __post_init__(self) -> None:
         duration = scalar(self.duration, "Trajectory duration")
-        if duration <= 0:
-            raise CommandError("Trajectory duration must be finite and positive")
+        if not 1e-6 <= duration <= 3600:
+            raise CommandError("Trajectory duration must be within [1e-6,3600] seconds")
         object.__setattr__(self, "duration", duration)
         for name in ("start", "goal"):
             value = joints(getattr(self, name))
@@ -28,6 +28,10 @@ class Trajectory:
 
     def sample(self, time: float) -> tuple[Array, Array, Array]:
         time = scalar(time, "Sample time")
+        if time <= 0:
+            return self.start.copy(), np.zeros(6), np.zeros(6)
+        if time >= self.duration:
+            return self.goal.copy(), np.zeros(6), np.zeros(6)
         u = np.clip(time / self.duration, 0.0, 1.0)
         s = np.clip(10 * u**3 - 15 * u**4 + 6 * u**5, 0.0, 1.0)
         ds = (30 * u**2 - 60 * u**3 + 30 * u**4) / self.duration
@@ -73,11 +77,15 @@ def plan(start: object, goal: object, config: Config, duration: float | None = N
     q0, q1 = joints(start), joints(goal)
     delta = np.abs(q1 - q0)
     # max s' = 15/8; max |s''| = 10*sqrt(3)/3, u in [0,1].
-    minimum = max(
-        config.control_dt,
-        float(np.max(1.875 * delta / config.velocity)),
-        float(np.max(np.sqrt((10 * np.sqrt(3) / 3) * delta / config.acceleration))),
-    )
+    try:
+        with np.errstate(over="raise", divide="raise", invalid="raise"):
+            minimum = max(
+                config.control_dt,
+                float(np.max(1.875 * delta / config.velocity)),
+                float(np.max(np.sqrt((10 * np.sqrt(3) / 3) * delta / config.acceleration))),
+            )
+    except FloatingPointError as exc:
+        raise CommandError("Timing limits exceed the supported numeric range") from exc
     if duration is not None:
         duration = scalar(duration, "Duration")
     if duration is not None and duration < minimum:

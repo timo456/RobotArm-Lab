@@ -1,0 +1,77 @@
+{
+  "python": "3.12.3",
+  "reused": [
+    "pybullet-3.2.7-cp312-cp312-win_amd64.whl"
+  ],
+  "source_build_performed": false,
+  "wheels": [
+    {
+      "file": "build-1.3.0-py3-none-any.whl",
+      "sha256": "7145f0b5061ba90a1500d60bd1b13ca0a8a4cebdd0cc16ed8adf1c0e739f43b4"
+    },
+    {
+      "file": "colorama-0.4.6-py2.py3-none-any.whl",
+      "sha256": "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"
+    },
+    {
+      "file": "coverage-7.17.0-cp312-cp312-win_amd64.whl",
+      "sha256": "88a1a9fb0075b83389dd9b403bb3fce976031b3c2aa0e05e3e57143cf639de69"
+    },
+    {
+      "file": "iniconfig-2.3.1-py3-none-any.whl",
+      "sha256": "9121e2c1fdb355232495be3194c8dfe87ccc2d5dee45947b78e68f499790d7a7"
+    },
+    {
+      "file": "numpy-2.2.6-cp312-cp312-win_amd64.whl",
+      "sha256": "c1f9540be57940698ed329904db803cf7a402f3fc200bfe599334c9bd84a40b2"
+    },
+    {
+      "file": "packaging-26.3-py3-none-any.whl",
+      "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c"
+    },
+    {
+      "file": "pillow-11.3.0-cp312-cp312-win_amd64.whl",
+      "sha256": "a6444696fce635783440b7f7a9fc24b3ad10a9ea3f0ab66c5905be1c19ccf17d"
+    },
+    {
+      "file": "pluggy-1.7.0-py3-none-any.whl",
+      "sha256": "7dd7b0d8832ba3cb632c306926ded123429211b83641b35dc5c41ad2d34f9bec"
+    },
+    {
+      "file": "pybullet-3.2.7-cp312-cp312-win_amd64.whl",
+      "sha256": "95ad7e461c3fd610a856553066ccdecdbd9335aabef8fba2bccf333d859e7626"
+    },
+    {
+      "file": "pygments-2.21.0-py3-none-any.whl",
+      "sha256": "2363c69b61c4a97c838da3b130dcd6468f4848992b21a82f2a63ec34377137d9"
+    },
+    {
+      "file": "pyproject_hooks-1.3.3-py3-none-any.whl",
+      "sha256": "5fc53fdac9f7bd63fbcdc868fb5f90b4784d78a53a3d3388cd738b807441a20b"
+    },
+    {
+      "file": "pytest-8.4.2-py3-none-any.whl",
+      "sha256": "872f880de3fc3a5bdc88a11b39c9710c3497a547cfa9320bc3c5e62fbf272e79"
+    },
+    {
+      "file": "pytest_cov-6.2.1-py3-none-any.whl",
+      "sha256": "f5bc4c23f42f1cdd23c70b1dab1bbaef4fc505ba950d53e0081d0730dd7e86d5"
+    },
+    {
+      "file": "ruff-0.14.3-py3-none-win_amd64.whl",
+      "sha256": "d7b7006ac0756306db212fd37116cce2bd307e1e109375e1c6c106002df0ae5f"
+    },
+    {
+      "file": "scipy-1.15.3-cp312-cp312-win_amd64.whl",
+      "sha256": "52092bc0472cfd17df49ff17e70624345efece4e1a12b23783a1ac59a1b728ed"
+    },
+    {
+      "file": "setuptools-80.9.0-py3-none-any.whl",
+      "sha256": "062d34222ad13e0cc312a4c02d73f059e86a4acbfbdea8f8f76b28c99f306922"
+    },
+    {
+      "file": "wheel-0.45.1-py3-none-any.whl",
+      "sha256": "708e7481cc80179af0e556bbf0cc00b8444c7321e2700b8d8580231d13017248"
+    }
+  ]
+}

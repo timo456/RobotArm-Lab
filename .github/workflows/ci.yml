@@ -21,8 +21,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
-          cache: pip
-          cache-dependency-path: requirements-lock.txt
+      # Cache complete wheels here. The bootstrap uses a checkout-local pip cache,
+      # so setup-python's default user-cache path may not exist (notably on Windows).
       - uses: actions/cache@v4
         with:
           path: .cache/wheelhouse

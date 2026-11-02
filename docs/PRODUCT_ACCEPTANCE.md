@@ -1,8 +1,8 @@
 # Product acceptance audit — v0.2.0
 
 This checklist maps the full workstation objective to concrete evidence; it does not
-replace or relax the frozen numerical protocol. Remote CI status is maintained in
-`WORKSTATION_VALIDATION.md` once the actual branch run finishes.
+replace or relax the frozen numerical protocol. **GO:** local gates and both remote
+platform jobs passed. Actual run and source identity are in `WORKSTATION_VALIDATION.md`.
 
 | Requirement | Evidence and scope |
 |---|---|
@@ -36,5 +36,8 @@ No physical robot, dynamic payload model, CAD-surface collision fidelity, hard-r
 control, global Windows DPI configuration change or signed standalone installer is claimed.
 These are explicit scope limits, not unreported failures.
 
-A full GO requires successful actual remote Windows/Ubuntu steps in addition to the
-local evidence above. Review the validation report and linked workflow before concluding.
+Actual Actions run 41508430359 at `9cc029f` passed both Windows/Ubuntu jobs, including
+the GUI and clean installed-wheel steps. Downloaded results match the local runtime
+digest. The source archive also rebuilds offline to identical package contents.
+No named product function remains incomplete in this simulation scope; the explicit
+untested native-automation/OS-setting cases and physical-device exclusions remain.

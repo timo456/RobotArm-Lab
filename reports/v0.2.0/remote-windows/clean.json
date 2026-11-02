@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "system_site_packages": false,
+  "isolated_module_test": true,
+  "binary_only_offline_install": true,
+  "source_compile_performed": false,
+  "source_sha256": "544d1b07b03a6454211fcc476c83ae5c120f79184584ba34e5eb8138ab18b5b6",
+  "wheel_sha256": "a1df4efa48ca29fcf5fb2da80690d766ceedf30e28ec9af6854dc171a50961be",
+  "steps": [
+    {
+      "step": 0,
+      "exit_code": 0
+    },
+    {
+      "step": 1,
+      "exit_code": 0
+    },
+    {
+      "step": 2,
+      "exit_code": 0
+    },
+    {
+      "step": 3,
+      "exit_code": 0
+    },
+    {
+      "step": 4,
+      "exit_code": 0
+    },
+    {
+      "step": 5,
+      "exit_code": 0
+    },
+    {
+      "step": 6,
+      "exit_code": 0
+    }
+  ]
+}

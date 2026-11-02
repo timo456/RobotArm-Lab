@@ -51,7 +51,7 @@ def save_xml(source: Path, target: Path) -> None:
 def main() -> None:
     DEST.mkdir(exist_ok=True)
     sources = {
-        "gui-final": "gui-timing-final/results.json",
+        "gui-final": "gui-observed-final/results.json",
         "software-functional": "software-functional-final/results.json",
         "small-functional": "small-functional-final/results.json",
         "soak": "soak-first/results.json",
@@ -88,7 +88,7 @@ def main() -> None:
         for filename in ("results.json", "capture.json"):
             source = folder / filename
             if source.exists() and folder.name not in {
-                "gui-timing-final",
+                "gui-observed-final",
                 "soak-first",
                 "visual-matrix-v2",
             }:

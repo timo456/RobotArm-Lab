@@ -1,0 +1,288 @@
+{
+  "run_id": 41508430359,
+  "head_sha": "9cc029ff6f4a1e91d2c5c1faffbd7352548bb785",
+  "status": "completed",
+  "conclusion": "success",
+  "url": "https://github.com/timo456/RobotArm-Lab/actions/runs/41508430359",
+  "runtime_source_sha256": "544d1b07b03a6454211fcc476c83ae5c120f79184584ba34e5eb8138ab18b5b6",
+  "jobs": [
+    {
+      "id": 125493638447,
+      "name": "verify (windows-latest, 3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/timo456/RobotArm-Lab/actions/runs/41508430359/job/125493638447",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install Linux Qt display libraries",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Run actions/cache@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python -m pip install --only-binary=:all: packaging==26.3",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python scripts/prepare_wheelhouse.py",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Run python scripts/prepare_wheelhouse.py --allow-source-build",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python -m pip install --no-index --only-binary=:all: --find-links .cache/wheelhouse -r requirements-lock.txt",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python -m pip install --no-deps --no-build-isolation -e .",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python -m ruff check .",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python -m ruff format --check .",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python -m pytest --cov=robotarm_lab --cov-report=xml:outputs/coverage.xml --junitxml=outputs/pytest.xml",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python -m robotarm_lab benchmark --output outputs/benchmark",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python scripts/hardening.py --output outputs/hardening",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python -m robotarm_lab demo --output outputs/demo",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Actual Qt workstation interactions (Linux software GL)",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Actual Qt workstation interactions (Windows software GL)",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python -m build --no-isolation",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Clean installed wheel including Qt (Linux)",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Clean installed wheel including Qt (Windows)",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/cache@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 125493638789,
+      "name": "verify (ubuntu-latest, 3.11)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/timo456/RobotArm-Lab/actions/runs/41508430359/job/125493638789",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install Linux Qt display libraries",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/cache@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python -m pip install --only-binary=:all: packaging==26.3",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python scripts/prepare_wheelhouse.py",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python scripts/prepare_wheelhouse.py --allow-source-build",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Run python -m pip install --no-index --only-binary=:all: --find-links .cache/wheelhouse -r requirements-lock.txt",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python -m pip install --no-deps --no-build-isolation -e .",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python -m ruff check .",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python -m ruff format --check .",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python -m pytest --cov=robotarm_lab --cov-report=xml:outputs/coverage.xml --junitxml=outputs/pytest.xml",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python -m robotarm_lab benchmark --output outputs/benchmark",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python scripts/hardening.py --output outputs/hardening",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python -m robotarm_lab demo --output outputs/demo",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Actual Qt workstation interactions (Linux software GL)",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Actual Qt workstation interactions (Windows software GL)",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Run python -m build --no-isolation",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Clean installed wheel including Qt (Linux)",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Clean installed wheel including Qt (Windows)",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/cache@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ]
+}

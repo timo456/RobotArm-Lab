@@ -1,0 +1,62 @@
+{
+  "method": "Actual shown Qt Widgets / QOpenGLWidget; QWidget.grab and grabFramebuffer; QTest input",
+  "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+  "qt_scale": "1",
+  "screen_scale": null,
+  "high_dpi_scaling": null,
+  "logical_size": [
+    1540,
+    940
+  ],
+  "dpr": 1.0,
+  "renderer": "llvmpipe (LLVM 20.1.2, 256 bits) / 4.5 (Core Profile) Mesa 25.2.8-0ubuntu0.24.04.4",
+  "render_error": "",
+  "render_cpu_p95_ms": 5.689150599988579,
+  "heartbeat_p95_ms": 70.27143680000542,
+  "fps": 37.454766833971384,
+  "final_state": "PAUSED",
+  "expected_teach": null,
+  "saved_teach": null,
+  "loaded_teach": [],
+  "events": [
+    [
+      1,
+      "19:18:32",
+      "ready",
+      "RAL-6 simulation connected \u00b7 control limits active"
+    ],
+    [
+      2,
+      "19:18:34",
+      "mode",
+      "mode: AUTO"
+    ],
+    [
+      3,
+      "19:18:34",
+      "preview_ready",
+      "duration: 2.501"
+    ],
+    [
+      4,
+      "19:18:34",
+      "accepted",
+      "goal: [-0.65, -0.8, 1.15, 0.35, -0.35, 0.5]; duration: 2.501"
+    ],
+    [
+      5,
+      "19:18:35",
+      "stopped",
+      ""
+    ],
+    [
+      6,
+      "19:18:35",
+      "paused",
+      "note: Kinematic simulation hold"
+    ]
+  ],
+  "worker_closed": true,
+  "qt_callback_errors": [],
+  "passed": true
+}

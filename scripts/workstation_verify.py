@@ -435,6 +435,7 @@ def main():
             {}
             if args.functional_only
             else {
+                "duration": metrics["seconds"] >= gates["performance_sample_seconds"],
                 "fps": metrics["fps"] >= gates["viewport_fps_min"],
                 "render": metrics["render_cpu_p95_ms"] <= gates["render_cpu_p95_ms_max"],
                 "heartbeat_p95": metrics["ui_heartbeat_p95_ms"] <= gates["ui_heartbeat_p95_ms_max"],

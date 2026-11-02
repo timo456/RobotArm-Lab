@@ -1,6 +1,6 @@
 # v0.2.0 verification record
 
-Status: **local acceptance passed; remote CI verification pending**. The frozen protocol
+Status: **GO for the v0.2.0 simulation workstation; local and remote checks passed**. The frozen protocol
 is `acceptance-v0.2.0.json`, committed in `c79d3dd` before implementation. Baseline
 `b657da55899fd20fb1a0958d0684da6edc699027` remains on stable main. No earlier threshold,
 corpus or control/kinematics/collision algorithm is changed.
@@ -97,11 +97,11 @@ match and sanitizes host/user paths without changing the raw evidence.
 | Independently installed wheel regressions | all pass | 298/298; 9.28 s |
 | Visual link positions, 100 seeded poses × 7 links | <=1e-6 m | 8.14e-8 m maximum |
 | Visual link orientation | <=1e-6 rad | 3.94e-7 rad maximum |
-| Actual GPU frames over 30.01 s | >=30 FPS | 75.46 FPS |
-| CPU rendering p95 | <=25 ms | 4.72 ms |
-| GUI heartbeat p95 / maximum | <=50 / 250 ms | 23.08 / 34.32 ms |
-| Command acknowledgement p95 | <=150 ms | 67.16 ms |
-| Freeze observed in GUI | <=200 ms | 40.65 ms |
+| Actual GPU frames over 30.01 s | >=30 FPS | 71.87 FPS |
+| CPU rendering p95 | <=25 ms | 4.91 ms |
+| GUI heartbeat p95 / maximum | <=50 / 250 ms | 24.13 / 78.73 ms |
+| Command acknowledgement p95 | <=150 ms | 46.26 ms |
+| Freeze observed in GUI | <=200 ms | 32.31 ms (polling returned at 40.31 ms) |
 | Continuous endurance duration | >=600 s | 600.02 s; 78 Demo starts |
 | Peak RSS growth after warm-up | <=64 MiB | 1.84 MiB |
 | Endurance lowest interval FPS | >=30 FPS | 70.81 FPS |
@@ -111,7 +111,7 @@ match and sanitizes host/user paths without changing the raw evidence.
 All 13 grouped functional scenarios passed on the GPU, the Qt Windows software
 renderer, and a 1100x700 logical window at Qt 150% scale. The strengthened software
 and compact checks also execute a non-Home TCP target and the Teach library sequence.
-Shutdown after observing PLANNING completed in 292 ms in the final GPU run; no forced
+Shutdown after observing PLANNING completed in 211 ms in the final GPU run; no forced
 thread termination occurred. There is no frozen shutdown-time gate beyond the test's
 5-second liveness timeout. No Qt callback errors were observed in accepted runs.
 
@@ -162,9 +162,31 @@ proof and dependency licenses. YAML 1.2 parsing, actionlint 1.7.12, Ruff lint/fo
 and Git whitespace checks passed. Both Windows 3.12 and Ubuntu 3.11 remain in CI;
 Qt correctness uses software GL and Ubuntu Xvfb/display dependencies.
 
-**Local GO for branch review; remote CI is still unverified.** Full completion remains
-pending the actual branch workflow evidence and final source archive check. Stable main
-and the existing v0.1.1 release are not modified. No release is created.
+**GO for engineering portfolio / simulation workstation delivery and branch review.**
+Actual [Actions run 41508430359](https://github.com/timo456/RobotArm-Lab/actions/runs/41508430359)
+completed successfully at `9cc029ff6f4a1e91d2c5c1faffbd7352548bb785`. Both Windows Python
+3.12 and Ubuntu Python 3.11 passed dependency setup, lint/format, 298 tests, original
+benchmark, hardening, Demo, actual Qt software-GL scenarios, build and isolated
+installed-wheel tests/Qt capture. The downloaded GUI/clean reports match the local
+runtime digest above. Job-by-job evidence is in `remote-ci.json`; sanitized downloaded
+results and unit XML are under `remote-linux/` and `remote-windows/`.
+
+In the accepted Ubuntu run, actual GUI STOPPED delivery was 71.59 ms and QTest polling
+returned at 89.62 ms; both are below the unchanged 200-ms gate. Earlier failed runs
+remain recorded. Local final GPU delivery was 32.31 ms / polling 40.31 ms. These
+observations establish the measured envelope, not a worst-case real-time guarantee.
+
+The source archive was rebuilt offline into a wheel; all 21 package entries match the
+tested project wheel. Packaging audits verify the frozen protocol, scripts, CI, guides,
+screenshots/GIF and licenses are present and caches/environments are excluded.
+Local `dist/SHA256SUMS.txt` identifies the final wheel/source archive; the local wheel
+SHA256 is also recorded in `clean-environment.json`. Dependency wheel binaries are
+not included in the project distribution.
+
+Stable main remains `b657da55899fd20fb1a0958d0684da6edc699027`; the v0.1.1 release is
+unchanged. Only `codex/v0.2.0-workstation` is pushed. No force push, merge or release
+was performed. A final evidence/test-harness follow-up may have a newer commit; the linked CI
+and runtime digest explicitly identify what was measured.
 
 Known scope limits are in `LIMITATIONS.md`. The product is an installable source/wheel
 workstation, not a signed installer, physical robot driver, certified safety system,

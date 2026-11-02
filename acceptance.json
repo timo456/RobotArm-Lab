@@ -1,0 +1,20 @@
+{
+  "protocol_version": 1,
+  "seed": 20261102,
+  "fk_samples": 100,
+  "normal_ik_samples": 24,
+  "boundary_ik_samples": 12,
+  "fk_position_max_m": 0.000002,
+  "fk_orientation_max_rad": 0.000002,
+  "ik_position_max_m": 0.0001,
+  "ik_orientation_max_rad": 0.001,
+  "normal_ik_success_min": 0.95,
+  "boundary_ik_success_min": 0.90,
+  "unreachable_rejection_rate_min": 1.0,
+  "collision_rejection_rate_min": 1.0,
+  "executed_collision_count_max": 0,
+  "joint_limit_violations_max": 0,
+  "fk_p95_ms_max": 20,
+  "ik_p95_ms_max": 2000,
+  "trajectory_limit_ratio_max": 1.000001
+}

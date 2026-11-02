@@ -1,0 +1,29 @@
+{
+  "source_sha256": "544d1b07b03a6454211fcc476c83ae5c120f79184584ba34e5eb8138ab18b5b6",
+  "local_checks_passed": true,
+  "remote_ci_status": "not yet verified",
+  "evidence": {
+    "gui-final": "gui-final/results.json",
+    "software-functional": "software-functional-final/results.json",
+    "small-functional": "small-functional-final/results.json",
+    "soak": "soak-first/results.json",
+    "visual-matrix": "visual-matrix-v2/results.json",
+    "clean-environment": "clean/results.json",
+    "clean-workstation": "clean/workstation/capture.json",
+    "process-restart-write": "process-restart/write-process.json",
+    "process-restart-read": "process-restart/capture.json",
+    "demo-media": "media/media.json",
+    "benchmark": "benchmark/results.json",
+    "hardening": "hardening/results.json"
+  },
+  "media": [
+    {
+      "path": "docs/media/workstation-demo.gif",
+      "sha256": "fc95d11c51329143972a427dcdd3e8923f1e642b94e4cf7d12b384a4e4f5f126"
+    },
+    {
+      "path": "docs/media/workstation-home.png",
+      "sha256": "c69e48b50c65a30a321566e9a457f454eaee5407cfd233e483334b26b9891053"
+    }
+  ]
+}

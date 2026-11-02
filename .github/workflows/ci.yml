@@ -34,6 +34,8 @@ jobs:
         with:
           path: .cache/wheelhouse
           key: wheels-${{ runner.os }}-${{ matrix.python }}-${{ hashFiles('requirements-lock.txt') }}
+          restore-keys: |
+            wheels-${{ runner.os }}-${{ matrix.python }}-
       # Block scalars keep pip's ':all:' arguments out of YAML mapping syntax.
       - run: |
           python -m pip install --only-binary=:all: packaging==26.3

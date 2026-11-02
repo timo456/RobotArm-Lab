@@ -1,0 +1,62 @@
+{
+  "method": "Actual shown Qt Widgets / QOpenGLWidget; QWidget.grab and grabFramebuffer; QTest input",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "qt_scale": "1",
+  "screen_scale": null,
+  "high_dpi_scaling": null,
+  "logical_size": [
+    1540,
+    940
+  ],
+  "dpr": 1.25,
+  "renderer": "NVIDIA GeForce RTX 3080/PCIe/SSE2 / 3.3.0 NVIDIA 610.88",
+  "render_error": "",
+  "render_cpu_p95_ms": 3.777469997294247,
+  "heartbeat_p95_ms": 24.47244004579259,
+  "fps": 57.21543598187277,
+  "final_state": "PAUSED",
+  "expected_teach": null,
+  "saved_teach": null,
+  "loaded_teach": [],
+  "events": [
+    [
+      1,
+      "03:00:02",
+      "ready",
+      "RAL-6 simulation connected \u00b7 control limits active"
+    ],
+    [
+      2,
+      "03:00:04",
+      "mode",
+      "mode: AUTO"
+    ],
+    [
+      3,
+      "03:00:04",
+      "preview_ready",
+      "duration: 2.501"
+    ],
+    [
+      4,
+      "03:00:04",
+      "accepted",
+      "goal: [-0.65, -0.8, 1.15, 0.35, -0.35, 0.5]; duration: 2.501"
+    ],
+    [
+      5,
+      "03:00:04",
+      "stopped",
+      ""
+    ],
+    [
+      6,
+      "03:00:04",
+      "paused",
+      "note: Kinematic simulation hold"
+    ]
+  ],
+  "worker_closed": true,
+  "qt_callback_errors": [],
+  "passed": true
+}

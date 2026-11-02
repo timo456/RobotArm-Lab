@@ -1,0 +1,8 @@
+{
+  "error": "Render failure: 'PySide6.QtOpenGL.QOpenGLFunctions_3_0.glUniformMatrix4fv' called with wrong argument types:\n  PySide6.QtOpenGL.QOpenGLFunctions_3_0.glUniformMatrix4fv(int, int, bool, list)\nSupported signatures:\n  PySide6.QtOpenGL.QOpenGLFunctions_3_0.glUniformMatrix4fv(location: int, count: int, transpose: int, value: collections.abc.Sequence[float], /)",
+  "worker_closed": true,
+  "qt_callback_errors": [
+    "Render failure: 'PySide6.QtOpenGL.QOpenGLFunctions_3_0.glUniformMatrix4fv' called with wrong argument types:\n  PySide6.QtOpenGL.QOpenGLFunctions_3_0.glUniformMatrix4fv(int, int, bool, list)\nSupported signatures:\n  PySide6.QtOpenGL.QOpenGLFunctions_3_0.glUniformMatrix4fv(location: int, count: int, transpose: int, value: collections.abc.Sequence[float], /)"
+  ],
+  "passed": false
+}

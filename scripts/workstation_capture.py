@@ -24,6 +24,9 @@ def main():
     parser.add_argument("--width", type=int, default=1540)
     parser.add_argument("--height", type=int, default=940)
     parser.add_argument("--expect-teach", help="Verify a point persisted by a previous process")
+    parser.add_argument(
+        "--save-teach", help="Save an actual GUI teach point before closing this process"
+    )
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
     errors = []
@@ -39,6 +42,9 @@ def main():
     window = Workstation(load_config(), args.output / "session")
     window.resize(args.width, args.height)
     window.show()
+    # Qt initially constrains a newly shown window to the available desktop.
+    # Explicit post-show sizing records the requested logical application canvas.
+    window.resize(args.width, args.height)
     window.raise_()
     window.activateWindow()
     deadline = perf_counter() + 10
@@ -50,26 +56,53 @@ def main():
             raise RuntimeError("No control snapshot")
         if args.expect_teach:
             assert args.expect_teach in dict(window.snapshot.teach), "Persisted teach point missing"
+        if args.save_teach:
+            window.tabs.setCurrentIndex(2)
+            window.teach_name.setText(args.save_teach)
+            QTest.mouseClick(window.buttons["teach_save"], Qt.MouseButton.LeftButton)
+            deadline = perf_counter() + 10
+            while args.save_teach not in dict(window.snapshot.teach) and perf_counter() < deadline:
+                QTest.qWait(20)
+            assert args.save_teach in dict(window.snapshot.teach)
+            window.tabs.setCurrentIndex(0)
         if window.viewport.error:
             raise RuntimeError(window.viewport.error)
         if not window.viewport.isValid():
             raise RuntimeError("Invalid OpenGL context")
+        assert [window.width(), window.height()] == [args.width, args.height]
         assert window.grab().save(str(args.output / "home.png"))
         assert window.viewport.grabFramebuffer().save(str(args.output / "viewport.png"))
         QTest.mouseClick(window.buttons["demo"], Qt.MouseButton.LeftButton)
-        QTest.qWait(1000)
+        deadline = perf_counter() + 10
+        while window.snapshot.state != "RUNNING" and perf_counter() < deadline:
+            QTest.qWait(20)
         assert window.snapshot.state == "RUNNING", window.snapshot.state
+        QTest.qWait(400)
         assert window.grab().save(str(args.output / "demo-running.png"))
         QTest.mouseClick(window.buttons["pause"], Qt.MouseButton.LeftButton)
-        QTest.qWait(300)
+        deadline = perf_counter() + 10
+        while window.snapshot.state != "PAUSED" and perf_counter() < deadline:
+            QTest.qWait(20)
         assert window.snapshot.state == "PAUSED", window.snapshot.state
         assert window.grab().save(str(args.output / "paused.png"))
+        for index, name in ((1, "tcp-panel"), (2, "teach-panel")):
+            window.tabs.setCurrentIndex(index)
+            QTest.qWait(50)
+            assert window.grab().save(str(args.output / f"{name}.png"))
+        window.monitor_tabs.setCurrentIndex(1)
+        QTest.qWait(50)
+        assert window.grab().save(str(args.output / "scene-panel.png"))
+        for name in ("preview", "execute", "freeze", "reset", "view", "capture"):
+            button = window.buttons[name]
+            assert window.rect().contains(button.mapTo(window, button.rect().topLeft())), name
+            assert window.rect().contains(button.mapTo(window, button.rect().bottomRight())), name
         report = dict(
             method="Actual shown Qt Widgets / QOpenGLWidget; "
             "QWidget.grab and grabFramebuffer; QTest input",
             platform=platform.platform(),
             qt_scale=os.environ.get("QT_SCALE_FACTOR", "1"),
             screen_scale=os.environ.get("QT_SCREEN_SCALE_FACTORS"),
+            high_dpi_scaling=os.environ.get("QT_ENABLE_HIGHDPI_SCALING"),
             logical_size=[window.width(), window.height()],
             dpr=window.devicePixelRatioF(),
             renderer=window.viewport.renderer_info,
@@ -79,6 +112,7 @@ def main():
             fps=window.viewport.fps,
             final_state=window.snapshot.state,
             expected_teach=args.expect_teach,
+            saved_teach=args.save_teach,
             loaded_teach=[name for name, _ in window.snapshot.teach],
             events=list(window.snapshot.events),
         )

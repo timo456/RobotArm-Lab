@@ -1,0 +1,579 @@
+{
+  "scenarios": [
+    {
+      "name": "joint_preview_execute",
+      "passed": true,
+      "elapsed_ms": 4240.528200054541
+    },
+    {
+      "name": "stale_input",
+      "passed": true,
+      "elapsed_ms": 599.2218999890611
+    },
+    {
+      "name": "joint_jog_mode",
+      "passed": true,
+      "elapsed_ms": 1208.1693999934942
+    },
+    {
+      "name": "tcp_ik_unreachable",
+      "passed": true,
+      "elapsed_ms": 2242.5044000847265
+    },
+    {
+      "name": "pause_resume_speed_freeze",
+      "passed": true,
+      "elapsed_ms": 1800.7291000103578
+    },
+    {
+      "name": "demo_complete",
+      "passed": true,
+      "elapsed_ms": 5919.9465999845415
+    },
+    {
+      "name": "teach_persistence",
+      "passed": true,
+      "elapsed_ms": 1419.5065998937935
+    },
+    {
+      "name": "collision_blocking",
+      "passed": true,
+      "elapsed_ms": 1979.1364000411704
+    },
+    {
+      "name": "camera_capture",
+      "passed": true,
+      "elapsed_ms": 577.8125000651926
+    },
+    {
+      "name": "invalid_command",
+      "passed": true,
+      "elapsed_ms": 301.6519999364391
+    },
+    {
+      "name": "log_io_failure_recovery",
+      "passed": true,
+      "elapsed_ms": 1091.3911999668926
+    },
+    {
+      "name": "teach_restart_persistence",
+      "passed": true,
+      "elapsed_ms": 1236.648700083606
+    },
+    {
+      "name": "shutdown_during_planning",
+      "passed": true,
+      "elapsed_ms": 826.0515000438318
+    }
+  ],
+  "metrics": null,
+  "checks": {},
+  "qt_errors": [],
+  "scope": "CI correctness only",
+  "renderer": "Gallium 0.4 on llvmpipe (LLVM 3.6, 256 bits) / 3.0 Mesa 11.2.2",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "dpr": 1.25,
+  "logical_size": [
+    1366,
+    768
+  ],
+  "scale_env": null,
+  "freeze_latency_ms": 140.20899997558445,
+  "responses": [
+    [
+      "reset",
+      176.4680000487715,
+      ""
+    ],
+    [
+      "preview_joint",
+      223.89519994612783,
+      ""
+    ],
+    [
+      "execute",
+      147.267600055784,
+      ""
+    ],
+    [
+      "home",
+      227.1146000130102,
+      ""
+    ],
+    [
+      "reset",
+      229.832399985753,
+      ""
+    ],
+    [
+      "preview_joint",
+      158.20009994786233,
+      ""
+    ],
+    [
+      "invalidate",
+      45.07089999970049,
+      ""
+    ],
+    [
+      "reset",
+      140.16429998446256,
+      ""
+    ],
+    [
+      "jog",
+      208.3198999753222,
+      ""
+    ],
+    [
+      "set_mode",
+      96.02920000907034,
+      ""
+    ],
+    [
+      "reset",
+      102.48599993065,
+      ""
+    ],
+    [
+      "set_mode",
+      90.66240000538528,
+      ""
+    ],
+    [
+      "preview_pose",
+      320.14960004016757,
+      ""
+    ],
+    [
+      "execute",
+      128.81379993632436,
+      ""
+    ],
+    [
+      "invalidate",
+      5.081500043161213,
+      ""
+    ],
+    [
+      "preview_pose",
+      44.15660002268851,
+      "Unreachable target: outside conservative reach bound"
+    ],
+    [
+      "reset",
+      145.31139994505793,
+      ""
+    ],
+    [
+      "demo",
+      256.1756999930367,
+      ""
+    ],
+    [
+      "pause",
+      180.2450999384746,
+      ""
+    ],
+    [
+      "set_speed",
+      76.9035000121221,
+      ""
+    ],
+    [
+      "resume",
+      184.35929995030165,
+      ""
+    ],
+    [
+      "reset",
+      122.9518000036478,
+      ""
+    ],
+    [
+      "set_mode",
+      71.65779999922961,
+      ""
+    ],
+    [
+      "demo",
+      209.664799971506,
+      ""
+    ],
+    [
+      "reset",
+      199.04070009943098,
+      ""
+    ],
+    [
+      "set_mode",
+      62.080000061541796,
+      ""
+    ],
+    [
+      "teach_save",
+      100.2822999143973,
+      ""
+    ],
+    [
+      "teach_preview",
+      91.27400000579655,
+      ""
+    ],
+    [
+      "set_mode",
+      86.40459994785488,
+      ""
+    ],
+    [
+      "program",
+      176.53719999361783,
+      ""
+    ],
+    [
+      "teach_delete",
+      150.01429989933968,
+      ""
+    ],
+    [
+      "invalidate",
+      86.24309999868274,
+      ""
+    ],
+    [
+      "reset",
+      170.40200007613748,
+      ""
+    ],
+    [
+      "set_mode",
+      97.16620005201548,
+      ""
+    ],
+    [
+      "add_box",
+      47.20140004064888,
+      ""
+    ],
+    [
+      "update_box",
+      190.97100000362843,
+      ""
+    ],
+    [
+      "remove_box",
+      65.91519992798567,
+      ""
+    ],
+    [
+      "blocker",
+      120.35810004454106,
+      ""
+    ],
+    [
+      "demo",
+      141.47339994087815,
+      "Collision clearance rejected at sample 53: obstacle, link 6, distance -0.0010 m"
+    ],
+    [
+      "clear_boxes",
+      95.26189998723567,
+      ""
+    ],
+    [
+      "demo",
+      217.00079995207489,
+      ""
+    ],
+    [
+      "add_box",
+      45.448699966073036,
+      ""
+    ],
+    [
+      "reset",
+      73.48579994868487,
+      ""
+    ],
+    [
+      "set_mode",
+      94.15070002432913,
+      ""
+    ],
+    [
+      "reset",
+      145.57569997850806,
+      ""
+    ],
+    [
+      "preview_joint",
+      49.59389998111874,
+      "Joint limit exceeded"
+    ],
+    [
+      "reset",
+      151.08889993280172,
+      ""
+    ],
+    [
+      "home",
+      95.26880003977567,
+      "Event log unavailable: [Errno 13] Permission denied: 'outputs\\\\v0.2.0\\\\software-functional-final\\\\session\\\\session.jsonl'"
+    ],
+    [
+      "reset",
+      163.60400000121444,
+      ""
+    ],
+    [
+      "home",
+      197.87839998025447,
+      ""
+    ],
+    [
+      "reset",
+      209.38840007875115,
+      ""
+    ],
+    [
+      "teach_save",
+      133.3087000530213,
+      ""
+    ],
+    [
+      "teach_delete",
+      164.23579992260784,
+      ""
+    ],
+    [
+      "reset",
+      158.39370002504438,
+      ""
+    ]
+  ],
+  "command_acknowledgements_ms": [
+    [
+      "reset",
+      13.807400013320148
+    ],
+    [
+      "preview_joint",
+      30.55669995956123
+    ],
+    [
+      "execute",
+      19.09509999677539
+    ],
+    [
+      "home",
+      35.28479998931289
+    ],
+    [
+      "reset",
+      17.61660003103316
+    ],
+    [
+      "preview_joint",
+      44.6755999000743
+    ],
+    [
+      "invalidate",
+      16.178599908016622
+    ],
+    [
+      "reset",
+      12.335199979133904
+    ],
+    [
+      "jog",
+      57.88959993515164
+    ],
+    [
+      "set_mode",
+      19.36759997624904
+    ],
+    [
+      "reset",
+      16.434299992397428
+    ],
+    [
+      "set_mode",
+      27.186099905520678
+    ],
+    [
+      "preview_pose",
+      15.305300010368228
+    ],
+    [
+      "execute",
+      48.8093999447301
+    ],
+    [
+      "invalidate",
+      16.342800110578537
+    ],
+    [
+      "preview_pose",
+      42.85510000772774
+    ],
+    [
+      "reset",
+      15.046599903143942
+    ],
+    [
+      "demo",
+      13.90919997356832
+    ],
+    [
+      "pause",
+      38.96609996445477
+    ],
+    [
+      "set_speed",
+      15.43219992890954
+    ],
+    [
+      "resume",
+      12.617000029422343
+    ],
+    [
+      "reset",
+      13.370399945415556
+    ],
+    [
+      "set_mode",
+      26.88039990607649
+    ],
+    [
+      "demo",
+      25.854800012893975
+    ],
+    [
+      "reset",
+      33.23649999219924
+    ],
+    [
+      "set_mode",
+      43.55920001398772
+    ],
+    [
+      "teach_save",
+      19.34379991143942
+    ],
+    [
+      "teach_preview",
+      14.093699981458485
+    ],
+    [
+      "set_mode",
+      13.535399921238422
+    ],
+    [
+      "program",
+      16.191500006243587
+    ],
+    [
+      "teach_delete",
+      16.222900012508035
+    ],
+    [
+      "invalidate",
+      87.93819998390973
+    ],
+    [
+      "reset",
+      57.2762000374496
+    ],
+    [
+      "set_mode",
+      45.10430002119392
+    ],
+    [
+      "add_box",
+      13.976400019600987
+    ],
+    [
+      "update_box",
+      13.735499931499362
+    ],
+    [
+      "remove_box",
+      12.875900021754205
+    ],
+    [
+      "blocker",
+      35.57519998867065
+    ],
+    [
+      "demo",
+      26.97529993019998
+    ],
+    [
+      "clear_boxes",
+      14.711800031363964
+    ],
+    [
+      "demo",
+      14.188200002536178
+    ],
+    [
+      "add_box",
+      13.123200042173266
+    ],
+    [
+      "reset",
+      14.778499957174063
+    ],
+    [
+      "set_mode",
+      35.33640003297478
+    ],
+    [
+      "reset",
+      13.166500022634864
+    ],
+    [
+      "preview_joint",
+      47.124800039455295
+    ],
+    [
+      "reset",
+      16.73609996214509
+    ],
+    [
+      "home",
+      13.287500012665987
+    ],
+    [
+      "reset",
+      31.4368000254035
+    ],
+    [
+      "home",
+      40.56949994992465
+    ],
+    [
+      "reset",
+      19.565700087696314
+    ],
+    [
+      "teach_save",
+      21.757100010290742
+    ],
+    [
+      "teach_delete",
+      27.353499899618328
+    ],
+    [
+      "reset",
+      29.63919995818287
+    ]
+  ],
+  "command_feedback_p95_ms": 51.77277997718188,
+  "command_feedback_definition": "Submission to worker acceptance received by GUI event loop; completion latency is separately reported in responses",
+  "shutdown_latency_ms": 179.7184000024572,
+  "method": "Shown Qt workstation with QTest widget input, no mock rendering",
+  "passed": true,
+  "source_sha256": "544d1b07b03a6454211fcc476c83ae5c120f79184584ba34e5eb8138ab18b5b6",
+  "source_unchanged_during_run": true
+}

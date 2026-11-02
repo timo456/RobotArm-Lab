@@ -1,0 +1,340 @@
+{
+  "scenarios": [
+    {
+      "name": "joint_preview_execute",
+      "passed": true,
+      "elapsed_ms": 3703.1756000360474
+    },
+    {
+      "name": "stale_input",
+      "passed": true,
+      "elapsed_ms": 374.79949998669326
+    },
+    {
+      "name": "joint_jog_mode",
+      "passed": true,
+      "elapsed_ms": 850.1077000983059
+    },
+    {
+      "name": "tcp_ik_unreachable",
+      "passed": true,
+      "elapsed_ms": 543.0743000470102
+    },
+    {
+      "name": "pause_resume_speed_freeze",
+      "passed": true,
+      "elapsed_ms": 1122.835100046359
+    },
+    {
+      "name": "demo_complete",
+      "passed": true,
+      "elapsed_ms": 5435.056800022721
+    },
+    {
+      "name": "teach_persistence",
+      "passed": true,
+      "elapsed_ms": 615.2642000233755
+    },
+    {
+      "name": "collision_blocking",
+      "passed": true,
+      "elapsed_ms": 1033.8338000001386
+    },
+    {
+      "name": "camera_capture",
+      "passed": true,
+      "elapsed_ms": 508.38969997130334
+    }
+  ],
+  "metrics": {
+    "seconds": 30.00132639997173,
+    "frames": 2199,
+    "fps": 73.30613126689562,
+    "render_cpu_p95_ms": 4.802399984328076,
+    "ui_heartbeat_p95_ms": 23.127129999920726,
+    "ui_heartbeat_max_ms": 48.5064999666065
+  },
+  "checks": {
+    "fps": true,
+    "render": true,
+    "heartbeat_p95": true,
+    "heartbeat_max": true
+  },
+  "qt_errors": [],
+  "renderer": "NVIDIA GeForce RTX 3080/PCIe/SSE2 / 3.3.0 NVIDIA 610.88",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "dpr": 1.25,
+  "scale_env": null,
+  "freeze_latency_ms": 58.34440002217889,
+  "responses": [
+    [
+      "reset",
+      109.00000005494803,
+      ""
+    ],
+    [
+      "preview_joint",
+      62.999999965541065,
+      ""
+    ],
+    [
+      "execute",
+      125.0,
+      ""
+    ],
+    [
+      "home",
+      157.00000000651926,
+      ""
+    ],
+    [
+      "reset",
+      141.0000000614673,
+      ""
+    ],
+    [
+      "preview_joint",
+      125.0,
+      ""
+    ],
+    [
+      "invalidate",
+      0.0,
+      ""
+    ],
+    [
+      "reset",
+      47.0000000204891,
+      ""
+    ],
+    [
+      "jog",
+      62.000000034458935,
+      ""
+    ],
+    [
+      "set_mode",
+      94.0000000409782,
+      ""
+    ],
+    [
+      "reset",
+      94.0000000409782,
+      ""
+    ],
+    [
+      "set_mode",
+      16.00000006146729,
+      ""
+    ],
+    [
+      "preview_pose",
+      109.99999998603016,
+      ""
+    ],
+    [
+      "execute",
+      61.99999991804361,
+      ""
+    ],
+    [
+      "invalidate",
+      0.0,
+      ""
+    ],
+    [
+      "preview_pose",
+      30.999999959021807,
+      "Unreachable target: outside conservative reach bound"
+    ],
+    [
+      "reset",
+      156.00000007543713,
+      ""
+    ],
+    [
+      "demo",
+      141.0000000614673,
+      ""
+    ],
+    [
+      "pause",
+      32.00000000651926,
+      ""
+    ],
+    [
+      "set_speed",
+      16.00000006146729,
+      ""
+    ],
+    [
+      "resume",
+      62.999999965541065,
+      ""
+    ],
+    [
+      "reset",
+      62.999999965541065,
+      ""
+    ],
+    [
+      "set_mode",
+      15.999999945051968,
+      ""
+    ],
+    [
+      "demo",
+      234.00000005494803,
+      ""
+    ],
+    [
+      "reset",
+      93.99999992456287,
+      ""
+    ],
+    [
+      "set_mode",
+      63.00000008195639,
+      ""
+    ],
+    [
+      "teach_save",
+      77.9999999795109,
+      ""
+    ],
+    [
+      "teach_preview",
+      62.999999965541065,
+      ""
+    ],
+    [
+      "teach_delete",
+      125.0,
+      ""
+    ],
+    [
+      "invalidate",
+      62.999999965541065,
+      ""
+    ],
+    [
+      "reset",
+      46.999999904073775,
+      ""
+    ],
+    [
+      "blocker",
+      47.0000000204891,
+      ""
+    ],
+    [
+      "demo",
+      140.99999994505197,
+      "Collision clearance rejected at sample 53: obstacle, link 6, distance -0.0010 m"
+    ],
+    [
+      "clear_boxes",
+      62.000000034458935,
+      ""
+    ],
+    [
+      "demo",
+      202.9999999795109,
+      ""
+    ],
+    [
+      "add_box",
+      47.0000000204891,
+      ""
+    ],
+    [
+      "reset",
+      93.99999992456287,
+      ""
+    ],
+    [
+      "set_mode",
+      94.0000000409782,
+      ""
+    ],
+    [
+      "reset",
+      140.99999994505197,
+      ""
+    ],
+    [
+      "demo",
+      155.9999999590218,
+      ""
+    ],
+    [
+      "demo",
+      187.00000003445894,
+      ""
+    ],
+    [
+      "demo",
+      265.00000001396984,
+      "Freeze or finish the active motion before this operation"
+    ],
+    [
+      "demo",
+      327.9999999795109,
+      "Freeze or finish the active motion before this operation"
+    ],
+    [
+      "demo",
+      172.0000000204891,
+      ""
+    ],
+    [
+      "demo",
+      265.00000001396984,
+      "Freeze or finish the active motion before this operation"
+    ],
+    [
+      "demo",
+      172.0000000204891,
+      ""
+    ],
+    [
+      "demo",
+      250.0,
+      "Freeze or finish the active motion before this operation"
+    ],
+    [
+      "demo",
+      343.99999992456287,
+      "Freeze or finish the active motion before this operation"
+    ],
+    [
+      "demo",
+      157.00000000651926,
+      ""
+    ],
+    [
+      "demo",
+      218.99999992456287,
+      "Freeze or finish the active motion before this operation"
+    ],
+    [
+      "demo",
+      437.00000003445894,
+      ""
+    ],
+    [
+      "demo",
+      452.9999999795109,
+      "Freeze or finish the active motion before this operation"
+    ],
+    [
+      "demo",
+      452.9999999795109,
+      "Freeze or finish the active motion before this operation"
+    ]
+  ],
+  "method": "Shown Qt workstation with QTest widget input, no mock rendering",
+  "passed": true,
+  "source_sha256": "47e2edd1e531eccfe9d2468420d577ed0024097aa075140a67834abc4e887ddc",
+  "source_unchanged_during_run": true
+}

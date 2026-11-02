@@ -5,6 +5,8 @@ robot, responsive Qt HMI and independently verified robotics core.
 
 ![Actual Qt workstation](docs/media/workstation-home.png)
 
+![Recorded Qt Demo cycle](docs/media/workstation-demo.gif)
+
 **Kinematic simulation only.** The control core checks joint limits and sampled
 collision clearance. This is not a hardware driver, torque controller, validated
 industrial robot or functional-safety system. Visual shells and workbench are
@@ -100,6 +102,7 @@ A renderer failure holds motion; restart with a working graphics backend.
 .\.venv-workstation\Scripts\python.exe scripts\workstation_verify.py --output outputs\workstation-verify
 .\.venv-workstation\Scripts\python.exe scripts\workstation_soak.py --output outputs\workstation-soak
 .\.venv-workstation\Scripts\python.exe scripts\workstation_capture.py --output outputs\workstation-capture
+.\.venv-workstation\Scripts\python.exe scripts\workstation_visual_matrix.py --output outputs\workstation-scaling
 .\.venv-workstation\Scripts\python.exe -m build --no-isolation
 .\.venv-workstation\Scripts\python.exe scripts\clean_environment.py
 ```

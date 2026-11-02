@@ -15,6 +15,7 @@ from PySide6.QtCore import QPoint, QPointF, Qt
 from PySide6.QtGui import QSurfaceFormat, QWheelEvent
 from PySide6.QtTest import QTest
 from PySide6.QtWidgets import QApplication, QScrollArea
+from scipy.spatial.transform import Rotation
 
 from robotarm_lab.config import load_config
 from robotarm_lab.kinematics import fk
@@ -133,10 +134,17 @@ class Audit:
 
     def ik(self):
         self.window.tabs.setCurrentIndex(1)
-        self.window.copy_tcp()
+        target = fk(np.asarray(HOME) + [0.12, -0.05, 0.05, 0.1, 0, 0])
+        values = [
+            *target.position * 1000,
+            *Rotation.from_matrix(target.rotation).as_euler("xyz", degrees=True),
+        ]
+        for field, value in zip(self.window.tcp_targets, values, strict=True):
+            field.setValue(float(value))
         self.action("preview_pose", lambda: self.click("preview"))
         self.action("execute", lambda: self.click("execute"))
         self.still()
+        np.testing.assert_allclose(fk(self.window.snapshot.q).position, target.position, atol=1e-4)
         before = np.array(self.window.snapshot.q)
         self.window.tcp_targets[0].setValue(2000)
         self.action("preview_pose", lambda: self.click("preview"), allow_error=True)
@@ -182,6 +190,10 @@ class Audit:
         self.window.teach_list.setCurrentRow(0)
         self.action("teach_preview", lambda: self.click("preview"))
         assert self.window.snapshot.preview is not None
+        self.action("set_mode", lambda: self.window.mode.setCurrentText("AUTO"))
+        self.action("program", lambda: self.click("program"))
+        self.still()
+        np.testing.assert_array_equal(self.window.snapshot.q, HOME)
         self.action("teach_delete", lambda: self.click("teach_delete"))
         assert "QA Home" not in dict(self.window.snapshot.teach)
 
@@ -333,6 +345,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--performance-seconds", type=float, default=30)
+    parser.add_argument("--width", type=int, default=1366)
+    parser.add_argument("--height", type=int, default=768)
     parser.add_argument(
         "--functional-only",
         action="store_true",
@@ -360,7 +374,7 @@ def main():
     app = QApplication([])
     app.setStyle("Fusion")
     window = Workstation(load_config(), args.output / "session")
-    window.resize(1366, 768)
+    window.resize(args.width, args.height)
     window.show()
     audit = Audit(window, args.output)
     audit.wait(lambda: window.snapshot is not None)
@@ -408,6 +422,7 @@ def main():
             renderer=window.viewport.renderer_info,
             platform=platform.platform(),
             dpr=window.devicePixelRatioF(),
+            logical_size=[window.width(), window.height()],
             scale_env=os.environ.get("QT_SCREEN_SCALE_FACTORS"),
             freeze_latency_ms=getattr(audit, "freeze_ms", None),
             responses=audit.responses,

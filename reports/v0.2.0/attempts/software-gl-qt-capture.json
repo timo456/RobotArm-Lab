@@ -1,0 +1,8 @@
+{
+  "error": "OpenGL initialization failed: OpenGL 3.3 functions are unavailable",
+  "worker_closed": true,
+  "qt_callback_errors": [
+    "OpenGL initialization failed: OpenGL 3.3 functions are unavailable"
+  ],
+  "passed": false
+}

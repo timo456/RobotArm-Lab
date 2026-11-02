@@ -1,0 +1,8 @@
+{
+  "error": "OpenGL initialization failed: 'PySide6.QtOpenGL.QOpenGLFunctions_3_0.glVertexAttribPointer' called with wrong argument values:\n  PySide6.QtOpenGL.QOpenGLFunctions_3_0.glVertexAttribPointer(0, 3, 5126, False, 24, 0)\nFound signature:\n  PySide6.QtOpenGL.QOpenGLFunctions_3_0.glVertexAttribPointer(index: int, size: int, type: int, normalized: int, stride: int, pointer: int, /)",
+  "worker_closed": true,
+  "qt_callback_errors": [
+    "OpenGL initialization failed: 'PySide6.QtOpenGL.QOpenGLFunctions_3_0.glVertexAttribPointer' called with wrong argument values:\n  PySide6.QtOpenGL.QOpenGLFunctions_3_0.glVertexAttribPointer(0, 3, 5126, False, 24, 0)\nFound signature:\n  PySide6.QtOpenGL.QOpenGLFunctions_3_0.glVertexAttribPointer(index: int, size: int, type: int, normalized: int, stride: int, pointer: int, /)"
+  ],
+  "passed": false
+}

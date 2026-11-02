@@ -1,0 +1,13 @@
+{
+  "totals": {
+    "covered_lines": 964,
+    "num_statements": 2148,
+    "percent_covered": 44.878957169459966,
+    "percent_covered_display": "45",
+    "missing_lines": 1184,
+    "excluded_lines": 0,
+    "percent_statements_covered": 44.878957169459966,
+    "percent_statements_covered_display": "45"
+  },
+  "scope": "pytest only; separate actual GUI runs are not coverage-instrumented"
+}

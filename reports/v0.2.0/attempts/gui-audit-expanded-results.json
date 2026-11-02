@@ -1,0 +1,624 @@
+{
+  "scenarios": [
+    {
+      "name": "joint_preview_execute",
+      "passed": true,
+      "elapsed_ms": 3583.953900029883
+    },
+    {
+      "name": "stale_input",
+      "passed": true,
+      "elapsed_ms": 389.1732000047341
+    },
+    {
+      "name": "joint_jog_mode",
+      "passed": true,
+      "elapsed_ms": 844.0499999560416
+    },
+    {
+      "name": "tcp_ik_unreachable",
+      "passed": true,
+      "elapsed_ms": 631.8588999565691
+    },
+    {
+      "name": "pause_resume_speed_freeze",
+      "passed": true,
+      "elapsed_ms": 1254.8675000434741
+    },
+    {
+      "name": "demo_complete",
+      "passed": true,
+      "elapsed_ms": 5335.021800012328
+    },
+    {
+      "name": "teach_persistence",
+      "passed": true,
+      "elapsed_ms": 602.9983999906108
+    },
+    {
+      "name": "collision_blocking",
+      "passed": true,
+      "elapsed_ms": 1433.9872000273317
+    },
+    {
+      "name": "camera_capture",
+      "passed": true,
+      "elapsed_ms": 568.3255000039935
+    },
+    {
+      "name": "invalid_command",
+      "passed": true,
+      "elapsed_ms": 178.68020001333207
+    },
+    {
+      "name": "log_io_failure_recovery",
+      "passed": true,
+      "elapsed_ms": 506.5527999540791
+    },
+    {
+      "name": "teach_restart_persistence",
+      "passed": true,
+      "elapsed_ms": 817.7001998992637
+    },
+    {
+      "name": "shutdown_during_planning",
+      "passed": true,
+      "elapsed_ms": 556.0510999057442
+    }
+  ],
+  "metrics": {
+    "seconds": 30.00320090004243,
+    "frames": 2268,
+    "fps": 75.58743381022276,
+    "render_cpu_p95_ms": 4.494229995179921,
+    "ui_heartbeat_p95_ms": 23.109484947053716,
+    "ui_heartbeat_max_ms": 34.55240000039339
+  },
+  "checks": {
+    "fps": true,
+    "render": true,
+    "heartbeat_p95": true,
+    "heartbeat_max": true,
+    "command_feedback": true,
+    "freeze": true
+  },
+  "qt_errors": [],
+  "renderer": "NVIDIA GeForce RTX 3080/PCIe/SSE2 / 3.3.0 NVIDIA 610.88",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "dpr": 1.25,
+  "scale_env": null,
+  "freeze_latency_ms": 80.39509993977845,
+  "responses": [
+    [
+      "reset",
+      176.80949997156858,
+      ""
+    ],
+    [
+      "preview_joint",
+      52.251300076022744,
+      ""
+    ],
+    [
+      "execute",
+      142.94849999714643,
+      ""
+    ],
+    [
+      "home",
+      113.44230000395328,
+      ""
+    ],
+    [
+      "reset",
+      124.35890000779182,
+      ""
+    ],
+    [
+      "preview_joint",
+      128.26430005952716,
+      ""
+    ],
+    [
+      "invalidate",
+      54.81660005170852,
+      ""
+    ],
+    [
+      "reset",
+      100.82250006962568,
+      ""
+    ],
+    [
+      "jog",
+      113.29959996510297,
+      ""
+    ],
+    [
+      "set_mode",
+      72.16949993744493,
+      ""
+    ],
+    [
+      "reset",
+      46.72119999304414,
+      ""
+    ],
+    [
+      "set_mode",
+      45.352499932050705,
+      ""
+    ],
+    [
+      "preview_pose",
+      96.17390006314963,
+      ""
+    ],
+    [
+      "execute",
+      76.45439996849746,
+      ""
+    ],
+    [
+      "invalidate",
+      66.35800004005432,
+      ""
+    ],
+    [
+      "preview_pose",
+      147.92880008462816,
+      "Unreachable target: outside conservative reach bound"
+    ],
+    [
+      "reset",
+      51.89459992107004,
+      ""
+    ],
+    [
+      "demo",
+      106.83910001534969,
+      ""
+    ],
+    [
+      "pause",
+      227.9815999791026,
+      ""
+    ],
+    [
+      "set_speed",
+      43.564500054344535,
+      ""
+    ],
+    [
+      "resume",
+      87.56749995518476,
+      ""
+    ],
+    [
+      "reset",
+      79.24190000630915,
+      ""
+    ],
+    [
+      "set_mode",
+      36.8161000078544,
+      ""
+    ],
+    [
+      "demo",
+      171.3735000230372,
+      ""
+    ],
+    [
+      "reset",
+      133.85159999597818,
+      ""
+    ],
+    [
+      "set_mode",
+      74.42670001182705,
+      ""
+    ],
+    [
+      "teach_save",
+      74.10239998716861,
+      ""
+    ],
+    [
+      "teach_preview",
+      51.88739998266101,
+      ""
+    ],
+    [
+      "teach_delete",
+      88.74639996793121,
+      ""
+    ],
+    [
+      "invalidate",
+      60.8418999472633,
+      ""
+    ],
+    [
+      "reset",
+      124.78839990217239,
+      ""
+    ],
+    [
+      "add_box",
+      54.44340000394732,
+      ""
+    ],
+    [
+      "update_box",
+      274.3843999924138,
+      ""
+    ],
+    [
+      "remove_box",
+      87.80720003414899,
+      ""
+    ],
+    [
+      "blocker",
+      81.87330001965165,
+      ""
+    ],
+    [
+      "demo",
+      66.93219998851418,
+      "Collision clearance rejected at sample 53: obstacle, link 6, distance -0.0010 m"
+    ],
+    [
+      "clear_boxes",
+      51.52159999124706,
+      ""
+    ],
+    [
+      "demo",
+      141.71370002441108,
+      ""
+    ],
+    [
+      "add_box",
+      56.80000002030283,
+      ""
+    ],
+    [
+      "reset",
+      172.25800000596792,
+      ""
+    ],
+    [
+      "set_mode",
+      67.45909992605448,
+      ""
+    ],
+    [
+      "reset",
+      69.02489997446537,
+      ""
+    ],
+    [
+      "preview_joint",
+      51.25169991515577,
+      "Joint limit exceeded"
+    ],
+    [
+      "reset",
+      89.68410000670701,
+      ""
+    ],
+    [
+      "home",
+      41.41370009165257,
+      "Event log unavailable: [Errno 13] Permission denied: 'outputs\\\\v0.2.0\\\\gui-audit-expanded\\\\session\\\\session.jsonl'"
+    ],
+    [
+      "reset",
+      31.872999970801175,
+      ""
+    ],
+    [
+      "home",
+      99.57870002835989,
+      ""
+    ],
+    [
+      "reset",
+      119.75119996350259,
+      ""
+    ],
+    [
+      "teach_save",
+      115.48400006722659,
+      ""
+    ],
+    [
+      "teach_delete",
+      102.91280003730208,
+      ""
+    ],
+    [
+      "reset",
+      62.68480001017451,
+      ""
+    ],
+    [
+      "reset",
+      87.57639990653843,
+      ""
+    ],
+    [
+      "demo",
+      136.15630008280277,
+      ""
+    ],
+    [
+      "demo",
+      144.20829992741346,
+      ""
+    ],
+    [
+      "demo",
+      239.01969997677952,
+      ""
+    ],
+    [
+      "demo",
+      137.05359993036836,
+      ""
+    ],
+    [
+      "demo",
+      181.0913000954315,
+      ""
+    ],
+    [
+      "demo",
+      160.4456000495702,
+      ""
+    ]
+  ],
+  "command_acknowledgements_ms": [
+    [
+      "reset",
+      30.69140005391091
+    ],
+    [
+      "preview_joint",
+      12.315800064243376
+    ],
+    [
+      "execute",
+      21.50410006288439
+    ],
+    [
+      "home",
+      9.063700097613037
+    ],
+    [
+      "reset",
+      7.849000045098364
+    ],
+    [
+      "preview_joint",
+      13.764700037427247
+    ],
+    [
+      "invalidate",
+      42.511200066655874
+    ],
+    [
+      "reset",
+      11.27060002181679
+    ],
+    [
+      "jog",
+      31.631199992261827
+    ],
+    [
+      "set_mode",
+      20.957599976100028
+    ],
+    [
+      "reset",
+      15.030100010335445
+    ],
+    [
+      "set_mode",
+      33.732199924997985
+    ],
+    [
+      "preview_pose",
+      16.918900073505938
+    ],
+    [
+      "execute",
+      14.244999969378114
+    ],
+    [
+      "invalidate",
+      47.85139998421073
+    ],
+    [
+      "preview_pose",
+      105.77150003518909
+    ],
+    [
+      "reset",
+      12.139599886722863
+    ],
+    [
+      "demo",
+      15.56890003848821
+    ],
+    [
+      "pause",
+      18.544899998232722
+    ],
+    [
+      "set_speed",
+      19.397399970330298
+    ],
+    [
+      "resume",
+      11.562200030311942
+    ],
+    [
+      "reset",
+      3.4452000400051475
+    ],
+    [
+      "set_mode",
+      24.825399974361062
+    ],
+    [
+      "demo",
+      33.674399950541556
+    ],
+    [
+      "reset",
+      5.562399979680777
+    ],
+    [
+      "set_mode",
+      68.4326000045985
+    ],
+    [
+      "teach_save",
+      17.01449998654425
+    ],
+    [
+      "teach_preview",
+      3.156099934130907
+    ],
+    [
+      "teach_delete",
+      20.408599986694753
+    ],
+    [
+      "invalidate",
+      62.781899934634566
+    ],
+    [
+      "reset",
+      13.114899978972971
+    ],
+    [
+      "add_box",
+      18.72000005096197
+    ],
+    [
+      "update_box",
+      22.308900021016598
+    ],
+    [
+      "remove_box",
+      21.22730005066842
+    ],
+    [
+      "blocker",
+      30.22620000410825
+    ],
+    [
+      "demo",
+      18.034700071439147
+    ],
+    [
+      "clear_boxes",
+      10.877200053073466
+    ],
+    [
+      "demo",
+      30.820899992249906
+    ],
+    [
+      "add_box",
+      59.13339997641742
+    ],
+    [
+      "reset",
+      30.865399981848896
+    ],
+    [
+      "set_mode",
+      49.43949996959418
+    ],
+    [
+      "reset",
+      17.476000008173287
+    ],
+    [
+      "preview_joint",
+      20.48609999474138
+    ],
+    [
+      "reset",
+      15.784900053404272
+    ],
+    [
+      "home",
+      12.460900004953146
+    ],
+    [
+      "reset",
+      7.276399992406368
+    ],
+    [
+      "home",
+      11.994400061666965
+    ],
+    [
+      "reset",
+      19.133300054818392
+    ],
+    [
+      "teach_save",
+      2.2968000266700983
+    ],
+    [
+      "teach_delete",
+      17.932900111190975
+    ],
+    [
+      "reset",
+      11.423800024203956
+    ],
+    [
+      "reset",
+      16.151999938301742
+    ],
+    [
+      "demo",
+      4.943600040860474
+    ],
+    [
+      "demo",
+      13.808100018650293
+    ],
+    [
+      "demo",
+      9.765999973751605
+    ],
+    [
+      "demo",
+      9.502699947915971
+    ],
+    [
+      "demo",
+      12.406100053340197
+    ],
+    [
+      "demo",
+      9.153999970294535
+    ]
+  ],
+  "command_feedback_p95_ms": 59.68067497014999,
+  "command_feedback_definition": "Submission to worker acceptance received by GUI event loop; completion latency is separately reported in responses",
+  "shutdown_latency_ms": 149.23750003799796,
+  "method": "Shown Qt workstation with QTest widget input, no mock rendering",
+  "passed": true,
+  "source_sha256": "8a36897abd9c80ef9dc2061cb391c9ef6e3770e707a6b09ada0cf3cd8746777e",
+  "source_unchanged_during_run": true
+}

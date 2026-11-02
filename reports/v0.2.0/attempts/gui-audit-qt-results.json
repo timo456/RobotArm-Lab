@@ -1,0 +1,278 @@
+{
+  "scenarios": [
+    {
+      "name": "joint_preview_execute",
+      "passed": false,
+      "error": "",
+      "elapsed_ms": 202.87629996892065
+    },
+    {
+      "name": "stale_input",
+      "passed": true,
+      "elapsed_ms": 379.3691999744624
+    },
+    {
+      "name": "joint_jog_mode",
+      "passed": false,
+      "error": "",
+      "elapsed_ms": 1148.6673000035807
+    },
+    {
+      "name": "tcp_ik_unreachable",
+      "passed": false,
+      "error": "Disabled button: execute",
+      "elapsed_ms": 322.61409994680434
+    },
+    {
+      "name": "pause_resume_speed_freeze",
+      "passed": true,
+      "elapsed_ms": 1116.2945000687614
+    },
+    {
+      "name": "demo_complete",
+      "passed": true,
+      "elapsed_ms": 5562.557499972172
+    },
+    {
+      "name": "teach_persistence",
+      "passed": false,
+      "error": "",
+      "elapsed_ms": 322.6348999887705
+    },
+    {
+      "name": "collision_blocking",
+      "passed": false,
+      "error": "",
+      "elapsed_ms": 355.8201000560075
+    },
+    {
+      "name": "camera_capture",
+      "passed": true,
+      "elapsed_ms": 452.4820001097396
+    }
+  ],
+  "metrics": {
+    "seconds": 30.010917800012976,
+    "frames": 2269,
+    "fps": 75.58811099808878,
+    "render_cpu_p95_ms": 4.500525043113157,
+    "ui_heartbeat_p95_ms": 23.21023501572199,
+    "ui_heartbeat_max_ms": 35.81200004555285
+  },
+  "checks": {
+    "fps": true,
+    "render": true,
+    "heartbeat_p95": true,
+    "heartbeat_max": true
+  },
+  "qt_errors": [],
+  "renderer": "NVIDIA GeForce RTX 3080/PCIe/SSE2 / 3.3.0 NVIDIA 610.88",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "dpr": 1.25,
+  "scale_env": null,
+  "freeze_latency_ms": 62.80720001086593,
+  "responses": [
+    [
+      "reset",
+      92.99999999348074,
+      ""
+    ],
+    [
+      "preview_joint",
+      31.00000007543713,
+      ""
+    ],
+    [
+      "reset",
+      157.00000000651926,
+      ""
+    ],
+    [
+      "preview_joint",
+      109.00000005494803,
+      ""
+    ],
+    [
+      "invalidate",
+      47.0000000204891,
+      ""
+    ],
+    [
+      "reset",
+      109.99999998603016,
+      ""
+    ],
+    [
+      "jog",
+      156.00000007543713,
+      ""
+    ],
+    [
+      "set_mode",
+      62.000000034458935,
+      ""
+    ],
+    [
+      "reset",
+      32.00000000651926,
+      ""
+    ],
+    [
+      "set_mode",
+      77.9999999795109,
+      ""
+    ],
+    [
+      "preview_pose",
+      155.9999999590218,
+      ""
+    ],
+    [
+      "reset",
+      109.99999998603016,
+      ""
+    ],
+    [
+      "demo",
+      93.99999992456287,
+      ""
+    ],
+    [
+      "pause",
+      77.9999999795109,
+      ""
+    ],
+    [
+      "set_speed",
+      31.00000007543713,
+      ""
+    ],
+    [
+      "resume",
+      62.999999965541065,
+      ""
+    ],
+    [
+      "reset",
+      62.999999965541065,
+      ""
+    ],
+    [
+      "set_mode",
+      61.99999991804361,
+      ""
+    ],
+    [
+      "demo",
+      172.0000000204891,
+      ""
+    ],
+    [
+      "reset",
+      125.0,
+      ""
+    ],
+    [
+      "set_mode",
+      77.9999999795109,
+      ""
+    ],
+    [
+      "teach_save",
+      61.99999991804361,
+      ""
+    ],
+    [
+      "reset",
+      62.000000034458935,
+      ""
+    ],
+    [
+      "blocker",
+      77.9999999795109,
+      ""
+    ],
+    [
+      "demo",
+      157.00000000651926,
+      "Collision clearance rejected at sample 53: obstacle, link 6, distance -0.0010 m"
+    ],
+    [
+      "reset",
+      109.00000005494803,
+      ""
+    ],
+    [
+      "set_mode",
+      62.999999965541065,
+      ""
+    ],
+    [
+      "reset",
+      109.00000005494803,
+      ""
+    ],
+    [
+      "demo",
+      94.0000000409782,
+      ""
+    ],
+    [
+      "demo",
+      140.00000001396984,
+      ""
+    ],
+    [
+      "demo",
+      109.99999998603016,
+      ""
+    ],
+    [
+      "demo",
+      140.99999994505197,
+      "Freeze or finish the active motion before this operation"
+    ],
+    [
+      "demo",
+      155.9999999590218,
+      "Freeze or finish the active motion before this operation"
+    ],
+    [
+      "demo",
+      141.0000000614673,
+      ""
+    ],
+    [
+      "demo",
+      187.99999996554106,
+      ""
+    ],
+    [
+      "demo",
+      203.00000009592623,
+      "Freeze or finish the active motion before this operation"
+    ],
+    [
+      "demo",
+      125.0,
+      ""
+    ],
+    [
+      "demo",
+      125.0,
+      ""
+    ],
+    [
+      "demo",
+      125.0,
+      "Freeze or finish the active motion before this operation"
+    ],
+    [
+      "demo",
+      108.99999993853271,
+      "Freeze or finish the active motion before this operation"
+    ]
+  ],
+  "method": "Shown Qt workstation with QTest widget input, no mock rendering",
+  "passed": false
+}

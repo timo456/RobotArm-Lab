@@ -1,0 +1,4210 @@
+{
+  "seed": 20261103,
+  "samples": 100,
+  "comparisons": 700,
+  "records": [
+    {
+      "sample": 0,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 7.278653324373237e-08
+    },
+    {
+      "sample": 0,
+      "link": 1,
+      "position_error_m": 2.6242574727401023e-08,
+      "orientation_error_rad": 1.388291881152809e-07
+    },
+    {
+      "sample": 0,
+      "link": 2,
+      "position_error_m": 1.0670784569335802e-08,
+      "orientation_error_rad": 2.5796931635323617e-08
+    },
+    {
+      "sample": 0,
+      "link": 3,
+      "position_error_m": 1.2220523686527643e-08,
+      "orientation_error_rad": 3.063517418072663e-08
+    },
+    {
+      "sample": 0,
+      "link": 4,
+      "position_error_m": 2.1220959998425507e-08,
+      "orientation_error_rad": 6.537122126645754e-08
+    },
+    {
+      "sample": 0,
+      "link": 5,
+      "position_error_m": 1.383953405887484e-08,
+      "orientation_error_rad": 2.9688015924837965e-08
+    },
+    {
+      "sample": 0,
+      "link": 6,
+      "position_error_m": 1.537379243639846e-08,
+      "orientation_error_rad": 2.9688015924837965e-08
+    },
+    {
+      "sample": 1,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 7.923005608492236e-09
+    },
+    {
+      "sample": 1,
+      "link": 1,
+      "position_error_m": 9.065247294205505e-09,
+      "orientation_error_rad": 5.877249922984216e-08
+    },
+    {
+      "sample": 1,
+      "link": 2,
+      "position_error_m": 1.1525863291721066e-08,
+      "orientation_error_rad": 6.803901645669826e-08
+    },
+    {
+      "sample": 1,
+      "link": 3,
+      "position_error_m": 9.309106656355332e-10,
+      "orientation_error_rad": 1.4906967013944287e-07
+    },
+    {
+      "sample": 1,
+      "link": 4,
+      "position_error_m": 8.325219715138754e-09,
+      "orientation_error_rad": 8.636565938366998e-08
+    },
+    {
+      "sample": 1,
+      "link": 5,
+      "position_error_m": 1.3111143584075483e-08,
+      "orientation_error_rad": 1.7043136871177638e-07
+    },
+    {
+      "sample": 1,
+      "link": 6,
+      "position_error_m": 5.136299408625124e-09,
+      "orientation_error_rad": 1.7043136871177638e-07
+    },
+    {
+      "sample": 2,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 3.781522361422449e-08
+    },
+    {
+      "sample": 2,
+      "link": 1,
+      "position_error_m": 8.2644371071045e-09,
+      "orientation_error_rad": 2.5418676865310936e-08
+    },
+    {
+      "sample": 2,
+      "link": 2,
+      "position_error_m": 2.4440857456110508e-08,
+      "orientation_error_rad": 5.3005679540301424e-08
+    },
+    {
+      "sample": 2,
+      "link": 3,
+      "position_error_m": 4.2320241897458756e-08,
+      "orientation_error_rad": 3.297350661040267e-08
+    },
+    {
+      "sample": 2,
+      "link": 4,
+      "position_error_m": 4.3086434677012145e-08,
+      "orientation_error_rad": 6.216347887830698e-08
+    },
+    {
+      "sample": 2,
+      "link": 5,
+      "position_error_m": 1.5129935887543952e-08,
+      "orientation_error_rad": 1.8496928485968793e-07
+    },
+    {
+      "sample": 2,
+      "link": 6,
+      "position_error_m": 5.728983229336451e-09,
+      "orientation_error_rad": 1.8496928485968793e-07
+    },
+    {
+      "sample": 3,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 4.5031044768896926e-08
+    },
+    {
+      "sample": 3,
+      "link": 1,
+      "position_error_m": 1.1734132253232792e-08,
+      "orientation_error_rad": 1.1851745567703992e-07
+    },
+    {
+      "sample": 3,
+      "link": 2,
+      "position_error_m": 2.5123160004870225e-08,
+      "orientation_error_rad": 5.705645381333586e-08
+    },
+    {
+      "sample": 3,
+      "link": 3,
+      "position_error_m": 7.369150181947754e-09,
+      "orientation_error_rad": 2.4249167611530044e-07
+    },
+    {
+      "sample": 3,
+      "link": 4,
+      "position_error_m": 4.447055082701096e-09,
+      "orientation_error_rad": 9.219854729527424e-08
+    },
+    {
+      "sample": 3,
+      "link": 5,
+      "position_error_m": 4.2771718284049515e-09,
+      "orientation_error_rad": 8.482126015516515e-09
+    },
+    {
+      "sample": 3,
+      "link": 6,
+      "position_error_m": 3.1813063327439922e-09,
+      "orientation_error_rad": 8.482126015516515e-09
+    },
+    {
+      "sample": 4,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 1.2500305222945146e-08
+    },
+    {
+      "sample": 4,
+      "link": 1,
+      "position_error_m": 3.576278717609682e-09,
+      "orientation_error_rad": 6.400923257747725e-08
+    },
+    {
+      "sample": 4,
+      "link": 2,
+      "position_error_m": 2.2688344893522673e-08,
+      "orientation_error_rad": 2.024445267538785e-07
+    },
+    {
+      "sample": 4,
+      "link": 3,
+      "position_error_m": 1.8056094447183716e-08,
+      "orientation_error_rad": 3.330047721827473e-08
+    },
+    {
+      "sample": 4,
+      "link": 4,
+      "position_error_m": 2.5912828502272045e-08,
+      "orientation_error_rad": 5.617999210221247e-08
+    },
+    {
+      "sample": 4,
+      "link": 5,
+      "position_error_m": 1.6977836663151467e-08,
+      "orientation_error_rad": 1.6233139143712008e-07
+    },
+    {
+      "sample": 4,
+      "link": 6,
+      "position_error_m": 1.720974472062682e-08,
+      "orientation_error_rad": 1.6233139143712008e-07
+    },
+    {
+      "sample": 5,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 3.001452123392948e-08
+    },
+    {
+      "sample": 5,
+      "link": 1,
+      "position_error_m": 1.5326075312997896e-08,
+      "orientation_error_rad": 1.0047309342313779e-07
+    },
+    {
+      "sample": 5,
+      "link": 2,
+      "position_error_m": 7.785045947939987e-09,
+      "orientation_error_rad": 1.0856496807432167e-08
+    },
+    {
+      "sample": 5,
+      "link": 3,
+      "position_error_m": 4.935925303643999e-09,
+      "orientation_error_rad": 4.894988946576845e-08
+    },
+    {
+      "sample": 5,
+      "link": 4,
+      "position_error_m": 1.2714415421558164e-08,
+      "orientation_error_rad": 2.2477349063877465e-07
+    },
+    {
+      "sample": 5,
+      "link": 5,
+      "position_error_m": 9.977987005880605e-09,
+      "orientation_error_rad": 1.3681805375517736e-08
+    },
+    {
+      "sample": 5,
+      "link": 6,
+      "position_error_m": 1.0886545257810554e-08,
+      "orientation_error_rad": 1.3681805375517736e-08
+    },
+    {
+      "sample": 6,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 6.424958401650753e-09
+    },
+    {
+      "sample": 6,
+      "link": 1,
+      "position_error_m": 1.3423508665687591e-08,
+      "orientation_error_rad": 3.9694992556937745e-08
+    },
+    {
+      "sample": 6,
+      "link": 2,
+      "position_error_m": 2.2424166282775202e-08,
+      "orientation_error_rad": 4.205985704640829e-08
+    },
+    {
+      "sample": 6,
+      "link": 3,
+      "position_error_m": 5.2698036028050043e-08,
+      "orientation_error_rad": 2.3946831199204364e-07
+    },
+    {
+      "sample": 6,
+      "link": 4,
+      "position_error_m": 9.373791310577569e-09,
+      "orientation_error_rad": 1.363164587062018e-08
+    },
+    {
+      "sample": 6,
+      "link": 5,
+      "position_error_m": 3.518951593894105e-08,
+      "orientation_error_rad": 2.8963239836985265e-07
+    },
+    {
+      "sample": 6,
+      "link": 6,
+      "position_error_m": 4.751735972683147e-08,
+      "orientation_error_rad": 2.8963239836985265e-07
+    },
+    {
+      "sample": 7,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 1.3684786071943213e-08
+    },
+    {
+      "sample": 7,
+      "link": 1,
+      "position_error_m": 5.164064026892231e-09,
+      "orientation_error_rad": 5.126733162344922e-09
+    },
+    {
+      "sample": 7,
+      "link": 2,
+      "position_error_m": 1.0597097415732878e-08,
+      "orientation_error_rad": 3.85999900239727e-08
+    },
+    {
+      "sample": 7,
+      "link": 3,
+      "position_error_m": 2.047112839287328e-08,
+      "orientation_error_rad": 6.973270174779068e-08
+    },
+    {
+      "sample": 7,
+      "link": 4,
+      "position_error_m": 3.6770319744963714e-09,
+      "orientation_error_rad": 5.8618541463760855e-08
+    },
+    {
+      "sample": 7,
+      "link": 5,
+      "position_error_m": 2.778270906858397e-08,
+      "orientation_error_rad": 1.7596830369973118e-07
+    },
+    {
+      "sample": 7,
+      "link": 6,
+      "position_error_m": 3.056138632014578e-08,
+      "orientation_error_rad": 1.7596830369973118e-07
+    },
+    {
+      "sample": 8,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 6.48067529880723e-09
+    },
+    {
+      "sample": 8,
+      "link": 1,
+      "position_error_m": 2.632112026584234e-08,
+      "orientation_error_rad": 2.982190566487647e-07
+    },
+    {
+      "sample": 8,
+      "link": 2,
+      "position_error_m": 3.1738625645921736e-08,
+      "orientation_error_rad": 1.7248912803061838e-07
+    },
+    {
+      "sample": 8,
+      "link": 3,
+      "position_error_m": 7.664519178970007e-09,
+      "orientation_error_rad": 9.320349890731938e-08
+    },
+    {
+      "sample": 8,
+      "link": 4,
+      "position_error_m": 3.1179871594753495e-08,
+      "orientation_error_rad": 3.142627664387227e-08
+    },
+    {
+      "sample": 8,
+      "link": 5,
+      "position_error_m": 1.0696539165910428e-08,
+      "orientation_error_rad": 2.9003654342009264e-08
+    },
+    {
+      "sample": 8,
+      "link": 6,
+      "position_error_m": 2.784121337353357e-08,
+      "orientation_error_rad": 2.9003654342009264e-08
+    },
+    {
+      "sample": 9,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 8.867625264648698e-09
+    },
+    {
+      "sample": 9,
+      "link": 1,
+      "position_error_m": 3.016731363487255e-08,
+      "orientation_error_rad": 5.124063862193446e-08
+    },
+    {
+      "sample": 9,
+      "link": 2,
+      "position_error_m": 1.1171871324172546e-08,
+      "orientation_error_rad": 1.0607685167624388e-08
+    },
+    {
+      "sample": 9,
+      "link": 3,
+      "position_error_m": 1.4131045486568516e-08,
+      "orientation_error_rad": 2.031038784647749e-08
+    },
+    {
+      "sample": 9,
+      "link": 4,
+      "position_error_m": 3.1716443370110566e-08,
+      "orientation_error_rad": 6.848097901164455e-08
+    },
+    {
+      "sample": 9,
+      "link": 5,
+      "position_error_m": 1.1117741621233514e-08,
+      "orientation_error_rad": 1.7174942962767117e-07
+    },
+    {
+      "sample": 9,
+      "link": 6,
+      "position_error_m": 1.8804979213326782e-09,
+      "orientation_error_rad": 1.7174942962767117e-07
+    },
+    {
+      "sample": 10,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 2.475436012935204e-08
+    },
+    {
+      "sample": 10,
+      "link": 1,
+      "position_error_m": 5.164064026892231e-09,
+      "orientation_error_rad": 3.5842162099249474e-08
+    },
+    {
+      "sample": 10,
+      "link": 2,
+      "position_error_m": 5.431965914734527e-08,
+      "orientation_error_rad": 3.925595902007219e-08
+    },
+    {
+      "sample": 10,
+      "link": 3,
+      "position_error_m": 8.80373220208209e-09,
+      "orientation_error_rad": 3.875154218873177e-08
+    },
+    {
+      "sample": 10,
+      "link": 4,
+      "position_error_m": 8.306820378247934e-09,
+      "orientation_error_rad": 4.35728494173077e-08
+    },
+    {
+      "sample": 10,
+      "link": 5,
+      "position_error_m": 2.7347542710246345e-08,
+      "orientation_error_rad": 2.2102525642361018e-08
+    },
+    {
+      "sample": 10,
+      "link": 6,
+      "position_error_m": 1.611861077122999e-08,
+      "orientation_error_rad": 2.2102525642361018e-08
+    },
+    {
+      "sample": 11,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 2.0140125061830686e-08
+    },
+    {
+      "sample": 11,
+      "link": 1,
+      "position_error_m": 2.6489302640746378e-08,
+      "orientation_error_rad": 4.995606272453e-08
+    },
+    {
+      "sample": 11,
+      "link": 2,
+      "position_error_m": 1.3664883990407967e-08,
+      "orientation_error_rad": 1.2532848949488672e-07
+    },
+    {
+      "sample": 11,
+      "link": 3,
+      "position_error_m": 1.0264960227260553e-08,
+      "orientation_error_rad": 2.8997337021036328e-08
+    },
+    {
+      "sample": 11,
+      "link": 4,
+      "position_error_m": 1.3243606858638656e-08,
+      "orientation_error_rad": 5.1397796257274164e-08
+    },
+    {
+      "sample": 11,
+      "link": 5,
+      "position_error_m": 3.5164534243773837e-09,
+      "orientation_error_rad": 4.126767382385625e-08
+    },
+    {
+      "sample": 11,
+      "link": 6,
+      "position_error_m": 6.756583606635496e-09,
+      "orientation_error_rad": 4.126767382385625e-08
+    },
+    {
+      "sample": 12,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 2.714806190216181e-11
+    },
+    {
+      "sample": 12,
+      "link": 1,
+      "position_error_m": 1.1736441958489051e-08,
+      "orientation_error_rad": 6.213524715392722e-08
+    },
+    {
+      "sample": 12,
+      "link": 2,
+      "position_error_m": 4.048694877802737e-08,
+      "orientation_error_rad": 2.1172938438409163e-08
+    },
+    {
+      "sample": 12,
+      "link": 3,
+      "position_error_m": 7.036354651649868e-09,
+      "orientation_error_rad": 1.0008671388589355e-07
+    },
+    {
+      "sample": 12,
+      "link": 4,
+      "position_error_m": 1.594481713434931e-08,
+      "orientation_error_rad": 1.6085802762217888e-07
+    },
+    {
+      "sample": 12,
+      "link": 5,
+      "position_error_m": 2.602475529219923e-08,
+      "orientation_error_rad": 7.248542711222291e-08
+    },
+    {
+      "sample": 12,
+      "link": 6,
+      "position_error_m": 1.7373751226473344e-08,
+      "orientation_error_rad": 7.248542711222291e-08
+    },
+    {
+      "sample": 13,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 2.1486992074475772e-08
+    },
+    {
+      "sample": 13,
+      "link": 1,
+      "position_error_m": 2.1374727584605388e-08,
+      "orientation_error_rad": 1.7019109808330576e-08
+    },
+    {
+      "sample": 13,
+      "link": 2,
+      "position_error_m": 3.401214507827338e-08,
+      "orientation_error_rad": 6.030946111457472e-08
+    },
+    {
+      "sample": 13,
+      "link": 3,
+      "position_error_m": 3.2876461895776544e-08,
+      "orientation_error_rad": 1.226715305313125e-07
+    },
+    {
+      "sample": 13,
+      "link": 4,
+      "position_error_m": 2.720041406303724e-08,
+      "orientation_error_rad": 4.358694677813834e-08
+    },
+    {
+      "sample": 13,
+      "link": 5,
+      "position_error_m": 2.998064710325104e-08,
+      "orientation_error_rad": 1.4903270109284215e-08
+    },
+    {
+      "sample": 13,
+      "link": 6,
+      "position_error_m": 3.352501544349102e-08,
+      "orientation_error_rad": 1.4903270109284215e-08
+    },
+    {
+      "sample": 14,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 1.385532922782348e-07
+    },
+    {
+      "sample": 14,
+      "link": 1,
+      "position_error_m": 3.576278717609682e-09,
+      "orientation_error_rad": 5.028940433020463e-08
+    },
+    {
+      "sample": 14,
+      "link": 2,
+      "position_error_m": 1.1971832508450294e-08,
+      "orientation_error_rad": 1.849291498315893e-08
+    },
+    {
+      "sample": 14,
+      "link": 3,
+      "position_error_m": 5.425768606304595e-09,
+      "orientation_error_rad": 2.905011693796216e-08
+    },
+    {
+      "sample": 14,
+      "link": 4,
+      "position_error_m": 9.226942174995234e-09,
+      "orientation_error_rad": 7.642427518663998e-08
+    },
+    {
+      "sample": 14,
+      "link": 5,
+      "position_error_m": 1.1581694998021488e-08,
+      "orientation_error_rad": 7.542214213125777e-08
+    },
+    {
+      "sample": 14,
+      "link": 6,
+      "position_error_m": 6.3303492410062785e-09,
+      "orientation_error_rad": 7.542214213125777e-08
+    },
+    {
+      "sample": 15,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 4.1264783533954005e-08
+    },
+    {
+      "sample": 15,
+      "link": 1,
+      "position_error_m": 1.6711871931742565e-08,
+      "orientation_error_rad": 6.901953715584732e-08
+    },
+    {
+      "sample": 15,
+      "link": 2,
+      "position_error_m": 2.1890108454233472e-08,
+      "orientation_error_rad": 1.8247782838524714e-07
+    },
+    {
+      "sample": 15,
+      "link": 3,
+      "position_error_m": 1.1141172484296438e-08,
+      "orientation_error_rad": 7.690407642907056e-08
+    },
+    {
+      "sample": 15,
+      "link": 4,
+      "position_error_m": 3.459925808986976e-08,
+      "orientation_error_rad": 7.546352743882177e-08
+    },
+    {
+      "sample": 15,
+      "link": 5,
+      "position_error_m": 1.592002505750328e-08,
+      "orientation_error_rad": 4.6316359273072604e-08
+    },
+    {
+      "sample": 15,
+      "link": 6,
+      "position_error_m": 2.7480463120202995e-08,
+      "orientation_error_rad": 4.6316359273072604e-08
+    },
+    {
+      "sample": 16,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 1.703654243068325e-07
+    },
+    {
+      "sample": 16,
+      "link": 1,
+      "position_error_m": 5.489718046110932e-09,
+      "orientation_error_rad": 5.909876338226722e-08
+    },
+    {
+      "sample": 16,
+      "link": 2,
+      "position_error_m": 3.3851533864521006e-08,
+      "orientation_error_rad": 3.120043967892504e-08
+    },
+    {
+      "sample": 16,
+      "link": 3,
+      "position_error_m": 1.509452138481912e-08,
+      "orientation_error_rad": 3.474310965102374e-08
+    },
+    {
+      "sample": 16,
+      "link": 4,
+      "position_error_m": 2.197779674937481e-08,
+      "orientation_error_rad": 1.4305270717651113e-07
+    },
+    {
+      "sample": 16,
+      "link": 5,
+      "position_error_m": 1.0201168471723194e-08,
+      "orientation_error_rad": 7.627048062458633e-08
+    },
+    {
+      "sample": 16,
+      "link": 6,
+      "position_error_m": 1.2085512788604178e-08,
+      "orientation_error_rad": 7.627048062458633e-08
+    },
+    {
+      "sample": 17,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 1.4768174891038714e-08
+    },
+    {
+      "sample": 17,
+      "link": 1,
+      "position_error_m": 3.384785807924961e-08,
+      "orientation_error_rad": 9.227848552143222e-08
+    },
+    {
+      "sample": 17,
+      "link": 2,
+      "position_error_m": 4.479454757424939e-08,
+      "orientation_error_rad": 2.7006387795338085e-07
+    },
+    {
+      "sample": 17,
+      "link": 3,
+      "position_error_m": 1.6750150444487877e-08,
+      "orientation_error_rad": 2.696550067980371e-08
+    },
+    {
+      "sample": 17,
+      "link": 4,
+      "position_error_m": 1.4339476077559367e-08,
+      "orientation_error_rad": 6.336253695532875e-09
+    },
+    {
+      "sample": 17,
+      "link": 5,
+      "position_error_m": 7.52455946780815e-09,
+      "orientation_error_rad": 3.3244969321950637e-08
+    },
+    {
+      "sample": 17,
+      "link": 6,
+      "position_error_m": 3.2238168053124174e-08,
+      "orientation_error_rad": 3.3244969321950637e-08
+    },
+    {
+      "sample": 18,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 7.725064506896809e-09
+    },
+    {
+      "sample": 18,
+      "link": 1,
+      "position_error_m": 2.7327384887113696e-08,
+      "orientation_error_rad": 1.3489520734471676e-07
+    },
+    {
+      "sample": 18,
+      "link": 2,
+      "position_error_m": 5.159496477758488e-09,
+      "orientation_error_rad": 2.6762272762095057e-08
+    },
+    {
+      "sample": 18,
+      "link": 3,
+      "position_error_m": 6.8162976237982974e-09,
+      "orientation_error_rad": 1.0140869128552866e-07
+    },
+    {
+      "sample": 18,
+      "link": 4,
+      "position_error_m": 6.447378086748097e-09,
+      "orientation_error_rad": 3.901650860610146e-08
+    },
+    {
+      "sample": 18,
+      "link": 5,
+      "position_error_m": 2.083243436500712e-08,
+      "orientation_error_rad": 6.33814783985486e-08
+    },
+    {
+      "sample": 18,
+      "link": 6,
+      "position_error_m": 3.0764406512036222e-09,
+      "orientation_error_rad": 6.33814783985486e-08
+    },
+    {
+      "sample": 19,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 1.303378050826937e-08
+    },
+    {
+      "sample": 19,
+      "link": 1,
+      "position_error_m": 4.138427014696522e-09,
+      "orientation_error_rad": 6.137936170727875e-08
+    },
+    {
+      "sample": 19,
+      "link": 2,
+      "position_error_m": 4.479917122369922e-08,
+      "orientation_error_rad": 7.148564055291338e-08
+    },
+    {
+      "sample": 19,
+      "link": 3,
+      "position_error_m": 7.136184968941399e-09,
+      "orientation_error_rad": 9.189946119678553e-08
+    },
+    {
+      "sample": 19,
+      "link": 4,
+      "position_error_m": 2.426956903680624e-08,
+      "orientation_error_rad": 3.967890962784235e-08
+    },
+    {
+      "sample": 19,
+      "link": 5,
+      "position_error_m": 2.790047116281354e-08,
+      "orientation_error_rad": 5.443131981337591e-08
+    },
+    {
+      "sample": 19,
+      "link": 6,
+      "position_error_m": 1.395714177254482e-08,
+      "orientation_error_rad": 5.443131981337591e-08
+    },
+    {
+      "sample": 20,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 3.03542939799247e-09
+    },
+    {
+      "sample": 20,
+      "link": 1,
+      "position_error_m": 9.065247294205505e-09,
+      "orientation_error_rad": 5.883971297193902e-08
+    },
+    {
+      "sample": 20,
+      "link": 2,
+      "position_error_m": 1.3829880259199937e-08,
+      "orientation_error_rad": 3.367354517217715e-08
+    },
+    {
+      "sample": 20,
+      "link": 3,
+      "position_error_m": 9.57431795110948e-09,
+      "orientation_error_rad": 6.447362153422135e-08
+    },
+    {
+      "sample": 20,
+      "link": 4,
+      "position_error_m": 3.116272520848569e-08,
+      "orientation_error_rad": 6.524582204706281e-08
+    },
+    {
+      "sample": 20,
+      "link": 5,
+      "position_error_m": 3.7316839267725404e-08,
+      "orientation_error_rad": 2.6013688989317625e-08
+    },
+    {
+      "sample": 20,
+      "link": 6,
+      "position_error_m": 2.848495924758962e-08,
+      "orientation_error_rad": 2.6013688989317625e-08
+    },
+    {
+      "sample": 21,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 9.160908858175195e-08
+    },
+    {
+      "sample": 21,
+      "link": 1,
+      "position_error_m": 2.7517163836854824e-08,
+      "orientation_error_rad": 1.98640053379281e-07
+    },
+    {
+      "sample": 21,
+      "link": 2,
+      "position_error_m": 1.6013072161084304e-08,
+      "orientation_error_rad": 6.258262910031306e-08
+    },
+    {
+      "sample": 21,
+      "link": 3,
+      "position_error_m": 1.8714599307035216e-08,
+      "orientation_error_rad": 5.1400366805569614e-08
+    },
+    {
+      "sample": 21,
+      "link": 4,
+      "position_error_m": 1.2796965731361813e-08,
+      "orientation_error_rad": 3.329701392456898e-08
+    },
+    {
+      "sample": 21,
+      "link": 5,
+      "position_error_m": 1.9979178330498088e-08,
+      "orientation_error_rad": 3.0177447237296105e-07
+    },
+    {
+      "sample": 21,
+      "link": 6,
+      "position_error_m": 2.2879133326463546e-09,
+      "orientation_error_rad": 3.0177447237296105e-07
+    },
+    {
+      "sample": 22,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 2.797503559054162e-09
+    },
+    {
+      "sample": 22,
+      "link": 1,
+      "position_error_m": 4.032271868064152e-09,
+      "orientation_error_rad": 1.1609272282917771e-08
+    },
+    {
+      "sample": 22,
+      "link": 2,
+      "position_error_m": 5.97873533339184e-09,
+      "orientation_error_rad": 1.8606008608969998e-07
+    },
+    {
+      "sample": 22,
+      "link": 3,
+      "position_error_m": 2.19814924232721e-08,
+      "orientation_error_rad": 8.575896651568859e-08
+    },
+    {
+      "sample": 22,
+      "link": 4,
+      "position_error_m": 3.3033426883211117e-09,
+      "orientation_error_rad": 3.821388891407388e-08
+    },
+    {
+      "sample": 22,
+      "link": 5,
+      "position_error_m": 1.577700344085413e-08,
+      "orientation_error_rad": 8.599202325612268e-08
+    },
+    {
+      "sample": 22,
+      "link": 6,
+      "position_error_m": 1.3497993138588841e-08,
+      "orientation_error_rad": 8.599202325612268e-08
+    },
+    {
+      "sample": 23,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 7.208011134241745e-09
+    },
+    {
+      "sample": 23,
+      "link": 1,
+      "position_error_m": 3.576278717609682e-09,
+      "orientation_error_rad": 2.3360396150756432e-08
+    },
+    {
+      "sample": 23,
+      "link": 2,
+      "position_error_m": 4.123575982364566e-08,
+      "orientation_error_rad": 2.4927974728387102e-08
+    },
+    {
+      "sample": 23,
+      "link": 3,
+      "position_error_m": 9.39577833996734e-09,
+      "orientation_error_rad": 7.596690751037933e-08
+    },
+    {
+      "sample": 23,
+      "link": 4,
+      "position_error_m": 1.5749568336920742e-08,
+      "orientation_error_rad": 9.331435001440407e-08
+    },
+    {
+      "sample": 23,
+      "link": 5,
+      "position_error_m": 1.562834069614976e-08,
+      "orientation_error_rad": 4.086896235581925e-08
+    },
+    {
+      "sample": 23,
+      "link": 6,
+      "position_error_m": 2.7807548951958943e-08,
+      "orientation_error_rad": 4.086896235581925e-08
+    },
+    {
+      "sample": 24,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 6.076929909580152e-08
+    },
+    {
+      "sample": 24,
+      "link": 1,
+      "position_error_m": 3.0653080124923776e-08,
+      "orientation_error_rad": 2.7094529294629785e-07
+    },
+    {
+      "sample": 24,
+      "link": 2,
+      "position_error_m": 1.1615342310460328e-08,
+      "orientation_error_rad": 2.73772232402371e-08
+    },
+    {
+      "sample": 24,
+      "link": 3,
+      "position_error_m": 2.7921057333846443e-08,
+      "orientation_error_rad": 8.849659190895632e-08
+    },
+    {
+      "sample": 24,
+      "link": 4,
+      "position_error_m": 1.2437755910540872e-08,
+      "orientation_error_rad": 3.9973541869402333e-08
+    },
+    {
+      "sample": 24,
+      "link": 5,
+      "position_error_m": 2.1754844176825925e-08,
+      "orientation_error_rad": 6.616917323617246e-08
+    },
+    {
+      "sample": 24,
+      "link": 6,
+      "position_error_m": 1.1424674361439156e-08,
+      "orientation_error_rad": 6.616917323617246e-08
+    },
+    {
+      "sample": 25,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 2.321537623184352e-08
+    },
+    {
+      "sample": 25,
+      "link": 1,
+      "position_error_m": 3.524912125102343e-08,
+      "orientation_error_rad": 7.95948012730984e-08
+    },
+    {
+      "sample": 25,
+      "link": 2,
+      "position_error_m": 2.5032058553763295e-08,
+      "orientation_error_rad": 1.646282883748459e-07
+    },
+    {
+      "sample": 25,
+      "link": 3,
+      "position_error_m": 7.326837918070978e-09,
+      "orientation_error_rad": 6.614889003812923e-08
+    },
+    {
+      "sample": 25,
+      "link": 4,
+      "position_error_m": 2.8413086004824123e-08,
+      "orientation_error_rad": 1.312990899660143e-07
+    },
+    {
+      "sample": 25,
+      "link": 5,
+      "position_error_m": 5.196939461568431e-08,
+      "orientation_error_rad": 6.415470554414153e-08
+    },
+    {
+      "sample": 25,
+      "link": 6,
+      "position_error_m": 1.982621974627007e-09,
+      "orientation_error_rad": 6.415470554414153e-08
+    },
+    {
+      "sample": 26,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 8.548807659679889e-08
+    },
+    {
+      "sample": 26,
+      "link": 1,
+      "position_error_m": 1.5743517808547155e-08,
+      "orientation_error_rad": 1.503870056574371e-07
+    },
+    {
+      "sample": 26,
+      "link": 2,
+      "position_error_m": 4.164701173904448e-08,
+      "orientation_error_rad": 5.510190492883945e-08
+    },
+    {
+      "sample": 26,
+      "link": 3,
+      "position_error_m": 1.0726304144146908e-08,
+      "orientation_error_rad": 3.6586570656299344e-07
+    },
+    {
+      "sample": 26,
+      "link": 4,
+      "position_error_m": 2.320247374542014e-08,
+      "orientation_error_rad": 3.225458521742143e-08
+    },
+    {
+      "sample": 26,
+      "link": 5,
+      "position_error_m": 2.471643477301317e-08,
+      "orientation_error_rad": 1.198420242736681e-08
+    },
+    {
+      "sample": 26,
+      "link": 6,
+      "position_error_m": 1.2022692287017262e-08,
+      "orientation_error_rad": 1.198420242736681e-08
+    },
+    {
+      "sample": 27,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 5.2368464941432385e-08
+    },
+    {
+      "sample": 27,
+      "link": 1,
+      "position_error_m": 4.905657148627205e-09,
+      "orientation_error_rad": 1.3658385871921336e-07
+    },
+    {
+      "sample": 27,
+      "link": 2,
+      "position_error_m": 1.0788801751841185e-08,
+      "orientation_error_rad": 4.9125279015177326e-08
+    },
+    {
+      "sample": 27,
+      "link": 3,
+      "position_error_m": 9.042601714873932e-09,
+      "orientation_error_rad": 5.5629100497624955e-08
+    },
+    {
+      "sample": 27,
+      "link": 4,
+      "position_error_m": 1.3174153939729303e-08,
+      "orientation_error_rad": 3.040203459772518e-08
+    },
+    {
+      "sample": 27,
+      "link": 5,
+      "position_error_m": 1.9063099182117634e-08,
+      "orientation_error_rad": 4.4864974585679055e-08
+    },
+    {
+      "sample": 27,
+      "link": 6,
+      "position_error_m": 9.433724589940915e-09,
+      "orientation_error_rad": 4.4864974585679055e-08
+    },
+    {
+      "sample": 28,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 2.843421151405093e-08
+    },
+    {
+      "sample": 28,
+      "link": 1,
+      "position_error_m": 1.1127087306593024e-08,
+      "orientation_error_rad": 2.867146932226894e-08
+    },
+    {
+      "sample": 28,
+      "link": 2,
+      "position_error_m": 1.4805267968416542e-08,
+      "orientation_error_rad": 3.2769831682088485e-08
+    },
+    {
+      "sample": 28,
+      "link": 3,
+      "position_error_m": 2.219699181507669e-08,
+      "orientation_error_rad": 2.3721106560606386e-08
+    },
+    {
+      "sample": 28,
+      "link": 4,
+      "position_error_m": 3.0857171024619973e-08,
+      "orientation_error_rad": 2.562481629044801e-08
+    },
+    {
+      "sample": 28,
+      "link": 5,
+      "position_error_m": 5.629894782967609e-09,
+      "orientation_error_rad": 4.694431333960714e-08
+    },
+    {
+      "sample": 28,
+      "link": 6,
+      "position_error_m": 1.92918315508429e-08,
+      "orientation_error_rad": 4.694431333960714e-08
+    },
+    {
+      "sample": 29,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 5.774744379538282e-08
+    },
+    {
+      "sample": 29,
+      "link": 1,
+      "position_error_m": 3.26601812465397e-08,
+      "orientation_error_rad": 1.6618445278955774e-07
+    },
+    {
+      "sample": 29,
+      "link": 2,
+      "position_error_m": 2.5530854340442905e-08,
+      "orientation_error_rad": 1.7357243005308685e-07
+    },
+    {
+      "sample": 29,
+      "link": 3,
+      "position_error_m": 4.327473806308798e-08,
+      "orientation_error_rad": 1.4599311825566134e-07
+    },
+    {
+      "sample": 29,
+      "link": 4,
+      "position_error_m": 1.278606092124688e-08,
+      "orientation_error_rad": 6.899583015939073e-08
+    },
+    {
+      "sample": 29,
+      "link": 5,
+      "position_error_m": 4.369730082421295e-08,
+      "orientation_error_rad": 6.447817924505742e-08
+    },
+    {
+      "sample": 29,
+      "link": 6,
+      "position_error_m": 2.109018310993302e-08,
+      "orientation_error_rad": 6.447817924505742e-08
+    },
+    {
+      "sample": 30,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 4.44141416256955e-09
+    },
+    {
+      "sample": 30,
+      "link": 1,
+      "position_error_m": 1.7541173289779825e-08,
+      "orientation_error_rad": 3.981150070156439e-08
+    },
+    {
+      "sample": 30,
+      "link": 2,
+      "position_error_m": 4.060714034989519e-09,
+      "orientation_error_rad": 2.387431398475346e-08
+    },
+    {
+      "sample": 30,
+      "link": 3,
+      "position_error_m": 1.1225460074567696e-08,
+      "orientation_error_rad": 3.064404457894707e-08
+    },
+    {
+      "sample": 30,
+      "link": 4,
+      "position_error_m": 2.2277938683831132e-08,
+      "orientation_error_rad": 3.307112703117796e-07
+    },
+    {
+      "sample": 30,
+      "link": 5,
+      "position_error_m": 9.54781997362415e-09,
+      "orientation_error_rad": 7.98986813963278e-08
+    },
+    {
+      "sample": 30,
+      "link": 6,
+      "position_error_m": 1.4864264832167352e-08,
+      "orientation_error_rad": 7.98986813963278e-08
+    },
+    {
+      "sample": 31,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 4.707511623599084e-08
+    },
+    {
+      "sample": 31,
+      "link": 1,
+      "position_error_m": 8.2644371071045e-09,
+      "orientation_error_rad": 2.506623835253126e-08
+    },
+    {
+      "sample": 31,
+      "link": 2,
+      "position_error_m": 1.0698827212576341e-08,
+      "orientation_error_rad": 1.6933339575734547e-08
+    },
+    {
+      "sample": 31,
+      "link": 3,
+      "position_error_m": 2.1479672596055095e-09,
+      "orientation_error_rad": 9.717836185594586e-08
+    },
+    {
+      "sample": 31,
+      "link": 4,
+      "position_error_m": 9.202657527624275e-09,
+      "orientation_error_rad": 3.295321018182594e-08
+    },
+    {
+      "sample": 31,
+      "link": 5,
+      "position_error_m": 5.986433409562721e-09,
+      "orientation_error_rad": 7.418589387813802e-08
+    },
+    {
+      "sample": 31,
+      "link": 6,
+      "position_error_m": 1.292636423709611e-08,
+      "orientation_error_rad": 7.418589387813802e-08
+    },
+    {
+      "sample": 32,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 3.601305649004281e-07
+    },
+    {
+      "sample": 32,
+      "link": 1,
+      "position_error_m": 3.46535306360825e-08,
+      "orientation_error_rad": 9.413651180666164e-08
+    },
+    {
+      "sample": 32,
+      "link": 2,
+      "position_error_m": 2.090234599979914e-08,
+      "orientation_error_rad": 3.2708179964878985e-08
+    },
+    {
+      "sample": 32,
+      "link": 3,
+      "position_error_m": 2.75001910895493e-08,
+      "orientation_error_rad": 6.111527337256614e-08
+    },
+    {
+      "sample": 32,
+      "link": 4,
+      "position_error_m": 1.0404720962433994e-08,
+      "orientation_error_rad": 2.671821521897026e-08
+    },
+    {
+      "sample": 32,
+      "link": 5,
+      "position_error_m": 2.0986108821143744e-08,
+      "orientation_error_rad": 3.1551746988515986e-08
+    },
+    {
+      "sample": 32,
+      "link": 6,
+      "position_error_m": 3.176337408313122e-08,
+      "orientation_error_rad": 3.1551746988515986e-08
+    },
+    {
+      "sample": 33,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 9.118542955252421e-08
+    },
+    {
+      "sample": 33,
+      "link": 1,
+      "position_error_m": 2.7072276907579006e-08,
+      "orientation_error_rad": 5.365073556848696e-08
+    },
+    {
+      "sample": 33,
+      "link": 2,
+      "position_error_m": 3.1026966683425416e-08,
+      "orientation_error_rad": 1.0299686519968994e-07
+    },
+    {
+      "sample": 33,
+      "link": 3,
+      "position_error_m": 1.1165041781190511e-08,
+      "orientation_error_rad": 2.7427725160442204e-07
+    },
+    {
+      "sample": 33,
+      "link": 4,
+      "position_error_m": 1.1883327458475882e-08,
+      "orientation_error_rad": 4.5595080591342286e-08
+    },
+    {
+      "sample": 33,
+      "link": 5,
+      "position_error_m": 1.1649739489521934e-08,
+      "orientation_error_rad": 1.3120603520507913e-07
+    },
+    {
+      "sample": 33,
+      "link": 6,
+      "position_error_m": 3.5728787352204457e-09,
+      "orientation_error_rad": 1.3120603520507913e-07
+    },
+    {
+      "sample": 34,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 2.3281171002452925e-08
+    },
+    {
+      "sample": 34,
+      "link": 1,
+      "position_error_m": 2.826353957040332e-08,
+      "orientation_error_rad": 7.255981076798208e-08
+    },
+    {
+      "sample": 34,
+      "link": 2,
+      "position_error_m": 1.7158725870137845e-08,
+      "orientation_error_rad": 7.845298178913956e-08
+    },
+    {
+      "sample": 34,
+      "link": 3,
+      "position_error_m": 2.6894386010563212e-08,
+      "orientation_error_rad": 2.715854008387923e-08
+    },
+    {
+      "sample": 34,
+      "link": 4,
+      "position_error_m": 1.1144705974517375e-08,
+      "orientation_error_rad": 1.9820283651767103e-08
+    },
+    {
+      "sample": 34,
+      "link": 5,
+      "position_error_m": 3.1119888369220035e-08,
+      "orientation_error_rad": 7.226985248476545e-09
+    },
+    {
+      "sample": 34,
+      "link": 6,
+      "position_error_m": 2.2400789045817182e-08,
+      "orientation_error_rad": 7.226985248476545e-09
+    },
+    {
+      "sample": 35,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 4.508043124463986e-09
+    },
+    {
+      "sample": 35,
+      "link": 1,
+      "position_error_m": 2.6489302640746378e-08,
+      "orientation_error_rad": 4.584869787145069e-08
+    },
+    {
+      "sample": 35,
+      "link": 2,
+      "position_error_m": 1.2501710868100935e-08,
+      "orientation_error_rad": 9.498450287160304e-08
+    },
+    {
+      "sample": 35,
+      "link": 3,
+      "position_error_m": 4.2653456644061765e-09,
+      "orientation_error_rad": 4.764675627097756e-08
+    },
+    {
+      "sample": 35,
+      "link": 4,
+      "position_error_m": 7.544867275771969e-09,
+      "orientation_error_rad": 1.0227670874570582e-08
+    },
+    {
+      "sample": 35,
+      "link": 5,
+      "position_error_m": 1.4091143288693822e-08,
+      "orientation_error_rad": 7.736866923188693e-08
+    },
+    {
+      "sample": 35,
+      "link": 6,
+      "position_error_m": 1.3346265821540924e-08,
+      "orientation_error_rad": 7.736866923188693e-08
+    },
+    {
+      "sample": 36,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 2.8347792228841565e-08
+    },
+    {
+      "sample": 36,
+      "link": 1,
+      "position_error_m": 2.767848109932783e-08,
+      "orientation_error_rad": 1.0009172270085574e-07
+    },
+    {
+      "sample": 36,
+      "link": 2,
+      "position_error_m": 3.2276579059923645e-09,
+      "orientation_error_rad": 8.840166183993628e-09
+    },
+    {
+      "sample": 36,
+      "link": 3,
+      "position_error_m": 2.362435120769828e-08,
+      "orientation_error_rad": 1.8896351538319811e-07
+    },
+    {
+      "sample": 36,
+      "link": 4,
+      "position_error_m": 5.669950651880221e-09,
+      "orientation_error_rad": 1.447973231016823e-07
+    },
+    {
+      "sample": 36,
+      "link": 5,
+      "position_error_m": 6.6565518363804504e-09,
+      "orientation_error_rad": 8.035564851692743e-08
+    },
+    {
+      "sample": 36,
+      "link": 6,
+      "position_error_m": 2.3939617382179858e-08,
+      "orientation_error_rad": 8.035564851692743e-08
+    },
+    {
+      "sample": 37,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 1.5665273826078483e-08
+    },
+    {
+      "sample": 37,
+      "link": 1,
+      "position_error_m": 3.039288994679651e-08,
+      "orientation_error_rad": 1.3862490730009189e-08
+    },
+    {
+      "sample": 37,
+      "link": 2,
+      "position_error_m": 1.765592892263467e-08,
+      "orientation_error_rad": 3.5762655049007414e-08
+    },
+    {
+      "sample": 37,
+      "link": 3,
+      "position_error_m": 2.4229027827703072e-09,
+      "orientation_error_rad": 5.1292675544823073e-08
+    },
+    {
+      "sample": 37,
+      "link": 4,
+      "position_error_m": 4.411144565968548e-09,
+      "orientation_error_rad": 5.6205789790042006e-08
+    },
+    {
+      "sample": 37,
+      "link": 5,
+      "position_error_m": 1.6518621473169836e-09,
+      "orientation_error_rad": 1.7424568918117054e-08
+    },
+    {
+      "sample": 37,
+      "link": 6,
+      "position_error_m": 6.129168439118248e-09,
+      "orientation_error_rad": 1.7424568918117054e-08
+    },
+    {
+      "sample": 38,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 5.855107015850317e-09
+    },
+    {
+      "sample": 38,
+      "link": 1,
+      "position_error_m": 2.2636036105010708e-08,
+      "orientation_error_rad": 9.301714112926404e-08
+    },
+    {
+      "sample": 38,
+      "link": 2,
+      "position_error_m": 2.0856041127847836e-08,
+      "orientation_error_rad": 5.83474478489728e-08
+    },
+    {
+      "sample": 38,
+      "link": 3,
+      "position_error_m": 2.636633625839844e-08,
+      "orientation_error_rad": 5.2326375968359795e-08
+    },
+    {
+      "sample": 38,
+      "link": 4,
+      "position_error_m": 1.4845711486239616e-08,
+      "orientation_error_rad": 3.660801078678278e-08
+    },
+    {
+      "sample": 38,
+      "link": 5,
+      "position_error_m": 1.0947414690780475e-08,
+      "orientation_error_rad": 3.59935737055121e-08
+    },
+    {
+      "sample": 38,
+      "link": 6,
+      "position_error_m": 9.596226244426957e-09,
+      "orientation_error_rad": 3.59935737055121e-08
+    },
+    {
+      "sample": 39,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 9.198565384849595e-09
+    },
+    {
+      "sample": 39,
+      "link": 1,
+      "position_error_m": 3.421270998790236e-08,
+      "orientation_error_rad": 3.107578557402766e-08
+    },
+    {
+      "sample": 39,
+      "link": 2,
+      "position_error_m": 1.0219185060459206e-08,
+      "orientation_error_rad": 7.589017850940537e-09
+    },
+    {
+      "sample": 39,
+      "link": 3,
+      "position_error_m": 1.5528031064451212e-08,
+      "orientation_error_rad": 2.406718409403771e-08
+    },
+    {
+      "sample": 39,
+      "link": 4,
+      "position_error_m": 2.6054075884564375e-08,
+      "orientation_error_rad": 7.268508125500061e-08
+    },
+    {
+      "sample": 39,
+      "link": 5,
+      "position_error_m": 1.194856868230909e-08,
+      "orientation_error_rad": 3.797811698565102e-08
+    },
+    {
+      "sample": 39,
+      "link": 6,
+      "position_error_m": 1.9638138440174503e-08,
+      "orientation_error_rad": 3.797811698565102e-08
+    },
+    {
+      "sample": 40,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 9.487257630697156e-08
+    },
+    {
+      "sample": 40,
+      "link": 1,
+      "position_error_m": 2.622604367008563e-08,
+      "orientation_error_rad": 5.638340137162771e-08
+    },
+    {
+      "sample": 40,
+      "link": 2,
+      "position_error_m": 9.746063776270973e-09,
+      "orientation_error_rad": 6.743597016926243e-08
+    },
+    {
+      "sample": 40,
+      "link": 3,
+      "position_error_m": 1.2394980482289275e-08,
+      "orientation_error_rad": 2.028157612890403e-07
+    },
+    {
+      "sample": 40,
+      "link": 4,
+      "position_error_m": 2.833272868382295e-08,
+      "orientation_error_rad": 6.419126621002658e-08
+    },
+    {
+      "sample": 40,
+      "link": 5,
+      "position_error_m": 2.5868506106370172e-08,
+      "orientation_error_rad": 7.784871767384951e-08
+    },
+    {
+      "sample": 40,
+      "link": 6,
+      "position_error_m": 1.1727286009207394e-08,
+      "orientation_error_rad": 7.784871767384951e-08
+    },
+    {
+      "sample": 41,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 1.7659441025488516e-08
+    },
+    {
+      "sample": 41,
+      "link": 1,
+      "position_error_m": 2.6292105536399934e-08,
+      "orientation_error_rad": 5.173588188213442e-08
+    },
+    {
+      "sample": 41,
+      "link": 2,
+      "position_error_m": 3.191405694540693e-08,
+      "orientation_error_rad": 2.5618473246611628e-08
+    },
+    {
+      "sample": 41,
+      "link": 3,
+      "position_error_m": 2.0074092666061252e-08,
+      "orientation_error_rad": 7.1513533303251914e-09
+    },
+    {
+      "sample": 41,
+      "link": 4,
+      "position_error_m": 3.2214438774356376e-08,
+      "orientation_error_rad": 2.129599517264152e-07
+    },
+    {
+      "sample": 41,
+      "link": 5,
+      "position_error_m": 2.6777684992955983e-08,
+      "orientation_error_rad": 1.0565159742458097e-07
+    },
+    {
+      "sample": 41,
+      "link": 6,
+      "position_error_m": 1.298400472231879e-08,
+      "orientation_error_rad": 1.0565159742458097e-07
+    },
+    {
+      "sample": 42,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 2.160034035148888e-08
+    },
+    {
+      "sample": 42,
+      "link": 1,
+      "position_error_m": 3.420003162247552e-08,
+      "orientation_error_rad": 2.488629987480039e-07
+    },
+    {
+      "sample": 42,
+      "link": 2,
+      "position_error_m": 2.6187446046244563e-08,
+      "orientation_error_rad": 3.4539644514200816e-08
+    },
+    {
+      "sample": 42,
+      "link": 3,
+      "position_error_m": 3.877270813615599e-08,
+      "orientation_error_rad": 8.470763125540778e-08
+    },
+    {
+      "sample": 42,
+      "link": 4,
+      "position_error_m": 4.100625884890025e-08,
+      "orientation_error_rad": 5.2038362733198584e-08
+    },
+    {
+      "sample": 42,
+      "link": 5,
+      "position_error_m": 2.0131993262616165e-08,
+      "orientation_error_rad": 5.868347060068195e-08
+    },
+    {
+      "sample": 42,
+      "link": 6,
+      "position_error_m": 1.4440754164184752e-08,
+      "orientation_error_rad": 5.868347060068195e-08
+    },
+    {
+      "sample": 43,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 3.9096280772316844e-08
+    },
+    {
+      "sample": 43,
+      "link": 1,
+      "position_error_m": 2.7327384887113696e-08,
+      "orientation_error_rad": 1.0921194975474317e-07
+    },
+    {
+      "sample": 43,
+      "link": 2,
+      "position_error_m": 7.966721200023907e-09,
+      "orientation_error_rad": 2.38296134886109e-08
+    },
+    {
+      "sample": 43,
+      "link": 3,
+      "position_error_m": 1.7912380780967872e-08,
+      "orientation_error_rad": 1.4228135248597082e-07
+    },
+    {
+      "sample": 43,
+      "link": 4,
+      "position_error_m": 1.95071274278365e-08,
+      "orientation_error_rad": 4.281159168754053e-08
+    },
+    {
+      "sample": 43,
+      "link": 5,
+      "position_error_m": 1.4182947320503817e-08,
+      "orientation_error_rad": 5.6249418439963726e-08
+    },
+    {
+      "sample": 43,
+      "link": 6,
+      "position_error_m": 7.834997696184477e-09,
+      "orientation_error_rad": 5.6249418439963726e-08
+    },
+    {
+      "sample": 44,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 3.3835762006930466e-08
+    },
+    {
+      "sample": 44,
+      "link": 1,
+      "position_error_m": 1.7039528327460156e-08,
+      "orientation_error_rad": 4.705767912831711e-08
+    },
+    {
+      "sample": 44,
+      "link": 2,
+      "position_error_m": 1.8994692116953267e-08,
+      "orientation_error_rad": 5.027690404860621e-08
+    },
+    {
+      "sample": 44,
+      "link": 3,
+      "position_error_m": 3.127685110888992e-08,
+      "orientation_error_rad": 1.0552012735001261e-07
+    },
+    {
+      "sample": 44,
+      "link": 4,
+      "position_error_m": 2.0842565182406157e-08,
+      "orientation_error_rad": 1.0800055835724193e-07
+    },
+    {
+      "sample": 44,
+      "link": 5,
+      "position_error_m": 1.3455336770429772e-08,
+      "orientation_error_rad": 5.4182703688697175e-08
+    },
+    {
+      "sample": 44,
+      "link": 6,
+      "position_error_m": 2.2208993018635643e-08,
+      "orientation_error_rad": 5.4182703688697175e-08
+    },
+    {
+      "sample": 45,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 3.697037415135117e-08
+    },
+    {
+      "sample": 45,
+      "link": 1,
+      "position_error_m": 5.598497936293819e-09,
+      "orientation_error_rad": 4.438873949816668e-08
+    },
+    {
+      "sample": 45,
+      "link": 2,
+      "position_error_m": 1.309974659669847e-08,
+      "orientation_error_rad": 1.4867802609803958e-07
+    },
+    {
+      "sample": 45,
+      "link": 3,
+      "position_error_m": 1.7076332705961397e-08,
+      "orientation_error_rad": 9.427302891920746e-08
+    },
+    {
+      "sample": 45,
+      "link": 4,
+      "position_error_m": 4.4435925414659197e-08,
+      "orientation_error_rad": 3.7886941695897565e-08
+    },
+    {
+      "sample": 45,
+      "link": 5,
+      "position_error_m": 8.558073039681142e-09,
+      "orientation_error_rad": 8.367186062351164e-08
+    },
+    {
+      "sample": 45,
+      "link": 6,
+      "position_error_m": 3.064845946277128e-08,
+      "orientation_error_rad": 8.367186062351164e-08
+    },
+    {
+      "sample": 46,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 1.1281932772090397e-08
+    },
+    {
+      "sample": 46,
+      "link": 1,
+      "position_error_m": 2.2636036105010708e-08,
+      "orientation_error_rad": 3.7573509198593993e-07
+    },
+    {
+      "sample": 46,
+      "link": 2,
+      "position_error_m": 9.588506937020663e-09,
+      "orientation_error_rad": 2.9596812922143097e-08
+    },
+    {
+      "sample": 46,
+      "link": 3,
+      "position_error_m": 3.121032645905092e-08,
+      "orientation_error_rad": 2.507554556245331e-08
+    },
+    {
+      "sample": 46,
+      "link": 4,
+      "position_error_m": 9.392941885340616e-09,
+      "orientation_error_rad": 2.99358819690131e-08
+    },
+    {
+      "sample": 46,
+      "link": 5,
+      "position_error_m": 9.02873164099946e-09,
+      "orientation_error_rad": 2.793047345348398e-08
+    },
+    {
+      "sample": 46,
+      "link": 6,
+      "position_error_m": 2.1390551991698854e-08,
+      "orientation_error_rad": 2.793047345348398e-08
+    },
+    {
+      "sample": 47,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 8.518312605755922e-09
+    },
+    {
+      "sample": 47,
+      "link": 1,
+      "position_error_m": 3.576278717609682e-09,
+      "orientation_error_rad": 4.571824516728398e-09
+    },
+    {
+      "sample": 47,
+      "link": 2,
+      "position_error_m": 1.6543972073911102e-08,
+      "orientation_error_rad": 8.277393034974333e-08
+    },
+    {
+      "sample": 47,
+      "link": 3,
+      "position_error_m": 1.750796572796922e-08,
+      "orientation_error_rad": 6.273233453660796e-08
+    },
+    {
+      "sample": 47,
+      "link": 4,
+      "position_error_m": 1.6283535967215553e-08,
+      "orientation_error_rad": 5.892618641389694e-08
+    },
+    {
+      "sample": 47,
+      "link": 5,
+      "position_error_m": 1.4502938813074031e-08,
+      "orientation_error_rad": 7.43934933793056e-08
+    },
+    {
+      "sample": 47,
+      "link": 6,
+      "position_error_m": 1.930038647270215e-08,
+      "orientation_error_rad": 7.43934933793056e-08
+    },
+    {
+      "sample": 48,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 2.29687228010311e-08
+    },
+    {
+      "sample": 48,
+      "link": 1,
+      "position_error_m": 9.065247294205505e-09,
+      "orientation_error_rad": 9.53885510518297e-08
+    },
+    {
+      "sample": 48,
+      "link": 2,
+      "position_error_m": 8.422475002477052e-09,
+      "orientation_error_rad": 8.316534431319048e-09
+    },
+    {
+      "sample": 48,
+      "link": 3,
+      "position_error_m": 2.1324654544345786e-08,
+      "orientation_error_rad": 1.4971134466595616e-07
+    },
+    {
+      "sample": 48,
+      "link": 4,
+      "position_error_m": 1.3088108785333005e-08,
+      "orientation_error_rad": 5.199531390075852e-08
+    },
+    {
+      "sample": 48,
+      "link": 5,
+      "position_error_m": 1.586145217712008e-08,
+      "orientation_error_rad": 4.3260054891419494e-08
+    },
+    {
+      "sample": 48,
+      "link": 6,
+      "position_error_m": 5.965190609696464e-09,
+      "orientation_error_rad": 4.3260054891419494e-08
+    },
+    {
+      "sample": 49,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 7.505687514667878e-08
+    },
+    {
+      "sample": 49,
+      "link": 1,
+      "position_error_m": 3.483345219537365e-08,
+      "orientation_error_rad": 8.388728748633537e-08
+    },
+    {
+      "sample": 49,
+      "link": 2,
+      "position_error_m": 1.0017739331833568e-08,
+      "orientation_error_rad": 7.458942243654795e-08
+    },
+    {
+      "sample": 49,
+      "link": 3,
+      "position_error_m": 6.874424406259927e-09,
+      "orientation_error_rad": 9.304611473284061e-08
+    },
+    {
+      "sample": 49,
+      "link": 4,
+      "position_error_m": 1.735353618558112e-08,
+      "orientation_error_rad": 3.342487236471032e-08
+    },
+    {
+      "sample": 49,
+      "link": 5,
+      "position_error_m": 1.0011181341371616e-08,
+      "orientation_error_rad": 1.3937600842171448e-07
+    },
+    {
+      "sample": 49,
+      "link": 6,
+      "position_error_m": 1.3756118977755112e-08,
+      "orientation_error_rad": 1.3937600842171448e-07
+    },
+    {
+      "sample": 50,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 4.322443214595798e-08
+    },
+    {
+      "sample": 50,
+      "link": 1,
+      "position_error_m": 2.1374727584605388e-08,
+      "orientation_error_rad": 1.5992475935256748e-07
+    },
+    {
+      "sample": 50,
+      "link": 2,
+      "position_error_m": 1.527107316769852e-08,
+      "orientation_error_rad": 3.1330810914194583e-08
+    },
+    {
+      "sample": 50,
+      "link": 3,
+      "position_error_m": 5.773890582232851e-09,
+      "orientation_error_rad": 4.7373296835408716e-08
+    },
+    {
+      "sample": 50,
+      "link": 4,
+      "position_error_m": 2.0682382059403396e-08,
+      "orientation_error_rad": 4.362198225941416e-08
+    },
+    {
+      "sample": 50,
+      "link": 5,
+      "position_error_m": 3.822368584668678e-08,
+      "orientation_error_rad": 4.839112043856062e-08
+    },
+    {
+      "sample": 50,
+      "link": 6,
+      "position_error_m": 3.338235766925536e-08,
+      "orientation_error_rad": 4.839112043856062e-08
+    },
+    {
+      "sample": 51,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 2.808795395779339e-08
+    },
+    {
+      "sample": 51,
+      "link": 1,
+      "position_error_m": 5.164064026892231e-09,
+      "orientation_error_rad": 1.1952989351513708e-07
+    },
+    {
+      "sample": 51,
+      "link": 2,
+      "position_error_m": 1.1986599854392278e-08,
+      "orientation_error_rad": 3.6900881236163644e-08
+    },
+    {
+      "sample": 51,
+      "link": 3,
+      "position_error_m": 5.519332981023302e-09,
+      "orientation_error_rad": 2.7900389594721903e-08
+    },
+    {
+      "sample": 51,
+      "link": 4,
+      "position_error_m": 7.314664996298745e-09,
+      "orientation_error_rad": 2.7293523457325186e-07
+    },
+    {
+      "sample": 51,
+      "link": 5,
+      "position_error_m": 2.662117469811843e-08,
+      "orientation_error_rad": 2.551078116740797e-08
+    },
+    {
+      "sample": 51,
+      "link": 6,
+      "position_error_m": 7.820877550649366e-09,
+      "orientation_error_rad": 2.551078116740797e-08
+    },
+    {
+      "sample": 52,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 1.0434099789436998e-07
+    },
+    {
+      "sample": 52,
+      "link": 1,
+      "position_error_m": 2.6749970882243357e-08,
+      "orientation_error_rad": 6.132236870793538e-08
+    },
+    {
+      "sample": 52,
+      "link": 2,
+      "position_error_m": 1.0785814764638074e-08,
+      "orientation_error_rad": 1.4282237688453278e-07
+    },
+    {
+      "sample": 52,
+      "link": 3,
+      "position_error_m": 1.360774293539544e-08,
+      "orientation_error_rad": 1.1719406918885808e-08
+    },
+    {
+      "sample": 52,
+      "link": 4,
+      "position_error_m": 1.8552361277916978e-08,
+      "orientation_error_rad": 1.433592894238369e-08
+    },
+    {
+      "sample": 52,
+      "link": 5,
+      "position_error_m": 1.9047160447603338e-08,
+      "orientation_error_rad": 6.511945897190989e-08
+    },
+    {
+      "sample": 52,
+      "link": 6,
+      "position_error_m": 1.7199838851349966e-08,
+      "orientation_error_rad": 6.511945897190989e-08
+    },
+    {
+      "sample": 53,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 8.649931056730161e-08
+    },
+    {
+      "sample": 53,
+      "link": 1,
+      "position_error_m": 9.486040488370048e-09,
+      "orientation_error_rad": 4.728526464577123e-08
+    },
+    {
+      "sample": 53,
+      "link": 2,
+      "position_error_m": 1.6481230715095334e-08,
+      "orientation_error_rad": 2.6723110338151665e-08
+    },
+    {
+      "sample": 53,
+      "link": 3,
+      "position_error_m": 9.026638590820937e-09,
+      "orientation_error_rad": 4.5905499892658427e-08
+    },
+    {
+      "sample": 53,
+      "link": 4,
+      "position_error_m": 2.6175554859413752e-08,
+      "orientation_error_rad": 9.934457487120632e-08
+    },
+    {
+      "sample": 53,
+      "link": 5,
+      "position_error_m": 2.0103178843608987e-08,
+      "orientation_error_rad": 9.655302848917664e-08
+    },
+    {
+      "sample": 53,
+      "link": 6,
+      "position_error_m": 1.3328468722595472e-08,
+      "orientation_error_rad": 9.655302848917664e-08
+    },
+    {
+      "sample": 54,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 1.6572150757479204e-08
+    },
+    {
+      "sample": 54,
+      "link": 1,
+      "position_error_m": 3.107026106651709e-08,
+      "orientation_error_rad": 1.420469396145912e-07
+    },
+    {
+      "sample": 54,
+      "link": 2,
+      "position_error_m": 2.7481354941214647e-08,
+      "orientation_error_rad": 1.2593592865206428e-07
+    },
+    {
+      "sample": 54,
+      "link": 3,
+      "position_error_m": 1.6818539648985926e-08,
+      "orientation_error_rad": 2.129699227073146e-07
+    },
+    {
+      "sample": 54,
+      "link": 4,
+      "position_error_m": 1.8395849808398583e-08,
+      "orientation_error_rad": 5.98366968543001e-08
+    },
+    {
+      "sample": 54,
+      "link": 5,
+      "position_error_m": 5.159239435841582e-08,
+      "orientation_error_rad": 9.558449972257068e-08
+    },
+    {
+      "sample": 54,
+      "link": 6,
+      "position_error_m": 3.823741837779343e-08,
+      "orientation_error_rad": 9.558449972257068e-08
+    },
+    {
+      "sample": 55,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 3.4402577163157665e-08
+    },
+    {
+      "sample": 55,
+      "link": 1,
+      "position_error_m": 3.576278717609682e-09,
+      "orientation_error_rad": 4.7057153063541674e-08
+    },
+    {
+      "sample": 55,
+      "link": 2,
+      "position_error_m": 3.793538605421867e-09,
+      "orientation_error_rad": 1.527918903275994e-08
+    },
+    {
+      "sample": 55,
+      "link": 3,
+      "position_error_m": 4.994035966689779e-09,
+      "orientation_error_rad": 7.397192698163522e-08
+    },
+    {
+      "sample": 55,
+      "link": 4,
+      "position_error_m": 3.604327443265786e-09,
+      "orientation_error_rad": 3.369784129939763e-07
+    },
+    {
+      "sample": 55,
+      "link": 5,
+      "position_error_m": 1.5264209744191524e-09,
+      "orientation_error_rad": 1.244510140459505e-08
+    },
+    {
+      "sample": 55,
+      "link": 6,
+      "position_error_m": 2.5419553896757056e-09,
+      "orientation_error_rad": 1.244510140459505e-08
+    },
+    {
+      "sample": 56,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 1.2836625346081143e-07
+    },
+    {
+      "sample": 56,
+      "link": 1,
+      "position_error_m": 2.7517163836854824e-08,
+      "orientation_error_rad": 1.1413118268747033e-07
+    },
+    {
+      "sample": 56,
+      "link": 2,
+      "position_error_m": 4.105439970146074e-08,
+      "orientation_error_rad": 3.159437243405869e-07
+    },
+    {
+      "sample": 56,
+      "link": 3,
+      "position_error_m": 5.504018606513877e-08,
+      "orientation_error_rad": 5.7004380983369326e-08
+    },
+    {
+      "sample": 56,
+      "link": 4,
+      "position_error_m": 5.377875786651083e-08,
+      "orientation_error_rad": 7.130277604379771e-08
+    },
+    {
+      "sample": 56,
+      "link": 5,
+      "position_error_m": 2.8359512606451636e-08,
+      "orientation_error_rad": 3.927072093042872e-08
+    },
+    {
+      "sample": 56,
+      "link": 6,
+      "position_error_m": 1.3825503419740892e-08,
+      "orientation_error_rad": 3.927072093042872e-08
+    },
+    {
+      "sample": 57,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 7.151175431668441e-08
+    },
+    {
+      "sample": 57,
+      "link": 1,
+      "position_error_m": 2.8750360774490867e-08,
+      "orientation_error_rad": 4.414427919528614e-08
+    },
+    {
+      "sample": 57,
+      "link": 2,
+      "position_error_m": 9.669407822389883e-09,
+      "orientation_error_rad": 2.421801554010827e-08
+    },
+    {
+      "sample": 57,
+      "link": 3,
+      "position_error_m": 1.1524204533088824e-08,
+      "orientation_error_rad": 9.2611355960034e-08
+    },
+    {
+      "sample": 57,
+      "link": 4,
+      "position_error_m": 1.5619809724161344e-08,
+      "orientation_error_rad": 6.00674583847042e-08
+    },
+    {
+      "sample": 57,
+      "link": 5,
+      "position_error_m": 9.286933054941974e-09,
+      "orientation_error_rad": 6.897550324667733e-08
+    },
+    {
+      "sample": 57,
+      "link": 6,
+      "position_error_m": 2.9772777375281712e-08,
+      "orientation_error_rad": 6.897550324667733e-08
+    },
+    {
+      "sample": 58,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 1.4094731957894534e-07
+    },
+    {
+      "sample": 58,
+      "link": 1,
+      "position_error_m": 8.2644371071045e-09,
+      "orientation_error_rad": 4.762889284686373e-08
+    },
+    {
+      "sample": 58,
+      "link": 2,
+      "position_error_m": 2.988118474613434e-08,
+      "orientation_error_rad": 4.881358025860872e-08
+    },
+    {
+      "sample": 58,
+      "link": 3,
+      "position_error_m": 3.399718974182846e-08,
+      "orientation_error_rad": 1.4720958792238574e-08
+    },
+    {
+      "sample": 58,
+      "link": 4,
+      "position_error_m": 3.0826190929574067e-08,
+      "orientation_error_rad": 7.676578732777488e-08
+    },
+    {
+      "sample": 58,
+      "link": 5,
+      "position_error_m": 2.456934201859712e-08,
+      "orientation_error_rad": 1.4355044082930224e-07
+    },
+    {
+      "sample": 58,
+      "link": 6,
+      "position_error_m": 2.3487035315980018e-08,
+      "orientation_error_rad": 1.4355044082930224e-07
+    },
+    {
+      "sample": 59,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 3.5882716000495097e-07
+    },
+    {
+      "sample": 59,
+      "link": 1,
+      "position_error_m": 1.1127087306593024e-08,
+      "orientation_error_rad": 2.368116728376798e-08
+    },
+    {
+      "sample": 59,
+      "link": 2,
+      "position_error_m": 1.7688696254542923e-08,
+      "orientation_error_rad": 5.977415143349555e-08
+    },
+    {
+      "sample": 59,
+      "link": 3,
+      "position_error_m": 2.0162811578563647e-08,
+      "orientation_error_rad": 3.1662836943930245e-08
+    },
+    {
+      "sample": 59,
+      "link": 4,
+      "position_error_m": 2.900502452027856e-08,
+      "orientation_error_rad": 7.632927598038365e-08
+    },
+    {
+      "sample": 59,
+      "link": 5,
+      "position_error_m": 3.593886740778798e-08,
+      "orientation_error_rad": 6.809045783258786e-08
+    },
+    {
+      "sample": 59,
+      "link": 6,
+      "position_error_m": 3.4511001831345084e-08,
+      "orientation_error_rad": 6.809045783258786e-08
+    },
+    {
+      "sample": 60,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 4.705529960495122e-08
+    },
+    {
+      "sample": 60,
+      "link": 1,
+      "position_error_m": 6.367522680105417e-09,
+      "orientation_error_rad": 9.356170744746037e-08
+    },
+    {
+      "sample": 60,
+      "link": 2,
+      "position_error_m": 1.531903180750373e-08,
+      "orientation_error_rad": 9.793362846543057e-08
+    },
+    {
+      "sample": 60,
+      "link": 3,
+      "position_error_m": 9.013377912523578e-09,
+      "orientation_error_rad": 3.3758869997726896e-07
+    },
+    {
+      "sample": 60,
+      "link": 4,
+      "position_error_m": 2.7700399246014954e-08,
+      "orientation_error_rad": 7.184532220424182e-08
+    },
+    {
+      "sample": 60,
+      "link": 5,
+      "position_error_m": 4.184053121108917e-09,
+      "orientation_error_rad": 1.9517070863943736e-08
+    },
+    {
+      "sample": 60,
+      "link": 6,
+      "position_error_m": 2.8558908764847565e-08,
+      "orientation_error_rad": 1.9517070863943736e-08
+    },
+    {
+      "sample": 61,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 1.1096431005314768e-08
+    },
+    {
+      "sample": 61,
+      "link": 1,
+      "position_error_m": 4.4416960015218494e-09,
+      "orientation_error_rad": 1.5468946621901105e-07
+    },
+    {
+      "sample": 61,
+      "link": 2,
+      "position_error_m": 1.6308197001137747e-08,
+      "orientation_error_rad": 4.1145001102821216e-08
+    },
+    {
+      "sample": 61,
+      "link": 3,
+      "position_error_m": 7.85594853519152e-09,
+      "orientation_error_rad": 6.796208824114659e-08
+    },
+    {
+      "sample": 61,
+      "link": 4,
+      "position_error_m": 1.4010282651698418e-08,
+      "orientation_error_rad": 2.4123946092932052e-08
+    },
+    {
+      "sample": 61,
+      "link": 5,
+      "position_error_m": 3.793371130353935e-08,
+      "orientation_error_rad": 8.944663235535026e-08
+    },
+    {
+      "sample": 61,
+      "link": 6,
+      "position_error_m": 5.384636472741051e-09,
+      "orientation_error_rad": 8.944663235535026e-08
+    },
+    {
+      "sample": 62,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 1.591116367577565e-08
+    },
+    {
+      "sample": 62,
+      "link": 1,
+      "position_error_m": 1.5324306652865547e-08,
+      "orientation_error_rad": 6.107409836001306e-08
+    },
+    {
+      "sample": 62,
+      "link": 2,
+      "position_error_m": 2.2894307542555366e-08,
+      "orientation_error_rad": 5.759949482055716e-09
+    },
+    {
+      "sample": 62,
+      "link": 3,
+      "position_error_m": 1.836410005262107e-08,
+      "orientation_error_rad": 1.523662419573514e-08
+    },
+    {
+      "sample": 62,
+      "link": 4,
+      "position_error_m": 1.9089816439949758e-08,
+      "orientation_error_rad": 4.4876128845703237e-08
+    },
+    {
+      "sample": 62,
+      "link": 5,
+      "position_error_m": 2.086660315698763e-08,
+      "orientation_error_rad": 6.325890958025764e-08
+    },
+    {
+      "sample": 62,
+      "link": 6,
+      "position_error_m": 3.299293562021263e-08,
+      "orientation_error_rad": 6.325890958025764e-08
+    },
+    {
+      "sample": 63,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 7.402426583395195e-08
+    },
+    {
+      "sample": 63,
+      "link": 1,
+      "position_error_m": 2.622604367008563e-08,
+      "orientation_error_rad": 4.046221370023635e-08
+    },
+    {
+      "sample": 63,
+      "link": 2,
+      "position_error_m": 9.626498236412982e-09,
+      "orientation_error_rad": 1.5357025814818552e-08
+    },
+    {
+      "sample": 63,
+      "link": 3,
+      "position_error_m": 5.119709772363465e-09,
+      "orientation_error_rad": 2.285698819711186e-08
+    },
+    {
+      "sample": 63,
+      "link": 4,
+      "position_error_m": 3.271659121257811e-08,
+      "orientation_error_rad": 6.541769736515397e-09
+    },
+    {
+      "sample": 63,
+      "link": 5,
+      "position_error_m": 5.800855500961346e-09,
+      "orientation_error_rad": 3.808427283524664e-08
+    },
+    {
+      "sample": 63,
+      "link": 6,
+      "position_error_m": 2.3486513886552723e-08,
+      "orientation_error_rad": 3.808427283524664e-08
+    },
+    {
+      "sample": 64,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 2.1233795610285565e-08
+    },
+    {
+      "sample": 64,
+      "link": 1,
+      "position_error_m": 2.037757630074409e-08,
+      "orientation_error_rad": 8.438697522837389e-08
+    },
+    {
+      "sample": 64,
+      "link": 2,
+      "position_error_m": 2.979259319355165e-08,
+      "orientation_error_rad": 5.143018865920452e-08
+    },
+    {
+      "sample": 64,
+      "link": 3,
+      "position_error_m": 3.1109760593656436e-08,
+      "orientation_error_rad": 2.303839881369145e-08
+    },
+    {
+      "sample": 64,
+      "link": 4,
+      "position_error_m": 2.7470012505859893e-08,
+      "orientation_error_rad": 4.0701192455384146e-08
+    },
+    {
+      "sample": 64,
+      "link": 5,
+      "position_error_m": 2.7960765824567383e-08,
+      "orientation_error_rad": 4.147177652267789e-08
+    },
+    {
+      "sample": 64,
+      "link": 6,
+      "position_error_m": 2.396461886765139e-08,
+      "orientation_error_rad": 4.147177652267789e-08
+    },
+    {
+      "sample": 65,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 2.9186376540771666e-08
+    },
+    {
+      "sample": 65,
+      "link": 1,
+      "position_error_m": 3.4402324787521845e-08,
+      "orientation_error_rad": 1.0749626209593828e-07
+    },
+    {
+      "sample": 65,
+      "link": 2,
+      "position_error_m": 1.5028392593617822e-08,
+      "orientation_error_rad": 5.829443420007368e-08
+    },
+    {
+      "sample": 65,
+      "link": 3,
+      "position_error_m": 1.8595689293673572e-08,
+      "orientation_error_rad": 1.5427634744725678e-07
+    },
+    {
+      "sample": 65,
+      "link": 4,
+      "position_error_m": 1.5790548533633765e-08,
+      "orientation_error_rad": 6.642917278830434e-08
+    },
+    {
+      "sample": 65,
+      "link": 5,
+      "position_error_m": 6.879526342661932e-09,
+      "orientation_error_rad": 2.8919253940621717e-08
+    },
+    {
+      "sample": 65,
+      "link": 6,
+      "position_error_m": 3.702129657226418e-09,
+      "orientation_error_rad": 2.8919253940621717e-08
+    },
+    {
+      "sample": 66,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 2.5504538301587253e-08
+    },
+    {
+      "sample": 66,
+      "link": 1,
+      "position_error_m": 3.351138305249702e-08,
+      "orientation_error_rad": 1.1409494974946083e-08
+    },
+    {
+      "sample": 66,
+      "link": 2,
+      "position_error_m": 1.6056716978788606e-08,
+      "orientation_error_rad": 5.523651926765572e-08
+    },
+    {
+      "sample": 66,
+      "link": 3,
+      "position_error_m": 3.469152704533321e-08,
+      "orientation_error_rad": 6.542561460582127e-09
+    },
+    {
+      "sample": 66,
+      "link": 4,
+      "position_error_m": 8.000933182714567e-09,
+      "orientation_error_rad": 1.7616449038573412e-08
+    },
+    {
+      "sample": 66,
+      "link": 5,
+      "position_error_m": 1.511417623017023e-08,
+      "orientation_error_rad": 4.332283218557176e-09
+    },
+    {
+      "sample": 66,
+      "link": 6,
+      "position_error_m": 2.5791726586944568e-08,
+      "orientation_error_rad": 4.332283218557176e-09
+    },
+    {
+      "sample": 67,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 2.028731142375199e-09
+    },
+    {
+      "sample": 67,
+      "link": 1,
+      "position_error_m": 2.7725202409588595e-08,
+      "orientation_error_rad": 6.244761756937692e-08
+    },
+    {
+      "sample": 67,
+      "link": 2,
+      "position_error_m": 3.283245781335135e-08,
+      "orientation_error_rad": 3.389288718410856e-08
+    },
+    {
+      "sample": 67,
+      "link": 3,
+      "position_error_m": 2.033333378435697e-08,
+      "orientation_error_rad": 6.643597014688455e-08
+    },
+    {
+      "sample": 67,
+      "link": 4,
+      "position_error_m": 3.9345613292563796e-08,
+      "orientation_error_rad": 7.426622512836257e-08
+    },
+    {
+      "sample": 67,
+      "link": 5,
+      "position_error_m": 4.108428870165775e-08,
+      "orientation_error_rad": 2.871264372477463e-08
+    },
+    {
+      "sample": 67,
+      "link": 6,
+      "position_error_m": 1.1457960287401998e-08,
+      "orientation_error_rad": 2.871264372477463e-08
+    },
+    {
+      "sample": 68,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 3.0859162064514626e-08
+    },
+    {
+      "sample": 68,
+      "link": 1,
+      "position_error_m": 3.039288994679651e-08,
+      "orientation_error_rad": 5.308679204423294e-08
+    },
+    {
+      "sample": 68,
+      "link": 2,
+      "position_error_m": 1.3897873301431505e-08,
+      "orientation_error_rad": 8.738344752681871e-08
+    },
+    {
+      "sample": 68,
+      "link": 3,
+      "position_error_m": 7.993576811473486e-09,
+      "orientation_error_rad": 5.025557264461788e-08
+    },
+    {
+      "sample": 68,
+      "link": 4,
+      "position_error_m": 2.0021989705371927e-08,
+      "orientation_error_rad": 5.8383365378286616e-08
+    },
+    {
+      "sample": 68,
+      "link": 5,
+      "position_error_m": 2.146248968647858e-08,
+      "orientation_error_rad": 7.553201493116844e-08
+    },
+    {
+      "sample": 68,
+      "link": 6,
+      "position_error_m": 2.3560937112519018e-08,
+      "orientation_error_rad": 7.553201493116844e-08
+    },
+    {
+      "sample": 69,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 1.5876101456156715e-08
+    },
+    {
+      "sample": 69,
+      "link": 1,
+      "position_error_m": 1.5324306652865547e-08,
+      "orientation_error_rad": 1.0321317670862042e-08
+    },
+    {
+      "sample": 69,
+      "link": 2,
+      "position_error_m": 2.574361168258525e-08,
+      "orientation_error_rad": 1.2962684616035573e-08
+    },
+    {
+      "sample": 69,
+      "link": 3,
+      "position_error_m": 2.4621525522252746e-08,
+      "orientation_error_rad": 3.204775690439018e-08
+    },
+    {
+      "sample": 69,
+      "link": 4,
+      "position_error_m": 5.024791098417805e-08,
+      "orientation_error_rad": 1.076906881206748e-07
+    },
+    {
+      "sample": 69,
+      "link": 5,
+      "position_error_m": 1.9064671344516983e-08,
+      "orientation_error_rad": 5.583201010153849e-08
+    },
+    {
+      "sample": 69,
+      "link": 6,
+      "position_error_m": 3.4192511509012234e-08,
+      "orientation_error_rad": 5.583201010153849e-08
+    },
+    {
+      "sample": 70,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 3.821332537634331e-09
+    },
+    {
+      "sample": 70,
+      "link": 1,
+      "position_error_m": 3.576278717609682e-09,
+      "orientation_error_rad": 2.7141739712964862e-08
+    },
+    {
+      "sample": 70,
+      "link": 2,
+      "position_error_m": 6.207830529579244e-09,
+      "orientation_error_rad": 4.999660049814261e-08
+    },
+    {
+      "sample": 70,
+      "link": 3,
+      "position_error_m": 2.8968377699684753e-08,
+      "orientation_error_rad": 6.626530002595813e-08
+    },
+    {
+      "sample": 70,
+      "link": 4,
+      "position_error_m": 5.796129809454975e-08,
+      "orientation_error_rad": 6.835969160009364e-08
+    },
+    {
+      "sample": 70,
+      "link": 5,
+      "position_error_m": 1.6170932367301598e-08,
+      "orientation_error_rad": 2.804115152671424e-08
+    },
+    {
+      "sample": 70,
+      "link": 6,
+      "position_error_m": 1.0016319622955671e-08,
+      "orientation_error_rad": 2.804115152671424e-08
+    },
+    {
+      "sample": 71,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 1.4111705062034203e-08
+    },
+    {
+      "sample": 71,
+      "link": 1,
+      "position_error_m": 2.7100456370186456e-08,
+      "orientation_error_rad": 7.1151761801693e-08
+    },
+    {
+      "sample": 71,
+      "link": 2,
+      "position_error_m": 1.0742807831393038e-08,
+      "orientation_error_rad": 3.614966359271165e-08
+    },
+    {
+      "sample": 71,
+      "link": 3,
+      "position_error_m": 4.928430342022437e-09,
+      "orientation_error_rad": 6.720721887142249e-08
+    },
+    {
+      "sample": 71,
+      "link": 4,
+      "position_error_m": 2.9027380442533992e-08,
+      "orientation_error_rad": 6.680242536479063e-08
+    },
+    {
+      "sample": 71,
+      "link": 5,
+      "position_error_m": 2.7945736867065613e-08,
+      "orientation_error_rad": 2.212314994715199e-08
+    },
+    {
+      "sample": 71,
+      "link": 6,
+      "position_error_m": 1.9807647764967632e-08,
+      "orientation_error_rad": 2.212314994715199e-08
+    },
+    {
+      "sample": 72,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 1.2284432374655563e-08
+    },
+    {
+      "sample": 72,
+      "link": 1,
+      "position_error_m": 2.7100456370186456e-08,
+      "orientation_error_rad": 5.6168240504090775e-08
+    },
+    {
+      "sample": 72,
+      "link": 2,
+      "position_error_m": 1.2768369644494428e-08,
+      "orientation_error_rad": 5.049343506311502e-08
+    },
+    {
+      "sample": 72,
+      "link": 3,
+      "position_error_m": 1.2433041741560874e-08,
+      "orientation_error_rad": 6.958423860768048e-08
+    },
+    {
+      "sample": 72,
+      "link": 4,
+      "position_error_m": 2.9032068989358583e-08,
+      "orientation_error_rad": 2.6775977131120777e-08
+    },
+    {
+      "sample": 72,
+      "link": 5,
+      "position_error_m": 3.522717821745523e-08,
+      "orientation_error_rad": 4.393478180089418e-08
+    },
+    {
+      "sample": 72,
+      "link": 6,
+      "position_error_m": 6.230635822301896e-09,
+      "orientation_error_rad": 4.393478180089418e-08
+    },
+    {
+      "sample": 73,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 9.43002795951311e-08
+    },
+    {
+      "sample": 73,
+      "link": 1,
+      "position_error_m": 4.021443546514537e-08,
+      "orientation_error_rad": 2.0295422556245285e-07
+    },
+    {
+      "sample": 73,
+      "link": 2,
+      "position_error_m": 8.657226881688733e-09,
+      "orientation_error_rad": 6.329665176720098e-08
+    },
+    {
+      "sample": 73,
+      "link": 3,
+      "position_error_m": 3.473370796581954e-08,
+      "orientation_error_rad": 1.0520812595716187e-08
+    },
+    {
+      "sample": 73,
+      "link": 4,
+      "position_error_m": 1.5244153724756075e-08,
+      "orientation_error_rad": 7.460512533847879e-08
+    },
+    {
+      "sample": 73,
+      "link": 5,
+      "position_error_m": 2.2474620286250125e-08,
+      "orientation_error_rad": 6.889654742332831e-08
+    },
+    {
+      "sample": 73,
+      "link": 6,
+      "position_error_m": 2.5713166531686105e-08,
+      "orientation_error_rad": 6.889654742332831e-08
+    },
+    {
+      "sample": 74,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 1.3307667711139352e-09
+    },
+    {
+      "sample": 74,
+      "link": 1,
+      "position_error_m": 4.032280554808718e-08,
+      "orientation_error_rad": 6.100261933346733e-08
+    },
+    {
+      "sample": 74,
+      "link": 2,
+      "position_error_m": 1.0852199040230557e-08,
+      "orientation_error_rad": 1.2787077446194238e-07
+    },
+    {
+      "sample": 74,
+      "link": 3,
+      "position_error_m": 2.1363789493050613e-08,
+      "orientation_error_rad": 1.8020370709186968e-08
+    },
+    {
+      "sample": 74,
+      "link": 4,
+      "position_error_m": 1.4473519313733286e-08,
+      "orientation_error_rad": 8.93210602853163e-08
+    },
+    {
+      "sample": 74,
+      "link": 5,
+      "position_error_m": 1.2965712266697422e-08,
+      "orientation_error_rad": 2.4642456952793808e-08
+    },
+    {
+      "sample": 74,
+      "link": 6,
+      "position_error_m": 1.2001337561343838e-08,
+      "orientation_error_rad": 2.4642456952793808e-08
+    },
+    {
+      "sample": 75,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 1.9766485531411973e-07
+    },
+    {
+      "sample": 75,
+      "link": 1,
+      "position_error_m": 1.0649118793246826e-08,
+      "orientation_error_rad": 8.406454084100969e-08
+    },
+    {
+      "sample": 75,
+      "link": 2,
+      "position_error_m": 9.363558915303677e-09,
+      "orientation_error_rad": 9.729159874820208e-08
+    },
+    {
+      "sample": 75,
+      "link": 3,
+      "position_error_m": 5.782468479450743e-09,
+      "orientation_error_rad": 3.469365296364665e-08
+    },
+    {
+      "sample": 75,
+      "link": 4,
+      "position_error_m": 1.5934755793824562e-08,
+      "orientation_error_rad": 9.668337938701578e-08
+    },
+    {
+      "sample": 75,
+      "link": 5,
+      "position_error_m": 1.8951874733678875e-08,
+      "orientation_error_rad": 1.5501330346155082e-07
+    },
+    {
+      "sample": 75,
+      "link": 6,
+      "position_error_m": 1.4238428896560218e-08,
+      "orientation_error_rad": 1.5501330346155082e-07
+    },
+    {
+      "sample": 76,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 2.529770770838083e-08
+    },
+    {
+      "sample": 76,
+      "link": 1,
+      "position_error_m": 2.7263831678920268e-08,
+      "orientation_error_rad": 7.603791174970257e-08
+    },
+    {
+      "sample": 76,
+      "link": 2,
+      "position_error_m": 1.851413142183925e-08,
+      "orientation_error_rad": 1.574149350067288e-07
+    },
+    {
+      "sample": 76,
+      "link": 3,
+      "position_error_m": 1.4040857010301003e-08,
+      "orientation_error_rad": 1.3344394621457163e-07
+    },
+    {
+      "sample": 76,
+      "link": 4,
+      "position_error_m": 5.7209712279797106e-08,
+      "orientation_error_rad": 5.066299930335989e-08
+    },
+    {
+      "sample": 76,
+      "link": 5,
+      "position_error_m": 2.1763754491793417e-08,
+      "orientation_error_rad": 6.566396301970889e-08
+    },
+    {
+      "sample": 76,
+      "link": 6,
+      "position_error_m": 2.0238515113992097e-08,
+      "orientation_error_rad": 6.566396301970889e-08
+    },
+    {
+      "sample": 77,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 4.676262546514565e-08
+    },
+    {
+      "sample": 77,
+      "link": 1,
+      "position_error_m": 5.164064026892231e-09,
+      "orientation_error_rad": 1.4179541096912807e-07
+    },
+    {
+      "sample": 77,
+      "link": 2,
+      "position_error_m": 2.6977252752361724e-08,
+      "orientation_error_rad": 6.569016722073784e-08
+    },
+    {
+      "sample": 77,
+      "link": 3,
+      "position_error_m": 6.8980516124269724e-09,
+      "orientation_error_rad": 1.4267549086367482e-07
+    },
+    {
+      "sample": 77,
+      "link": 4,
+      "position_error_m": 1.882858932227335e-08,
+      "orientation_error_rad": 7.45691710662535e-08
+    },
+    {
+      "sample": 77,
+      "link": 5,
+      "position_error_m": 9.132895577653515e-09,
+      "orientation_error_rad": 5.669504620922936e-08
+    },
+    {
+      "sample": 77,
+      "link": 6,
+      "position_error_m": 2.925116665809139e-08,
+      "orientation_error_rad": 5.669504620922936e-08
+    },
+    {
+      "sample": 78,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 6.562780936464034e-08
+    },
+    {
+      "sample": 78,
+      "link": 1,
+      "position_error_m": 2.6749970882243357e-08,
+      "orientation_error_rad": 4.706264999002516e-08
+    },
+    {
+      "sample": 78,
+      "link": 2,
+      "position_error_m": 3.182338352134851e-08,
+      "orientation_error_rad": 1.8147810153294625e-07
+    },
+    {
+      "sample": 78,
+      "link": 3,
+      "position_error_m": 1.4641279322697932e-08,
+      "orientation_error_rad": 7.612846389122671e-08
+    },
+    {
+      "sample": 78,
+      "link": 4,
+      "position_error_m": 5.754270289388107e-09,
+      "orientation_error_rad": 3.1897089434943864e-08
+    },
+    {
+      "sample": 78,
+      "link": 5,
+      "position_error_m": 1.2929592501535014e-08,
+      "orientation_error_rad": 5.3391843002929065e-08
+    },
+    {
+      "sample": 78,
+      "link": 6,
+      "position_error_m": 2.1294652173789063e-08,
+      "orientation_error_rad": 5.3391843002929065e-08
+    },
+    {
+      "sample": 79,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 3.007870446625665e-07
+    },
+    {
+      "sample": 79,
+      "link": 1,
+      "position_error_m": 3.545129992970118e-08,
+      "orientation_error_rad": 2.403163398874051e-07
+    },
+    {
+      "sample": 79,
+      "link": 2,
+      "position_error_m": 8.354019518576871e-09,
+      "orientation_error_rad": 8.125944579957372e-08
+    },
+    {
+      "sample": 79,
+      "link": 3,
+      "position_error_m": 1.860460361351126e-08,
+      "orientation_error_rad": 3.927921846121749e-08
+    },
+    {
+      "sample": 79,
+      "link": 4,
+      "position_error_m": 3.0713284568392926e-08,
+      "orientation_error_rad": 8.618492756219987e-08
+    },
+    {
+      "sample": 79,
+      "link": 5,
+      "position_error_m": 5.131686052374181e-08,
+      "orientation_error_rad": 1.9068668076325692e-08
+    },
+    {
+      "sample": 79,
+      "link": 6,
+      "position_error_m": 2.9194017536088293e-08,
+      "orientation_error_rad": 1.9068668076325692e-08
+    },
+    {
+      "sample": 80,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 1.5059073368623474e-07
+    },
+    {
+      "sample": 80,
+      "link": 1,
+      "position_error_m": 1.2311281312039479e-08,
+      "orientation_error_rad": 2.3506008345998948e-08
+    },
+    {
+      "sample": 80,
+      "link": 2,
+      "position_error_m": 1.2823408170867461e-08,
+      "orientation_error_rad": 1.1398797682578722e-07
+    },
+    {
+      "sample": 80,
+      "link": 3,
+      "position_error_m": 7.909450279509943e-09,
+      "orientation_error_rad": 9.469869833686125e-08
+    },
+    {
+      "sample": 80,
+      "link": 4,
+      "position_error_m": 1.1758799022667975e-08,
+      "orientation_error_rad": 3.125706540808196e-07
+    },
+    {
+      "sample": 80,
+      "link": 5,
+      "position_error_m": 1.5461161926665172e-08,
+      "orientation_error_rad": 7.632999898989591e-08
+    },
+    {
+      "sample": 80,
+      "link": 6,
+      "position_error_m": 7.357929927081691e-09,
+      "orientation_error_rad": 7.632999898989591e-08
+    },
+    {
+      "sample": 81,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 2.466585070349534e-08
+    },
+    {
+      "sample": 81,
+      "link": 1,
+      "position_error_m": 3.363745303239881e-08,
+      "orientation_error_rad": 6.741617569780873e-08
+    },
+    {
+      "sample": 81,
+      "link": 2,
+      "position_error_m": 1.8648195792991797e-08,
+      "orientation_error_rad": 1.0533265379418334e-07
+    },
+    {
+      "sample": 81,
+      "link": 3,
+      "position_error_m": 3.1023971857414515e-08,
+      "orientation_error_rad": 4.423567902302216e-08
+    },
+    {
+      "sample": 81,
+      "link": 4,
+      "position_error_m": 1.6762757581439945e-08,
+      "orientation_error_rad": 1.9730100129584547e-08
+    },
+    {
+      "sample": 81,
+      "link": 5,
+      "position_error_m": 1.0094274005483321e-08,
+      "orientation_error_rad": 8.488097921323908e-08
+    },
+    {
+      "sample": 81,
+      "link": 6,
+      "position_error_m": 8.233141019514367e-09,
+      "orientation_error_rad": 8.488097921323908e-08
+    },
+    {
+      "sample": 82,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 3.9372001534578967e-07
+    },
+    {
+      "sample": 82,
+      "link": 1,
+      "position_error_m": 1.3520083953576437e-08,
+      "orientation_error_rad": 9.186273024302856e-08
+    },
+    {
+      "sample": 82,
+      "link": 2,
+      "position_error_m": 8.584238610531246e-09,
+      "orientation_error_rad": 2.4825732570718046e-07
+    },
+    {
+      "sample": 82,
+      "link": 3,
+      "position_error_m": 1.0511724758168797e-08,
+      "orientation_error_rad": 3.15458138177616e-08
+    },
+    {
+      "sample": 82,
+      "link": 4,
+      "position_error_m": 1.8530838074199775e-08,
+      "orientation_error_rad": 4.790733683755927e-08
+    },
+    {
+      "sample": 82,
+      "link": 5,
+      "position_error_m": 1.5558856618906706e-08,
+      "orientation_error_rad": 1.4258902800381072e-07
+    },
+    {
+      "sample": 82,
+      "link": 6,
+      "position_error_m": 3.1183218265517954e-08,
+      "orientation_error_rad": 1.4258902800381072e-07
+    },
+    {
+      "sample": 83,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 5.758093995817684e-08
+    },
+    {
+      "sample": 83,
+      "link": 1,
+      "position_error_m": 9.976269005237795e-09,
+      "orientation_error_rad": 6.284080806304847e-08
+    },
+    {
+      "sample": 83,
+      "link": 2,
+      "position_error_m": 3.675534551940238e-08,
+      "orientation_error_rad": 1.7640688184110024e-07
+    },
+    {
+      "sample": 83,
+      "link": 3,
+      "position_error_m": 1.9237291249453912e-08,
+      "orientation_error_rad": 4.520858740451655e-08
+    },
+    {
+      "sample": 83,
+      "link": 4,
+      "position_error_m": 1.4236567931261157e-08,
+      "orientation_error_rad": 8.364712801438686e-08
+    },
+    {
+      "sample": 83,
+      "link": 5,
+      "position_error_m": 6.229723617488312e-08,
+      "orientation_error_rad": 2.078052508418091e-08
+    },
+    {
+      "sample": 83,
+      "link": 6,
+      "position_error_m": 3.87058594762113e-09,
+      "orientation_error_rad": 2.078052508418091e-08
+    },
+    {
+      "sample": 84,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 3.463628483602954e-08
+    },
+    {
+      "sample": 84,
+      "link": 1,
+      "position_error_m": 1.1127087306593024e-08,
+      "orientation_error_rad": 8.352897480604887e-08
+    },
+    {
+      "sample": 84,
+      "link": 2,
+      "position_error_m": 5.522833046206896e-08,
+      "orientation_error_rad": 6.472428961671822e-08
+    },
+    {
+      "sample": 84,
+      "link": 3,
+      "position_error_m": 7.568019047218371e-09,
+      "orientation_error_rad": 7.993046155756004e-08
+    },
+    {
+      "sample": 84,
+      "link": 4,
+      "position_error_m": 1.9953941576458207e-08,
+      "orientation_error_rad": 3.0684362399365005e-08
+    },
+    {
+      "sample": 84,
+      "link": 5,
+      "position_error_m": 1.3632164410751677e-08,
+      "orientation_error_rad": 5.4981889172809316e-08
+    },
+    {
+      "sample": 84,
+      "link": 6,
+      "position_error_m": 2.668007165307859e-08,
+      "orientation_error_rad": 5.4981889172809316e-08
+    },
+    {
+      "sample": 85,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 6.927882938443291e-08
+    },
+    {
+      "sample": 85,
+      "link": 1,
+      "position_error_m": 3.576278717609682e-09,
+      "orientation_error_rad": 4.1016121606830196e-08
+    },
+    {
+      "sample": 85,
+      "link": 2,
+      "position_error_m": 1.9776725949985167e-08,
+      "orientation_error_rad": 1.3148153323758664e-07
+    },
+    {
+      "sample": 85,
+      "link": 3,
+      "position_error_m": 5.810335340143772e-09,
+      "orientation_error_rad": 4.994332258625974e-08
+    },
+    {
+      "sample": 85,
+      "link": 4,
+      "position_error_m": 1.546276454974025e-08,
+      "orientation_error_rad": 6.509915842983643e-08
+    },
+    {
+      "sample": 85,
+      "link": 5,
+      "position_error_m": 4.026461828834722e-09,
+      "orientation_error_rad": 3.321616213227116e-08
+    },
+    {
+      "sample": 85,
+      "link": 6,
+      "position_error_m": 1.450260495736586e-08,
+      "orientation_error_rad": 3.321616213227116e-08
+    },
+    {
+      "sample": 86,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 5.734322850071101e-09
+    },
+    {
+      "sample": 86,
+      "link": 1,
+      "position_error_m": 8.2644371071045e-09,
+      "orientation_error_rad": 5.13655503901417e-08
+    },
+    {
+      "sample": 86,
+      "link": 2,
+      "position_error_m": 1.0742608292609017e-08,
+      "orientation_error_rad": 7.42606396030554e-08
+    },
+    {
+      "sample": 86,
+      "link": 3,
+      "position_error_m": 2.5239934266172245e-09,
+      "orientation_error_rad": 4.5433117887952826e-08
+    },
+    {
+      "sample": 86,
+      "link": 4,
+      "position_error_m": 2.463525773689551e-08,
+      "orientation_error_rad": 4.3155866109140695e-08
+    },
+    {
+      "sample": 86,
+      "link": 5,
+      "position_error_m": 2.7875129485690288e-08,
+      "orientation_error_rad": 8.665634013259087e-08
+    },
+    {
+      "sample": 86,
+      "link": 6,
+      "position_error_m": 1.2788322720596382e-08,
+      "orientation_error_rad": 8.665634013259087e-08
+    },
+    {
+      "sample": 87,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 7.267157402100629e-08
+    },
+    {
+      "sample": 87,
+      "link": 1,
+      "position_error_m": 4.032271868064152e-09,
+      "orientation_error_rad": 6.240849538625215e-08
+    },
+    {
+      "sample": 87,
+      "link": 2,
+      "position_error_m": 1.2469707080806787e-08,
+      "orientation_error_rad": 8.580203079774208e-08
+    },
+    {
+      "sample": 87,
+      "link": 3,
+      "position_error_m": 5.708585065407146e-09,
+      "orientation_error_rad": 3.531686507889627e-08
+    },
+    {
+      "sample": 87,
+      "link": 4,
+      "position_error_m": 1.6847174971950668e-08,
+      "orientation_error_rad": 3.386802336840494e-08
+    },
+    {
+      "sample": 87,
+      "link": 5,
+      "position_error_m": 1.5320875429019622e-08,
+      "orientation_error_rad": 7.382793265937355e-08
+    },
+    {
+      "sample": 87,
+      "link": 6,
+      "position_error_m": 1.3264774133337916e-08,
+      "orientation_error_rad": 7.382793265937355e-08
+    },
+    {
+      "sample": 88,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 3.81999782016407e-07
+    },
+    {
+      "sample": 88,
+      "link": 1,
+      "position_error_m": 1.7039528327460156e-08,
+      "orientation_error_rad": 8.17851770769148e-08
+    },
+    {
+      "sample": 88,
+      "link": 2,
+      "position_error_m": 2.2356174268211773e-08,
+      "orientation_error_rad": 4.2936829674633504e-08
+    },
+    {
+      "sample": 88,
+      "link": 3,
+      "position_error_m": 3.918972594141821e-08,
+      "orientation_error_rad": 9.207028947046868e-08
+    },
+    {
+      "sample": 88,
+      "link": 4,
+      "position_error_m": 8.412322776602839e-09,
+      "orientation_error_rad": 1.2658792045820948e-07
+    },
+    {
+      "sample": 88,
+      "link": 5,
+      "position_error_m": 2.6423336813338852e-08,
+      "orientation_error_rad": 7.483582872876057e-08
+    },
+    {
+      "sample": 88,
+      "link": 6,
+      "position_error_m": 3.286692457083987e-09,
+      "orientation_error_rad": 7.483582872876057e-08
+    },
+    {
+      "sample": 89,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 6.148959191732995e-08
+    },
+    {
+      "sample": 89,
+      "link": 1,
+      "position_error_m": 1.0244362065414118e-08,
+      "orientation_error_rad": 9.101246379401152e-08
+    },
+    {
+      "sample": 89,
+      "link": 2,
+      "position_error_m": 4.371229034100693e-08,
+      "orientation_error_rad": 4.911132141832188e-08
+    },
+    {
+      "sample": 89,
+      "link": 3,
+      "position_error_m": 1.0618772667895887e-08,
+      "orientation_error_rad": 1.608574135997088e-07
+    },
+    {
+      "sample": 89,
+      "link": 4,
+      "position_error_m": 2.1543530931426483e-08,
+      "orientation_error_rad": 2.3180207963073804e-08
+    },
+    {
+      "sample": 89,
+      "link": 5,
+      "position_error_m": 1.8985103510841048e-08,
+      "orientation_error_rad": 1.3976261670037612e-07
+    },
+    {
+      "sample": 89,
+      "link": 6,
+      "position_error_m": 1.1469243113001967e-08,
+      "orientation_error_rad": 1.3976261670037612e-07
+    },
+    {
+      "sample": 90,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 1.902071529995546e-08
+    },
+    {
+      "sample": 90,
+      "link": 1,
+      "position_error_m": 2.6749970882243357e-08,
+      "orientation_error_rad": 4.4884361769722304e-08
+    },
+    {
+      "sample": 90,
+      "link": 2,
+      "position_error_m": 1.804819047176268e-08,
+      "orientation_error_rad": 2.4127422892791494e-08
+    },
+    {
+      "sample": 90,
+      "link": 3,
+      "position_error_m": 3.139707360368119e-09,
+      "orientation_error_rad": 4.691477148194167e-08
+    },
+    {
+      "sample": 90,
+      "link": 4,
+      "position_error_m": 1.3016057488206258e-08,
+      "orientation_error_rad": 1.4570519882615456e-07
+    },
+    {
+      "sample": 90,
+      "link": 5,
+      "position_error_m": 8.243397218094016e-09,
+      "orientation_error_rad": 8.013925081868231e-08
+    },
+    {
+      "sample": 90,
+      "link": 6,
+      "position_error_m": 6.231558548293976e-09,
+      "orientation_error_rad": 8.013925081868231e-08
+    },
+    {
+      "sample": 91,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 6.931306318604965e-08
+    },
+    {
+      "sample": 91,
+      "link": 1,
+      "position_error_m": 3.420003162247552e-08,
+      "orientation_error_rad": 1.1157550076870885e-08
+    },
+    {
+      "sample": 91,
+      "link": 2,
+      "position_error_m": 1.2706713624663228e-08,
+      "orientation_error_rad": 5.74938092329053e-08
+    },
+    {
+      "sample": 91,
+      "link": 3,
+      "position_error_m": 3.7725940456586424e-08,
+      "orientation_error_rad": 1.100960367637154e-07
+    },
+    {
+      "sample": 91,
+      "link": 4,
+      "position_error_m": 2.376757274843327e-08,
+      "orientation_error_rad": 2.6378840825557882e-08
+    },
+    {
+      "sample": 91,
+      "link": 5,
+      "position_error_m": 5.569247883826891e-08,
+      "orientation_error_rad": 2.0638102365282633e-08
+    },
+    {
+      "sample": 91,
+      "link": 6,
+      "position_error_m": 2.593163188870374e-08,
+      "orientation_error_rad": 2.0638102365282633e-08
+    },
+    {
+      "sample": 92,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 3.839942082375699e-09
+    },
+    {
+      "sample": 92,
+      "link": 1,
+      "position_error_m": 2.7263831678920268e-08,
+      "orientation_error_rad": 7.811578527691381e-08
+    },
+    {
+      "sample": 92,
+      "link": 2,
+      "position_error_m": 1.0232739216500117e-08,
+      "orientation_error_rad": 7.949569583041595e-09
+    },
+    {
+      "sample": 92,
+      "link": 3,
+      "position_error_m": 8.294111884848429e-09,
+      "orientation_error_rad": 6.358763295305764e-08
+    },
+    {
+      "sample": 92,
+      "link": 4,
+      "position_error_m": 1.2426930847706564e-08,
+      "orientation_error_rad": 2.909237887924394e-07
+    },
+    {
+      "sample": 92,
+      "link": 5,
+      "position_error_m": 1.7607727557426884e-08,
+      "orientation_error_rad": 2.1019246881554678e-07
+    },
+    {
+      "sample": 92,
+      "link": 6,
+      "position_error_m": 3.1884675664873347e-08,
+      "orientation_error_rad": 2.1019246881554678e-07
+    },
+    {
+      "sample": 93,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 5.4451598645254665e-08
+    },
+    {
+      "sample": 93,
+      "link": 1,
+      "position_error_m": 1.1734132253232792e-08,
+      "orientation_error_rad": 1.2301106519778602e-07
+    },
+    {
+      "sample": 93,
+      "link": 2,
+      "position_error_m": 2.5516431545204648e-08,
+      "orientation_error_rad": 3.1679652035037095e-07
+    },
+    {
+      "sample": 93,
+      "link": 3,
+      "position_error_m": 2.948716646541241e-08,
+      "orientation_error_rad": 6.58111641213252e-08
+    },
+    {
+      "sample": 93,
+      "link": 4,
+      "position_error_m": 1.825504632344436e-08,
+      "orientation_error_rad": 3.215369652220805e-07
+    },
+    {
+      "sample": 93,
+      "link": 5,
+      "position_error_m": 2.7210733424142698e-08,
+      "orientation_error_rad": 6.345643984401206e-08
+    },
+    {
+      "sample": 93,
+      "link": 6,
+      "position_error_m": 8.709612588098182e-09,
+      "orientation_error_rad": 6.345643984401206e-08
+    },
+    {
+      "sample": 94,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 1.8466772295448036e-08
+    },
+    {
+      "sample": 94,
+      "link": 1,
+      "position_error_m": 9.065247294205505e-09,
+      "orientation_error_rad": 1.345080300310733e-07
+    },
+    {
+      "sample": 94,
+      "link": 2,
+      "position_error_m": 2.0400338674528602e-08,
+      "orientation_error_rad": 1.8955580590196834e-07
+    },
+    {
+      "sample": 94,
+      "link": 3,
+      "position_error_m": 1.4676158329195372e-08,
+      "orientation_error_rad": 5.289021142656026e-08
+    },
+    {
+      "sample": 94,
+      "link": 4,
+      "position_error_m": 2.7038955750774065e-08,
+      "orientation_error_rad": 6.180224469051211e-08
+    },
+    {
+      "sample": 94,
+      "link": 5,
+      "position_error_m": 8.13954245975064e-08,
+      "orientation_error_rad": 7.801115091288883e-08
+    },
+    {
+      "sample": 94,
+      "link": 6,
+      "position_error_m": 2.3892128692902476e-09,
+      "orientation_error_rad": 7.801115091288883e-08
+    },
+    {
+      "sample": 95,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 3.520066694673559e-09
+    },
+    {
+      "sample": 95,
+      "link": 1,
+      "position_error_m": 3.6955556015322456e-09,
+      "orientation_error_rad": 8.491086265881205e-08
+    },
+    {
+      "sample": 95,
+      "link": 2,
+      "position_error_m": 2.3119580060084056e-09,
+      "orientation_error_rad": 2.2747970774560732e-08
+    },
+    {
+      "sample": 95,
+      "link": 3,
+      "position_error_m": 1.7858054188049392e-08,
+      "orientation_error_rad": 4.8783505357836586e-08
+    },
+    {
+      "sample": 95,
+      "link": 4,
+      "position_error_m": 1.0597425039789573e-08,
+      "orientation_error_rad": 5.922148674481922e-08
+    },
+    {
+      "sample": 95,
+      "link": 5,
+      "position_error_m": 3.050422792767918e-08,
+      "orientation_error_rad": 6.779758963708111e-08
+    },
+    {
+      "sample": 95,
+      "link": 6,
+      "position_error_m": 1.4458432194854341e-08,
+      "orientation_error_rad": 6.779758963708111e-08
+    },
+    {
+      "sample": 96,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 7.710601874053022e-08
+    },
+    {
+      "sample": 96,
+      "link": 1,
+      "position_error_m": 3.576278717609682e-09,
+      "orientation_error_rad": 6.154257357328571e-08
+    },
+    {
+      "sample": 96,
+      "link": 2,
+      "position_error_m": 1.576709679318658e-08,
+      "orientation_error_rad": 4.788386860464846e-08
+    },
+    {
+      "sample": 96,
+      "link": 3,
+      "position_error_m": 4.0931817703426955e-09,
+      "orientation_error_rad": 1.284960383149005e-07
+    },
+    {
+      "sample": 96,
+      "link": 4,
+      "position_error_m": 1.59085631893841e-08,
+      "orientation_error_rad": 2.2677002384204152e-08
+    },
+    {
+      "sample": 96,
+      "link": 5,
+      "position_error_m": 1.6802831814153918e-08,
+      "orientation_error_rad": 1.2616561721487342e-08
+    },
+    {
+      "sample": 96,
+      "link": 6,
+      "position_error_m": 6.927156316740248e-09,
+      "orientation_error_rad": 1.2616561721487342e-08
+    },
+    {
+      "sample": 97,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 1.1513567978864889e-09
+    },
+    {
+      "sample": 97,
+      "link": 1,
+      "position_error_m": 1.1771033152376491e-08,
+      "orientation_error_rad": 8.076807388696197e-08
+    },
+    {
+      "sample": 97,
+      "link": 2,
+      "position_error_m": 1.613655166185935e-08,
+      "orientation_error_rad": 6.459738650030453e-08
+    },
+    {
+      "sample": 97,
+      "link": 3,
+      "position_error_m": 6.546063052713231e-09,
+      "orientation_error_rad": 5.014767235605879e-08
+    },
+    {
+      "sample": 97,
+      "link": 4,
+      "position_error_m": 2.7564039826274794e-08,
+      "orientation_error_rad": 5.159216213150521e-08
+    },
+    {
+      "sample": 97,
+      "link": 5,
+      "position_error_m": 6.266151307474864e-09,
+      "orientation_error_rad": 1.0954545580313209e-07
+    },
+    {
+      "sample": 97,
+      "link": 6,
+      "position_error_m": 7.410427017955581e-09,
+      "orientation_error_rad": 1.0954545580313209e-07
+    },
+    {
+      "sample": 98,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 3.293345617597854e-07
+    },
+    {
+      "sample": 98,
+      "link": 1,
+      "position_error_m": 1.6653381024659557e-08,
+      "orientation_error_rad": 2.1511687093750966e-07
+    },
+    {
+      "sample": 98,
+      "link": 2,
+      "position_error_m": 1.840482668033665e-08,
+      "orientation_error_rad": 1.477906587853199e-08
+    },
+    {
+      "sample": 98,
+      "link": 3,
+      "position_error_m": 3.0956759748999316e-08,
+      "orientation_error_rad": 8.221501109946459e-08
+    },
+    {
+      "sample": 98,
+      "link": 4,
+      "position_error_m": 4.617303844515277e-08,
+      "orientation_error_rad": 1.9487792150724725e-07
+    },
+    {
+      "sample": 98,
+      "link": 5,
+      "position_error_m": 1.3973339080508645e-08,
+      "orientation_error_rad": 2.348098981757172e-07
+    },
+    {
+      "sample": 98,
+      "link": 6,
+      "position_error_m": 2.729390966053825e-08,
+      "orientation_error_rad": 2.348098981757172e-07
+    },
+    {
+      "sample": 99,
+      "link": 0,
+      "position_error_m": 7.748603814139443e-09,
+      "orientation_error_rad": 2.5099282756009128e-08
+    },
+    {
+      "sample": 99,
+      "link": 1,
+      "position_error_m": 1.5770610711030618e-08,
+      "orientation_error_rad": 2.3464866825469724e-08
+    },
+    {
+      "sample": 99,
+      "link": 2,
+      "position_error_m": 7.3759424171056e-09,
+      "orientation_error_rad": 9.875489661712026e-09
+    },
+    {
+      "sample": 99,
+      "link": 3,
+      "position_error_m": 2.0000195283559694e-08,
+      "orientation_error_rad": 8.446600435157771e-08
+    },
+    {
+      "sample": 99,
+      "link": 4,
+      "position_error_m": 1.5152667505938775e-08,
+      "orientation_error_rad": 7.470488739493858e-08
+    },
+    {
+      "sample": 99,
+      "link": 5,
+      "position_error_m": 1.795748176975406e-08,
+      "orientation_error_rad": 7.601940294799381e-08
+    },
+    {
+      "sample": 99,
+      "link": 6,
+      "position_error_m": 1.308608773406648e-08,
+      "orientation_error_rad": 7.601940294799381e-08
+    }
+  ],
+  "max_position_error_m": 8.13954245975064e-08,
+  "max_orientation_error_rad": 3.9372001534578967e-07,
+  "passed": true
+}

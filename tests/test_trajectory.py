@@ -24,7 +24,7 @@ def test_analytic_and_sampled_limits():
             np.testing.assert_allclose(q, endpoint, atol=1e-12)
             np.testing.assert_allclose(v, 0, atol=1e-12)
             np.testing.assert_allclose(a, 0, atol=1e-12)
-        samples = t.collision_samples(0.01)
+        samples = list(t.collision_samples(0.01))
         assert np.max(np.abs(np.diff(samples, axis=0))) <= 0.010000001
 
 

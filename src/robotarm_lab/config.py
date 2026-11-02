@@ -8,6 +8,7 @@ from pathlib import Path
 import numpy as np
 
 from .model import Array
+from .validation import collision_step, scalar
 
 
 @dataclass(frozen=True)
@@ -35,9 +36,11 @@ class Config:
             "ik_position_tolerance",
             "ik_orientation_tolerance",
         ):
-            v = getattr(self, name)
-            if not np.isfinite(v) or v <= 0:
+            v = scalar(getattr(self, name), name)
+            if v <= 0:
                 raise ValueError(f"{name} must be finite and positive")
+            object.__setattr__(self, name, v)
+        collision_step(self.collision_joint_step)
         if self.collision_joint_step > 0.02 or self.control_dt > 0.05:
             raise ValueError("Collision step <= 0.02 rad and control_dt <= 0.05 s required")
         if type(self.ik_restarts) is not int or not 1 <= self.ik_restarts <= 32:

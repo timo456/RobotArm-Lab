@@ -1,11 +1,13 @@
 """Synchronized rest-to-rest quintics with analytic velocity/acceleration bounds."""
 
+from collections.abc import Iterator
 from dataclasses import dataclass
 
 import numpy as np
 
 from .config import Config
 from .model import Array, CommandError, joints
+from .validation import MAX_COLLISION_SAMPLES, collision_step, scalar
 
 
 @dataclass(frozen=True)
@@ -15,16 +17,17 @@ class Trajectory:
     duration: float
 
     def __post_init__(self) -> None:
-        if not np.isfinite(self.duration) or self.duration <= 0:
+        duration = scalar(self.duration, "Trajectory duration")
+        if duration <= 0:
             raise CommandError("Trajectory duration must be finite and positive")
+        object.__setattr__(self, "duration", duration)
         for name in ("start", "goal"):
             value = joints(getattr(self, name))
             value.setflags(write=False)
             object.__setattr__(self, name, value)
 
     def sample(self, time: float) -> tuple[Array, Array, Array]:
-        if not np.isfinite(time):
-            raise CommandError("Sample time must be finite")
+        time = scalar(time, "Sample time")
         u = np.clip(time / self.duration, 0.0, 1.0)
         s = np.clip(10 * u**3 - 15 * u**4 + 6 * u**5, 0.0, 1.0)
         ds = (30 * u**2 - 60 * u**3 + 30 * u**4) / self.duration
@@ -41,12 +44,29 @@ class Trajectory:
             q = self.goal.copy()
         return q, delta * ds, delta * dds
 
-    def collision_samples(self, step: float) -> Array:
-        if not np.isfinite(step) or step <= 0:
-            raise CommandError("Collision sampling step must be finite and positive")
+    def collision_samples(self, step: float) -> Iterator[Array]:
+        """Eager budget validation, lazy O(1) storage, never coarsen requested spacing."""
+        step = collision_step(step)
         # Joint-space line is identical to the quintic's geometric path.
-        count = max(1, int(np.ceil(np.max(np.abs(self.goal - self.start)) / step)))
-        return np.linspace(self.start, self.goal, count + 1)
+        delta = self.goal - self.start
+        span = float(np.max(np.abs(delta)))
+        # Compare before dividing: no overflow, giant integers or large allocations.
+        if span > step * (MAX_COLLISION_SAMPLES - 1):
+            raise CommandError(
+                f"Collision sample budget exceeded ({MAX_COLLISION_SAMPLES}); "
+                "command rejected without changing requested precision"
+            )
+        count = max(1, int(np.ceil(span / step)))
+        if count + 1 > MAX_COLLISION_SAMPLES:
+            raise CommandError("Collision sample budget exceeded")
+
+        def stream() -> Iterator[Array]:
+            yield self.start.copy()
+            for i in range(1, count):
+                yield self.start + delta * (i / count)
+            yield self.goal.copy()
+
+        return stream()
 
 
 def plan(start: object, goal: object, config: Config, duration: float | None = None) -> Trajectory:
@@ -58,7 +78,9 @@ def plan(start: object, goal: object, config: Config, duration: float | None = N
         float(np.max(1.875 * delta / config.velocity)),
         float(np.max(np.sqrt((10 * np.sqrt(3) / 3) * delta / config.acceleration))),
     )
-    if duration is not None and (not np.isfinite(duration) or duration < minimum):
+    if duration is not None:
+        duration = scalar(duration, "Duration")
+    if duration is not None and duration < minimum:
         raise CommandError(f"Duration must be >= {minimum:.6f} seconds")
     q0.setflags(write=False)
     q1.setflags(write=False)
